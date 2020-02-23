@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="userProjectDBModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="content" Type="mediumtext" Nullable="false" />
+          <Property Name="public" Type="bool" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="permission_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personal_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mother" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="birth_date" Type="date" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="15" />
+          <Property Name="picture" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="permission_ids" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="work_schedules" Type="time" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="time_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Precision="0" />
+          <Property Name="paid_leave" Type="bool" />
+          <Property Name="sick_leave" Type="bool" />
+          <Property Name="update_at" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personal_data_id" Type="int" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="first_working_day" Type="date" />
+          <Property Name="last_working_day" Type="date" />
+          <Property Name="position_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="news_ibfk_1">
+          <End Role="user_data" Type="Self.user_data" Multiplicity="1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="time_table_ibfk_1">
+          <End Role="user_data" Type="Self.user_data" Multiplicity="1" />
+          <End Role="time_table" Type="Self.time_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="time_table">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_data_ibfk_1">
+          <End Role="personal_data" Type="Self.personal_data" Multiplicity="1" />
+          <End Role="user_data" Type="Self.user_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_data">
+              <PropertyRef Name="personal_data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_data_ibfk_2">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="user_data" Type="Self.user_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_data">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="userProjectDBModelStoreContainer">
+          <EntitySet Name="news" EntityType="Self.news" Schema="user_project_db" store:Type="Tables" />
+          <EntitySet Name="permission" EntityType="Self.permission" Schema="user_project_db" store:Type="Tables" />
+          <EntitySet Name="personal_data" EntityType="Self.personal_data" Schema="user_project_db" store:Type="Tables" />
+          <EntitySet Name="position" EntityType="Self.position" Schema="user_project_db" store:Type="Tables" />
+          <EntitySet Name="time_table" EntityType="Self.time_table" Schema="user_project_db" store:Type="Tables" />
+          <EntitySet Name="user_data" EntityType="Self.user_data" Schema="user_project_db" store:Type="Tables" />
+          <AssociationSet Name="news_ibfk_1" Association="Self.news_ibfk_1">
+            <End Role="user_data" EntitySet="user_data" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="time_table_ibfk_1" Association="Self.time_table_ibfk_1">
+            <End Role="user_data" EntitySet="user_data" />
+            <End Role="time_table" EntitySet="time_table" />
+          </AssociationSet>
+          <AssociationSet Name="user_data_ibfk_1" Association="Self.user_data_ibfk_1">
+            <End Role="personal_data" EntitySet="personal_data" />
+            <End Role="user_data" EntitySet="user_data" />
+          </AssociationSet>
+          <AssociationSet Name="user_data_ibfk_2" Association="Self.user_data_ibfk_2">
+            <End Role="position" EntitySet="position" />
+            <End Role="user_data" EntitySet="user_data" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="userProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="public" Type="Boolean" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="user_data" Relationship="Self.news_ibfk_1" FromRole="news" ToRole="user_data" />
+        </EntityType>
+        <EntityType Name="permission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="permission_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personal_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mother" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user_data" Relationship="Self.user_data_ibfk_1" FromRole="personal_data" ToRole="user_data" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="permission_ids" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="work_schedules" Type="Time" Nullable="false" />
+          <NavigationProperty Name="user_data" Relationship="Self.user_data_ibfk_2" FromRole="position" ToRole="user_data" />
+        </EntityType>
+        <EntityType Name="time_table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" />
+          <Property Name="paid_leave" Type="Boolean" />
+          <Property Name="sick_leave" Type="Boolean" />
+          <Property Name="update_at" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="user_data" Relationship="Self.time_table_ibfk_1" FromRole="time_table" ToRole="user_data" />
+        </EntityType>
+        <EntityType Name="user_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personal_data_id" Type="Int32" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_working_day" Type="DateTime" />
+          <Property Name="last_working_day" Type="DateTime" />
+          <Property Name="position_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="news" Relationship="Self.news_ibfk_1" FromRole="user_data" ToRole="news" />
+          <NavigationProperty Name="personal_data" Relationship="Self.user_data_ibfk_1" FromRole="user_data" ToRole="personal_data" />
+          <NavigationProperty Name="position" Relationship="Self.user_data_ibfk_2" FromRole="user_data" ToRole="position" />
+          <NavigationProperty Name="time_table" Relationship="Self.time_table_ibfk_1" FromRole="user_data" ToRole="time_table" />
+        </EntityType>
+        <Association Name="news_ibfk_1">
+          <End Role="user_data" Type="Self.user_data" Multiplicity="1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_data_ibfk_1">
+          <End Role="personal_data" Type="Self.personal_data" Multiplicity="1" />
+          <End Role="user_data" Type="Self.user_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_data">
+              <PropertyRef Name="personal_data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_data_ibfk_2">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="user_data" Type="Self.user_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_data">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="time_table_ibfk_1">
+          <End Role="user_data" Type="Self.user_data" Multiplicity="1" />
+          <End Role="time_table" Type="Self.time_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_data">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="time_table">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="userProjectDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="news" EntityType="Self.news" />
+          <EntitySet Name="permission" EntityType="Self.permission" />
+          <EntitySet Name="personal_data" EntityType="Self.personal_data" />
+          <EntitySet Name="position" EntityType="Self.position" />
+          <EntitySet Name="time_table" EntityType="Self.time_table" />
+          <EntitySet Name="user_data" EntityType="Self.user_data" />
+          <AssociationSet Name="news_ibfk_1" Association="Self.news_ibfk_1">
+            <End Role="user_data" EntitySet="user_data" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="user_data_ibfk_1" Association="Self.user_data_ibfk_1">
+            <End Role="personal_data" EntitySet="personal_data" />
+            <End Role="user_data" EntitySet="user_data" />
+          </AssociationSet>
+          <AssociationSet Name="user_data_ibfk_2" Association="Self.user_data_ibfk_2">
+            <End Role="position" EntitySet="position" />
+            <End Role="user_data" EntitySet="user_data" />
+          </AssociationSet>
+          <AssociationSet Name="time_table_ibfk_1" Association="Self.time_table_ibfk_1">
+            <End Role="user_data" EntitySet="user_data" />
+            <End Role="time_table" EntitySet="time_table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="userProjectDBModelStoreContainer" CdmEntityContainer="userProjectDBContext">
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="userProjectDBModel.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="public" ColumnName="public" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permission">
+            <EntityTypeMapping TypeName="userProjectDBModel.permission">
+              <MappingFragment StoreEntitySet="permission">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="permission_name" ColumnName="permission_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personal_data">
+            <EntityTypeMapping TypeName="userProjectDBModel.personal_data">
+              <MappingFragment StoreEntitySet="personal_data">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="mother" ColumnName="mother" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="position">
+            <EntityTypeMapping TypeName="userProjectDBModel.position">
+              <MappingFragment StoreEntitySet="position">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="position_name" ColumnName="position_name" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="permission_ids" ColumnName="permission_ids" />
+                <ScalarProperty Name="work_schedules" ColumnName="work_schedules" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="time_table">
+            <EntityTypeMapping TypeName="userProjectDBModel.time_table">
+              <MappingFragment StoreEntitySet="time_table">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="paid_leave" ColumnName="paid_leave" />
+                <ScalarProperty Name="sick_leave" ColumnName="sick_leave" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_data">
+            <EntityTypeMapping TypeName="userProjectDBModel.user_data">
+              <MappingFragment StoreEntitySet="user_data">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="personal_data_id" ColumnName="personal_data_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="first_working_day" ColumnName="first_working_day" />
+                <ScalarProperty Name="last_working_day" ColumnName="last_working_day" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
