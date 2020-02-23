@@ -22,11 +22,40 @@ namespace UserProject.Views
             presenter = new UserTimeTablePresenter(this);
         }
 
-        public List<time_table> userTimeTableList { set => dataGridView1.DataSource = value; }
-
+        public List<time_table> userTimeTableList { 
+            set => dataGridView1.DataSource = value;        
+        }
+        
         private void UserTimeTable_Load(object sender, EventArgs e)
         {
             presenter.getUserTimeTable();
+            calc();
+        }
+
+        private void calc() 
+        {
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if ((bool)item.Cells[3].Value)
+                {
+                    item.Cells[5].Value = "Fizetett szabadság";
+                }
+                if ((bool)item.Cells[4].Value)
+                {
+                    item.Cells[5].Value = "Beteg szabadság";
+                }
+
+                if (!(bool) item.Cells[3].Value && !(bool)item.Cells[4].Value)
+                {
+                    DateTime start = (DateTime)item.Cells[1].Value;
+                    DateTime end = (DateTime)item.Cells[2].Value;
+                    TimeSpan time = end - start;                    
+                    item.Cells[5].Value = time.ToString(@"hh");
+                   
+                }
+
+                
+            }
         }
     }
 }

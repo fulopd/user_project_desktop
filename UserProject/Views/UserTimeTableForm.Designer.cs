@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.timetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.end_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paidleaveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sickleaveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userdataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -48,74 +50,72 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.useridDataGridViewTextBoxColumn,
-            this.startdateDataGridViewTextBoxColumn,
-            this.enddateDataGridViewTextBoxColumn,
+            this.start_date,
+            this.dataGridViewTextBoxColumn1,
+            this.end_date,
             this.paidleaveDataGridViewTextBoxColumn,
             this.sickleaveDataGridViewTextBoxColumn,
-            this.updateatDataGridViewTextBoxColumn,
-            this.userdataDataGridViewTextBoxColumn});
+            this.Column1});
             this.dataGridView1.DataSource = this.timetableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(162, 101);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 337);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(464, 337);
             this.dataGridView1.TabIndex = 0;
             // 
-            // timetableBindingSource
+            // start_date
             // 
-            this.timetableBindingSource.DataSource = typeof(UserProject.Models.time_table);
+            this.start_date.DataPropertyName = "start_date";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.start_date.DefaultCellStyle = dataGridViewCellStyle1;
+            this.start_date.HeaderText = "Dátum";
+            this.start_date.Name = "start_date";
             // 
-            // idDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "start_date";
+            dataGridViewCellStyle2.Format = "t";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Kezdés";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // useridDataGridViewTextBoxColumn
+            // end_date
             // 
-            this.useridDataGridViewTextBoxColumn.DataPropertyName = "user_id";
-            this.useridDataGridViewTextBoxColumn.HeaderText = "user_id";
-            this.useridDataGridViewTextBoxColumn.Name = "useridDataGridViewTextBoxColumn";
-            this.useridDataGridViewTextBoxColumn.Visible = false;
+            this.end_date.DataPropertyName = "end_date";
+            dataGridViewCellStyle3.Format = "t";
+            dataGridViewCellStyle3.NullValue = null;
+            this.end_date.DefaultCellStyle = dataGridViewCellStyle3;
+            this.end_date.HeaderText = "Vége";
+            this.end_date.Name = "end_date";
             // 
-            // startdateDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
-            this.startdateDataGridViewTextBoxColumn.HeaderText = "start_date";
-            this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
-            // 
-            // enddateDataGridViewTextBoxColumn
-            // 
-            this.enddateDataGridViewTextBoxColumn.DataPropertyName = "end_date";
-            this.enddateDataGridViewTextBoxColumn.HeaderText = "end_date";
-            this.enddateDataGridViewTextBoxColumn.Name = "enddateDataGridViewTextBoxColumn";
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Format = "t";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column1.HeaderText = "Munkaidő";
+            this.Column1.Name = "Column1";
             // 
             // paidleaveDataGridViewTextBoxColumn
             // 
             this.paidleaveDataGridViewTextBoxColumn.DataPropertyName = "paid_leave";
             this.paidleaveDataGridViewTextBoxColumn.HeaderText = "paid_leave";
             this.paidleaveDataGridViewTextBoxColumn.Name = "paidleaveDataGridViewTextBoxColumn";
+            this.paidleaveDataGridViewTextBoxColumn.Visible = false;
             // 
             // sickleaveDataGridViewTextBoxColumn
             // 
             this.sickleaveDataGridViewTextBoxColumn.DataPropertyName = "sick_leave";
             this.sickleaveDataGridViewTextBoxColumn.HeaderText = "sick_leave";
             this.sickleaveDataGridViewTextBoxColumn.Name = "sickleaveDataGridViewTextBoxColumn";
+            this.sickleaveDataGridViewTextBoxColumn.Visible = false;
             // 
-            // updateatDataGridViewTextBoxColumn
+            // timetableBindingSource
             // 
-            this.updateatDataGridViewTextBoxColumn.DataPropertyName = "update_at";
-            this.updateatDataGridViewTextBoxColumn.HeaderText = "update_at";
-            this.updateatDataGridViewTextBoxColumn.Name = "updateatDataGridViewTextBoxColumn";
-            // 
-            // userdataDataGridViewTextBoxColumn
-            // 
-            this.userdataDataGridViewTextBoxColumn.DataPropertyName = "user_data";
-            this.userdataDataGridViewTextBoxColumn.HeaderText = "user_data";
-            this.userdataDataGridViewTextBoxColumn.Name = "userdataDataGridViewTextBoxColumn";
-            this.userdataDataGridViewTextBoxColumn.Visible = false;
+            this.timetableBindingSource.DataSource = typeof(UserProject.Models.time_table);
             // 
             // UserTimeTableForm
             // 
@@ -135,14 +135,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource timetableBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn end_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn paidleaveDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sickleaveDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userdataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource timetableBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
