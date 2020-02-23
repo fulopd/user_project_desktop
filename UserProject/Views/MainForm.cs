@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserProject.Models;
+using UserProject.Services;
 
-namespace UserProject
+namespace UserProject.Views
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             using (userProjectDBContext db = new userProjectDBContext())
             {
@@ -27,8 +27,8 @@ namespace UserProject
                 user_data admin = db.user_data.First();
                 var aa = admin.position.permission_ids.ToString();
                 label1.Text += aa;
+                label1.Text += CurrentUser.id;
             }
         }
     }
 }
-
