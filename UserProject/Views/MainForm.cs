@@ -28,5 +28,11 @@ namespace UserProject.Views
                 
             }
         }
+
+        private void buttonUserInfo_Click(object sender, EventArgs e)
+        {
+            Form userInfoForm = new UserInfoForm();
+            userInfoForm.ShowDialog();
+        }
     }
 }
