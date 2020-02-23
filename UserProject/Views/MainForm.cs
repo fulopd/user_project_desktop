@@ -23,11 +23,9 @@ namespace UserProject.Views
         {
             using (userProjectDBContext db = new userProjectDBContext())
             {
-                label1.Text = db.user_data.First().personal_data.mother.ToString();
-                user_data admin = db.user_data.First();
-                var aa = admin.position.permission_ids.ToString();
-                label1.Text += aa;
-                label1.Text += CurrentUser.id;
+                label1.Text = db.user_data.First().user_name;
+                label2.Text = CurrentUser.user.position.permission_ids;
+                
             }
         }
     }

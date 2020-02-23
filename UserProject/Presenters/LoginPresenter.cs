@@ -46,7 +46,8 @@ namespace UserProject.Presenters
                 if (user != null)
                 {
                     loginSucces = true;
-                    CurrentUser.id = user.id;
+                    CurrentUser.user = user;
+                    CurrentUser.id = user.id;                    
                 }
                 else
                 {
