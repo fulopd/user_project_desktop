@@ -109,9 +109,12 @@
     </Compile>
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\UserInfoPresenter.cs" />
+    <Compile Include="Presenters\UserTimeTablePresenter.cs" />
+    <Compile Include="Repositories\UserTimeTableRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IUserInfoView.cs" />
+    <Compile Include="ViewInterfaces\IUserTimeTableView.cs" />
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +135,12 @@
     <Compile Include="Views\UserInfoForm.Designer.cs">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserTimeTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserTimeTableForm.Designer.cs">
+      <DependentUpon>UserTimeTableForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -151,6 +160,9 @@
     <EmbeddedResource Include="Views\UserInfoForm.resx">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserTimeTableForm.resx">
+      <DependentUpon>UserTimeTableForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\userProjectModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>userProjectModel.Designer.cs</LastGenOutput>
@@ -159,6 +171,7 @@
       <DependentUpon>userProjectModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\UserProject.Models.time_table.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,7 +186,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\userProjectModel.Context.tt">

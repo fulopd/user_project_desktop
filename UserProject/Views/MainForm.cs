@@ -20,19 +20,21 @@ namespace UserProject.Views
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {
-            using (userProjectDBContext db = new userProjectDBContext())
-            {
-                label1.Text = db.user_data.First().user_name;
-                label2.Text = CurrentUser.user.position.permission_ids;
-                
-            }
+        {           
+            label1.Text = CurrentUser.user.user_name;
+            label2.Text = CurrentUser.user.position.permission_ids;                            
         }
 
         private void buttonUserInfo_Click(object sender, EventArgs e)
         {
             Form userInfoForm = new UserInfoForm();
             userInfoForm.ShowDialog();
+        }
+
+        private void buttonUserTimeTable_Click(object sender, EventArgs e)
+        {
+            Form userTimeTableForm = new UserTimeTableForm();
+            userTimeTableForm.ShowDialog();
         }
     }
 }
