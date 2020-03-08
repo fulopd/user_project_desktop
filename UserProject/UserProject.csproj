@@ -77,6 +77,7 @@
     <Compile Include="Models\news.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\position-Partial.cs" />
     <Compile Include="Models\permission.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
@@ -108,11 +109,15 @@
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Presenters\PositionAddPresenter.cs" />
+    <Compile Include="Presenters\PositionsPresenter.cs" />
     <Compile Include="Presenters\UserInfoPresenter.cs" />
     <Compile Include="Presenters\UserTimeTablePresenter.cs" />
     <Compile Include="Repositories\UserTimeTableRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
+    <Compile Include="ViewInterfaces\IPositionAddView.cs" />
+    <Compile Include="ViewInterfaces\IPositionsView.cs" />
     <Compile Include="ViewInterfaces\IUserInfoView.cs" />
     <Compile Include="ViewInterfaces\IUserTimeTableView.cs" />
     <Compile Include="Views\LoginForm.cs">
@@ -128,6 +133,18 @@
     </Compile>
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PositionAddForm.Designer.cs">
+      <DependentUpon>PositionAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PositionsForm.Designer.cs">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserInfoForm.cs">
       <SubType>Form</SubType>
@@ -157,6 +174,12 @@
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PositionAddForm.resx">
+      <DependentUpon>PositionAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PositionsForm.resx">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserInfoForm.resx">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +194,8 @@
       <DependentUpon>userProjectModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\UserProject.Models.permission.datasource" />
+    <None Include="Properties\DataSources\UserProject.Models.position.datasource" />
     <None Include="Properties\DataSources\UserProject.Models.time_table.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

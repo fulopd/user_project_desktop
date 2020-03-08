@@ -36,5 +36,11 @@ namespace UserProject.Views
             Form userTimeTableForm = new UserTimeTableForm();
             userTimeTableForm.ShowDialog();
         }
+
+        private void buttonPosition_Click(object sender, EventArgs e)
+        {
+            Form PositionsForm = new PositionsForm();
+            PositionsForm.ShowDialog();
+        }
     }
 }

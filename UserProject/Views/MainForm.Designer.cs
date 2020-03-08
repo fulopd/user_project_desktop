@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonUserInfo = new System.Windows.Forms.Button();
             this.buttonUserTimeTable = new System.Windows.Forms.Button();
+            this.buttonPosition = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -72,11 +73,22 @@
             this.buttonUserTimeTable.UseVisualStyleBackColor = true;
             this.buttonUserTimeTable.Click += new System.EventHandler(this.buttonUserTimeTable_Click);
             // 
+            // buttonPosition
+            // 
+            this.buttonPosition.Location = new System.Drawing.Point(197, 12);
+            this.buttonPosition.Name = "buttonPosition";
+            this.buttonPosition.Size = new System.Drawing.Size(98, 23);
+            this.buttonPosition.TabIndex = 3;
+            this.buttonPosition.Text = "Pozíciók";
+            this.buttonPosition.UseVisualStyleBackColor = true;
+            this.buttonPosition.Click += new System.EventHandler(this.buttonPosition_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonPosition);
             this.Controls.Add(this.buttonUserTimeTable);
             this.Controls.Add(this.buttonUserInfo);
             this.Controls.Add(this.label2);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonUserInfo;
         private System.Windows.Forms.Button buttonUserTimeTable;
+        private System.Windows.Forms.Button buttonPosition;
     }
 }

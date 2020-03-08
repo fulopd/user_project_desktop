@@ -29,10 +29,10 @@ namespace UserProject.Views
         private void UserTimeTable_Load(object sender, EventArgs e)
         {
             presenter.getUserTimeTable();
-            calc();
+            workTimeCalc();
         }
 
-        private void calc() 
+        private void workTimeCalc() 
         {
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
@@ -45,7 +45,7 @@ namespace UserProject.Views
                     item.Cells[5].Value = "Beteg szabadság";
                 }
 
-                if (!(bool) item.Cells[3].Value && !(bool)item.Cells[4].Value)
+                if (!(bool)item.Cells[3].Value && !(bool)item.Cells[4].Value)
                 {
                     DateTime start = (DateTime)item.Cells[1].Value;
                     DateTime end = (DateTime)item.Cells[2].Value;
