@@ -14,6 +14,8 @@ namespace UserProject.Views
 {
     public partial class MainForm : Form
     {
+        //<package id="EntityFramework" version="6.4.0" targetFramework="net452" />
+        //<package id = "EntityFramework" version="6.1.3" targetFramework="net452" />
         public MainForm()
         {
             InitializeComponent();
