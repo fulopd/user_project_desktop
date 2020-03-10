@@ -77,7 +77,9 @@
     <Compile Include="Models\news.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\personal_data-Partial.cs" />
     <Compile Include="Models\Partials\position-Partial.cs" />
+    <Compile Include="Models\Partials\user_data-Partial.cs" />
     <Compile Include="Models\permission.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
@@ -112,14 +114,21 @@
     <Compile Include="Presenters\PositionAddPresenter.cs" />
     <Compile Include="Presenters\PositionsPresenter.cs" />
     <Compile Include="Presenters\UserInfoPresenter.cs" />
+    <Compile Include="Presenters\UserListPresenter.cs" />
+    <Compile Include="Presenters\UserPresenter.cs" />
     <Compile Include="Presenters\UserTimeTablePresenter.cs" />
+    <Compile Include="Repositories\PersonalDataRepository.cs" />
+    <Compile Include="Repositories\PositionsRepository.cs" />
+    <Compile Include="Repositories\UserDataRepository.cs" />
     <Compile Include="Repositories\UserTimeTableRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IPositionAddView.cs" />
     <Compile Include="ViewInterfaces\IPositionsView.cs" />
     <Compile Include="ViewInterfaces\IUserInfoView.cs" />
+    <Compile Include="ViewInterfaces\IUserListView.cs" />
     <Compile Include="ViewInterfaces\IUserTimeTableView.cs" />
+    <Compile Include="ViewInterfaces\IUserView.cs" />
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +155,23 @@
     <Compile Include="Views\PositionsForm.Designer.cs">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\UserInfoForm.Designer.cs">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserTimeTableForm.cs">
       <SubType>Form</SubType>
@@ -180,8 +201,14 @@
     <EmbeddedResource Include="Views\PositionsForm.resx">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserInfoForm.resx">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserTimeTableForm.resx">
       <DependentUpon>UserTimeTableForm.cs</DependentUpon>
@@ -195,8 +222,10 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\UserProject.Models.permission.datasource" />
+    <None Include="Properties\DataSources\UserProject.Models.personal_data.datasource" />
     <None Include="Properties\DataSources\UserProject.Models.position.datasource" />
     <None Include="Properties\DataSources\UserProject.Models.time_table.datasource" />
+    <None Include="Properties\DataSources\UserProject.Models.user_data.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

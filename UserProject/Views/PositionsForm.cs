@@ -114,7 +114,7 @@ namespace UserProject.Views
 
         }
         private void textBoxDescription_Leave(object sender, EventArgs e)
-        {
+        {            
             selectedPosition.description = textBoxDescription.Text;
         }       
         private void buttonPermisionAdd_Click(object sender, EventArgs e)

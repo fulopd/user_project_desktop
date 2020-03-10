@@ -16,5 +16,10 @@ namespace UserProject.Models
             this.description = desc;
             this.permission_ids = perms;            
         }
+
+        public override string ToString()
+        {
+            return this.position_name;
+        }
     }
 }

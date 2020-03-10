@@ -17,8 +17,8 @@ namespace UserProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            Application.Run(new PositionsForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new UserListForm());
         }
     }
 }

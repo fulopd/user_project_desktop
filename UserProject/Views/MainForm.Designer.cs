@@ -28,30 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.buttonUserInfo = new System.Windows.Forms.Button();
             this.buttonUserTimeTable = new System.Windows.Forms.Button();
             this.buttonPosition = new System.Windows.Forms.Button();
+            this.buttonUserList = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(711, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(711, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
             // 
             // buttonUserInfo
             // 
@@ -83,30 +64,36 @@
             this.buttonPosition.UseVisualStyleBackColor = true;
             this.buttonPosition.Click += new System.EventHandler(this.buttonPosition_Click);
             // 
+            // buttonUserList
+            // 
+            this.buttonUserList.Location = new System.Drawing.Point(301, 12);
+            this.buttonUserList.Name = "buttonUserList";
+            this.buttonUserList.Size = new System.Drawing.Size(132, 23);
+            this.buttonUserList.TabIndex = 3;
+            this.buttonUserList.Text = "Felhasználó kezelés";
+            this.buttonUserList.UseVisualStyleBackColor = true;
+            this.buttonUserList.Click += new System.EventHandler(this.buttonUserList_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonUserList);
             this.Controls.Add(this.buttonPosition);
             this.Controls.Add(this.buttonUserTimeTable);
             this.Controls.Add(this.buttonUserInfo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonUserInfo;
         private System.Windows.Forms.Button buttonUserTimeTable;
         private System.Windows.Forms.Button buttonPosition;
+        private System.Windows.Forms.Button buttonUserList;
     }
 }

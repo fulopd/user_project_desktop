@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +10,21 @@ using UserProject.Services;
 
 namespace UserProject.Repositories
 {
-    class UserTimeTableRepository
+    class PositionsRepository : IDisposable
     {
         private userProjectDBContext db = new userProjectDBContext();
 
-        public List<time_table> getUserTimeTable() 
+        public BindingList<position> getAllPositions()
         {
-            IQueryable<time_table> quary = db.time_table.Where(x => x.user_id == CurrentUser.id);
-
-            return new List<time_table>(quary.ToList());
+            db.position.Load();
+            return db.position.Local.ToBindingList();
         }
+
+        public void save()
+        {
+            db.SaveChanges();
+        }
+
         public void Dispose()
         {
             Dispose(true);

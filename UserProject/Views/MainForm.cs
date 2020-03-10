@@ -20,9 +20,9 @@ namespace UserProject.Views
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {           
-            label1.Text = CurrentUser.user.user_name;
-            label2.Text = CurrentUser.user.position.permission_ids;                            
+        {
+            this.Text = "User Project - "+ CurrentUser.user.user_name;
+                                                  
         }
 
         private void buttonUserInfo_Click(object sender, EventArgs e)
@@ -41,6 +41,12 @@ namespace UserProject.Views
         {
             Form PositionsForm = new PositionsForm();
             PositionsForm.ShowDialog();
+        }
+
+        private void buttonUserList_Click(object sender, EventArgs e)
+        {
+            Form UserListForm = new UserListForm();
+            UserListForm.ShowDialog();
         }
     }
 }

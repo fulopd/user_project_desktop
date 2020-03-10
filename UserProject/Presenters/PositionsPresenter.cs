@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserProject.Models;
+using UserProject.Services;
 using UserProject.ViewInterfaces;
 
 namespace UserProject.Presenters
@@ -23,14 +24,12 @@ namespace UserProject.Presenters
             db.position.OrderBy(x => x.priority).Load();
             bindingPositionList = db.position.Local.ToBindingList();
         }
-
         public void getAllPositon() 
         {
             view.statPositionList = db.position.OrderBy(x => x.priority).ToList();  
             
         }
-
-        public void getPermissions(position selectedItem) 
+        public void getPermissions(position selectedItem)
         {
             
             if (!selectedItem.permission_ids.Equals(string.Empty))
@@ -49,8 +48,7 @@ namespace UserProject.Presenters
 
 
 
-        }
-        
+        }        
         public void upList(position selectedItem)
         {
             int tempIndex = view.statPositionList.IndexOf(selectedItem);
@@ -60,7 +58,6 @@ namespace UserProject.Presenters
                 view.statPositionList.Insert(tempIndex - 1, selectedItem);
             }
         }
-
         public void downList(position selectedItem)
         {
             int tempIndex = view.statPositionList.IndexOf(selectedItem);
@@ -70,8 +67,7 @@ namespace UserProject.Presenters
                 view.statPositionList.Insert(tempIndex + 1, selectedItem);
             }
         }
-
-        private void setPriority() 
+        private void setPriority()
         {
             foreach (position item in bindingPositionList)
             {
@@ -79,8 +75,7 @@ namespace UserProject.Presenters
                 item.priority = temp.priority;
             }
         }
-
-        public void delete(position selectedItem) 
+        public void delete(position selectedItem)
         {
             if (selectedItem != null)
             {                
@@ -89,9 +84,8 @@ namespace UserProject.Presenters
                 Debug.WriteLine("delete - presenter");                
             }
                     
-        }
-        
-        public void addPosition(position newPosition)         
+        }        
+        public void addPosition(position newPosition)
         {
             if (view.statPositionList.Any(x => x.position_name == newPosition.position_name))
             {
