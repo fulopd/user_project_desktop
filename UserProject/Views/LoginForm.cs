@@ -27,7 +27,7 @@ namespace UserProject.Views
         
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            presenter.authenticate();
+            presenter.Authenticate();
             if (presenter.loginSucces)
             {
                 var mf = new MainForm();
@@ -40,7 +40,7 @@ namespace UserProject.Views
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            presenter.checkConnection();
+            presenter.CheckConnection();
         }
 
         private void textBoxPassword_KeyUp(object sender, KeyEventArgs e)

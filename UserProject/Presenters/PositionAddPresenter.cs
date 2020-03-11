@@ -18,7 +18,7 @@ namespace UserProject.Presenters
             view = param;
         }
 
-        public void erroCheck(position poz) 
+        public void ErroCheck(position poz) 
         {
             view.errorMessage = null;
             if (db.position.Any(x => x.position_name == poz.position_name))

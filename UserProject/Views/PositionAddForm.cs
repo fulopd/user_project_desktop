@@ -38,7 +38,7 @@ namespace UserProject.Views
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            presenter.erroCheck(this.newPosition);
+            presenter.ErroCheck(this.newPosition);
             if (string.IsNullOrEmpty(errorMessage))
             {
                 this.DialogResult = DialogResult.OK;

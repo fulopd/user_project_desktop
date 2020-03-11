@@ -19,17 +19,13 @@ namespace UserProject.Repositories
         {
             this.db = db;
         }
-        public BindingList<user_data> getAllUserData()
-        {
-            db.user_data.Load();
-            return db.user_data.Local.ToBindingList();
-        }
-        public bool exists(user_data user)
+       
+        public bool Exists(user_data user)
         {
             return db.user_data.Any(x => x.id == user.id);
         }
 
-        public void insert(user_data user)
+        public void Insert(user_data user)
         {
             if (db.user_data.Any(x => x.id == user.id))
             {
@@ -38,13 +34,13 @@ namespace UserProject.Repositories
             db.user_data.Add(user);
         }
 
-        public void delete(int id)
+        public void Delete(int id)
         {
             var user = db.user_data.Find(id);
             db.user_data.Remove(user);
         }
 
-        public void update(user_data param)
+        public void Update(user_data param)
         {
             var user = db.user_data.Find(param.id);
             if (user != null)
@@ -57,15 +53,9 @@ namespace UserProject.Repositories
                 user.position_id = param.position_id;
             }
         }
-        public void refreshDB()
-        {
-            foreach (var item in db.ChangeTracker.Entries())
-            {
-                item.Reload();
-            }
-        }
+        
 
-        public void save()
+        public void Save()
         {
             db.SaveChanges();
         }

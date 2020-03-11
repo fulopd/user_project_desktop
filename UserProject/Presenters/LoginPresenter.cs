@@ -20,22 +20,22 @@ namespace UserProject.Presenters
             view = param;
         }
 
-        private bool connectionExist() 
+        private bool ConnectionExist() 
         {
             return db.Database.Exists();
         }
 
-        public void checkConnection()
+        public void CheckConnection()
         {
-            if (!connectionExist())
+            if (!ConnectionExist())
             {
                 view.errorMessage = "Adatbázishoz való kapcsolódás sikertelen";
             }
         }
 
-        public void authenticate() 
+        public void Authenticate() 
         {
-            if (!connectionExist())
+            if (!ConnectionExist())
             {
                 view.errorMessage = "Adatbázishoz való kapcsolódás sikertelen";
             }

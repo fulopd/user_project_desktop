@@ -22,7 +22,7 @@ namespace UserProject.Views
         {
             InitializeComponent();
             presenter = new UserPresenter(this);
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         //https://github.com/borosbence/JarmuKolcsonzo/blob/master/JarmuKolcsonzo/Views/JarmuForm.cs
@@ -106,7 +106,7 @@ namespace UserProject.Views
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            presenter.savePersonalDataAndUserData(this.personal, this.user);
+            presenter.SavePersonalDataAndUserData(this.personal, this.user);
             this.DialogResult = DialogResult.OK;
 
         }

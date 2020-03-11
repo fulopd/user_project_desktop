@@ -10,49 +10,49 @@ using UserProject.ViewInterfaces;
 
 namespace UserProject.Presenters
 {
-    class UserListPresenter
+    class UsersListPresenter
     {
-        IUserListView view;
+        IUsersListView view;
         private static userProjectDBContext db = new userProjectDBContext();
         PersonalDataRepository personalRepo = new PersonalDataRepository(db);
         UserDataRepository userRepo = new UserDataRepository(db);
         
-        public UserListPresenter(IUserListView param)
+        public UsersListPresenter(IUsersListView param)
         {
             view = param;
         }
 
-        public void loadData() 
+        public void LoadData() 
         {            
-            personalRepo.refreshDB();//Másik DBContextben törlök / módosítok azért kell???? Jobb megoldás??
-            view.userBindingList = personalRepo.getAllUser(
+            personalRepo.RefreshDB();//Másik DBContextben törlök / módosítok azért kell???? Jobb megoldás??
+            view.userBindingList = personalRepo.GetAllUserPersonalData(
                 view.pageNumber,
                 view.itemsPerPage,
                 view.search,
                 view.sortBy,
                 view.ascending);
-            view.totalItems = personalRepo.count();
+            view.totalItems = personalRepo.CountPersonalData();
 
         }
        
-        public void remove(int index)
+        public void Remove(int index)
         {
             var pd = view.userBindingList.ElementAt(index);
             view.userBindingList.RemoveAt(index);
             var ud = pd.user_data.SingleOrDefault(x=>x.personal_data_id == pd.id);           
             if (pd.id > 0 && ud.id > 0)
             {                
-                userRepo.delete(ud.id);                
-                personalRepo.delete(pd.id);
-                save();
+                userRepo.Delete(ud.id);                
+                personalRepo.Delete(pd.id);
+                Save();
 
             }
         }
         
-        public void save()
+        public void Save()
         {            
-            userRepo.save();            
-            personalRepo.save();            
+            userRepo.Save();            
+            personalRepo.Save();            
         }
     }
 }

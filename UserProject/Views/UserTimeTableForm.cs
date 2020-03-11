@@ -28,7 +28,7 @@ namespace UserProject.Views
         
         private void UserTimeTable_Load(object sender, EventArgs e)
         {
-            presenter.getUserTimeTable();
+            presenter.GetUserTimeTable();
             workTimeCalc();
         }
 

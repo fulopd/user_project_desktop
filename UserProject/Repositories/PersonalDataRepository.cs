@@ -21,7 +21,7 @@ namespace UserProject.Repositories
             this.db = db;
         }
 
-        public BindingList<personal_data> getAllUser(
+        public BindingList<personal_data> GetAllUserPersonalData(
             int page = 0,
             int itemsPerPage = 0,
             string search = null,
@@ -84,29 +84,29 @@ namespace UserProject.Repositories
 
             return new BindingList<personal_data>(query.ToList());
         }
-        public void refreshDB()
+        public void RefreshDB()
         {
             foreach (var item in db.ChangeTracker.Entries())
             {
                 item.Reload();
             }
         }
-        public int count()
+        public int CountPersonalData()
         {
             return _totalItems;
         }
 
-        public bool exists(personal_data peronal)
+        public bool Exists(personal_data peronal)
         {
             return db.personal_data.Any(x => x.id == peronal.id);
         }
 
-        public int getId(personal_data param) 
+        public int GetPersonalDataId(personal_data param) 
         {
             var pd = db.personal_data.SingleOrDefault(x => x.mother == param.mother && x.phone == param.phone && x.location == param.location);
             return pd.id;
         }
-        public void insert(personal_data param)
+        public void Insert(personal_data param)
         {
             if (db.personal_data.Any(x => x.id == param.id))
             {
@@ -115,13 +115,13 @@ namespace UserProject.Repositories
             db.personal_data.Add(param);
         }
 
-        public void delete(int id)
+        public void Delete(int id)
         {
             var personal = db.personal_data.Find(id);
             db.personal_data.Remove(personal);
         }
 
-        public void update(personal_data param)
+        public void Update(personal_data param)
         {
             var personal = db.personal_data.Find(param.id);
             if (personal != null)
@@ -129,7 +129,7 @@ namespace UserProject.Repositories
                 db.Entry(personal).CurrentValues.SetValues(param);
             }
         }
-        public void save()
+        public void Save()
         {
             db.SaveChanges();
         }

@@ -12,11 +12,11 @@ using UserProject.ViewInterfaces;
 
 namespace UserProject.Views
 {
-    public partial class UserInfoForm : Form, IUserInfoView
+    public partial class UsersInfoForm : Form, IUserInfoView
     {
         private UserInfoPresenter presenter;
 
-        public UserInfoForm()
+        public UsersInfoForm()
         {
             InitializeComponent();
             presenter = new UserInfoPresenter(this);
@@ -35,7 +35,7 @@ namespace UserProject.Views
 
         private void UserInfoForm_Load(object sender, EventArgs e)
         {
-            presenter.getUserData();
+            presenter.GetUserData();
         }
     }
 }

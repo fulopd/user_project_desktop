@@ -5,24 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using UserProject.Models;
 using UserProject.Repositories;
-using UserProject.Services;
 using UserProject.ViewInterfaces;
 
 namespace UserProject.Presenters
 {
-    class UserTimeTablePresenter
+    class GlobalTimeTablePresenter
     {
-        private IUserTimeTableView view;        
+        IGlobalTimeTableView view;
+          
+        GlobalTimeTableRepository repo = new GlobalTimeTableRepository();
 
-        public UserTimeTablePresenter(IUserTimeTableView param)
+        public GlobalTimeTablePresenter(IGlobalTimeTableView param)
         {
             view = param;
         }
 
-        public void GetUserTimeTable() 
-        {            
-            view.userTimeTableList = CurrentUser.user.time_table.ToList();
+        public void proba() 
+        {
+            view.userDataBindingList = repo.proba();
         }
+
+
+
 
     }
 }

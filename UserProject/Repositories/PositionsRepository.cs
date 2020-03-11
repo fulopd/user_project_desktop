@@ -20,7 +20,7 @@ namespace UserProject.Repositories
             return db.position.Local.ToBindingList();
         }
 
-        public void save()
+        public void Save()
         {
             db.SaveChanges();
         }

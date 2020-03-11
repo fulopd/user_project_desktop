@@ -22,7 +22,7 @@ namespace UserProject.Presenters
             view = param;
         }
 
-        public void loadData()
+        public void LoadData()
         {
             using (var positionRepo = new PositionsRepository())
             {
@@ -30,17 +30,17 @@ namespace UserProject.Presenters
             }
         }
 
-        public void savePersonalDataAndUserData(personal_data personalParam, user_data userParam)
+        public void SavePersonalDataAndUserData(personal_data personalParam, user_data userParam)
         {            
-            if (personalRepo.exists(personalParam) && userRepo.exists(userParam))
+            if (personalRepo.Exists(personalParam) && userRepo.Exists(userParam))
             {                
                 try
                 {                   
-                    personalRepo.update(personalParam);
-                    personalRepo.save();
+                    personalRepo.Update(personalParam);
+                    personalRepo.Save();
                    
-                    userRepo.update(userParam);                                       
-                    userRepo.save();                    
+                    userRepo.Update(userParam);                                       
+                    userRepo.Save();                    
                 }   
                 catch (Exception ex)
                 {
@@ -51,11 +51,11 @@ namespace UserProject.Presenters
             {
                 try
                 {
-                    personalRepo.insert(personalParam);
-                    personalRepo.save();
-                    userParam.personal_data_id = personalRepo.getId(personalParam);
-                    userRepo.insert(userParam);
-                    userRepo.save();
+                    personalRepo.Insert(personalParam);
+                    personalRepo.Save();
+                    userParam.personal_data_id = personalRepo.GetPersonalDataId(personalParam);
+                    userRepo.Insert(userParam);
+                    userRepo.Save();
                     Debug.WriteLine("userPresenter: insert kész");
                 }
                 catch (Exception ex)

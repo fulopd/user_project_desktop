@@ -46,7 +46,7 @@ namespace UserProject.Views
         private void PositionsForm_Load(object sender, EventArgs e)
         {
             //Kezdő értékek beállítása
-            presenter.getAllPositon();//összes pozició betöltése adatbázisból
+            presenter.GetAllPositon();//összes pozició betöltése adatbázisból
             setPriorityBasedOnRowIndex();//prioritások beállítása sor indexnex megfelelően
             init();
         }
@@ -56,7 +56,7 @@ namespace UserProject.Views
             {
                 selectedPosition = (position)dataGridViewPositions.Rows[0].DataBoundItem;//kiválasztott elem kezdő érték megadása
                 textBoxDescription.Text = selectedPosition.description; //kiválasztott elem leírásának betöltése
-                presenter.getPermissions(selectedPosition); //kiválasztott elemhez adható jogosultságok listája / kiválasztott jogosultságok listája
+                presenter.GetPermissions(selectedPosition); //kiválasztott elemhez adható jogosultságok listája / kiválasztott jogosultságok listája
             }
             else
             {
@@ -79,7 +79,7 @@ namespace UserProject.Views
             if (selectedPosition != null)
             {
                 int selectedRowIndex = dataGridViewPositions.SelectedRows[0].Index;
-                presenter.upList(selectedPosition);
+                presenter.UpList(selectedPosition);
                 setPriorityBasedOnRowIndex();
                 dataGridViewPositions.Refresh();
                 dataGridViewPositions.Rows[selectedRowIndex - (selectedRowIndex > 0 ? 1 : 0)].Selected = true;
@@ -91,7 +91,7 @@ namespace UserProject.Views
             if (selectedPosition != null)
             {
                 int selectedRowIndex = dataGridViewPositions.SelectedRows[0].Index;
-                presenter.downList(selectedPosition);
+                presenter.DownList(selectedPosition);
                 setPriorityBasedOnRowIndex();
                 dataGridViewPositions.Refresh();
                 dataGridViewPositions.Rows[selectedRowIndex + (selectedRowIndex < dataGridViewPositions.RowCount - 1 ? 1 : 0)].Selected = true;
@@ -101,7 +101,7 @@ namespace UserProject.Views
         {
             if (selectedPosition != null || dataGridViewPositions.Rows.Count > 0)
             {
-                presenter.delete(selectedPosition);
+                presenter.Delete(selectedPosition);
                 setPriorityBasedOnRowIndex();
                 init();
             }
@@ -110,7 +110,7 @@ namespace UserProject.Views
         {
             selectedPosition = (position)dataGridViewPositions.SelectedRows[0].DataBoundItem;
             textBoxDescription.Text = selectedPosition.description;
-            presenter.getPermissions(selectedPosition);
+            presenter.GetPermissions(selectedPosition);
 
         }
         private void textBoxDescription_Leave(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace UserProject.Views
                     {
                         selectedPosition.permission_ids += "," + selectedPermision.id;//további jogosultságok hozáadása
                     }                       
-                    presenter.getPermissions(selectedPosition);
+                    presenter.GetPermissions(selectedPosition);
                 }
             }
         }
@@ -157,12 +157,12 @@ namespace UserProject.Views
                     newPerm = newPerm.Substring(0, newPerm.Length - 1);
                 }
                 selectedPosition.permission_ids = newPerm;
-                presenter.getPermissions(selectedPosition);                                
+                presenter.GetPermissions(selectedPosition);                                
             }
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            presenter.save();
+            presenter.Save();
         }
         private void buttonNewPosition_Click(object sender, EventArgs e)
         {
@@ -171,7 +171,7 @@ namespace UserProject.Views
                 DialogResult dr = addPositionForm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
-                    presenter.addPosition(addPositionForm.newPosition);
+                    presenter.AddPosition(addPositionForm.newPosition);
                     addPositionForm.Close();
                     setPriorityBasedOnRowIndex();
 

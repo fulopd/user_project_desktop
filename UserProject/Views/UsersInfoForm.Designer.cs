@@ -1,6 +1,6 @@
 ﻿namespace UserProject.Views
 {
-    partial class UserInfoForm
+    partial class UsersInfoForm
     {
         /// <summary>
         /// Required designer variable.

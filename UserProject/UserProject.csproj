@@ -110,25 +110,33 @@
     <Compile Include="Models\user_data.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\GlobalTimeTablePresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\PositionAddPresenter.cs" />
     <Compile Include="Presenters\PositionsPresenter.cs" />
     <Compile Include="Presenters\UserInfoPresenter.cs" />
-    <Compile Include="Presenters\UserListPresenter.cs" />
+    <Compile Include="Presenters\UsersListPresenter.cs" />
     <Compile Include="Presenters\UserPresenter.cs" />
     <Compile Include="Presenters\UserTimeTablePresenter.cs" />
+    <Compile Include="Repositories\GlobalTimeTableRepository.cs" />
     <Compile Include="Repositories\PersonalDataRepository.cs" />
     <Compile Include="Repositories\PositionsRepository.cs" />
     <Compile Include="Repositories\UserDataRepository.cs" />
-    <Compile Include="Repositories\UserTimeTableRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
+    <Compile Include="ViewInterfaces\IGlobalTimeTableView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IPositionAddView.cs" />
     <Compile Include="ViewInterfaces\IPositionsView.cs" />
     <Compile Include="ViewInterfaces\IUserInfoView.cs" />
-    <Compile Include="ViewInterfaces\IUserListView.cs" />
+    <Compile Include="ViewInterfaces\IUsersListView.cs" />
     <Compile Include="ViewInterfaces\IUserTimeTableView.cs" />
     <Compile Include="ViewInterfaces\IUserView.cs" />
+    <Compile Include="Views\GlobalTimeTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GlobalTimeTableForm.Designer.cs">
+      <DependentUpon>GlobalTimeTableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,11 +169,11 @@
     <Compile Include="Views\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserInfoForm.cs">
+    <Compile Include="Views\UsersInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UserInfoForm.Designer.cs">
-      <DependentUpon>UserInfoForm.cs</DependentUpon>
+    <Compile Include="Views\UsersInfoForm.Designer.cs">
+      <DependentUpon>UsersInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserListForm.cs">
       <SubType>Form</SubType>
@@ -189,6 +197,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\GlobalTimeTableForm.resx">
+      <DependentUpon>GlobalTimeTableForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,8 +215,8 @@
     <EmbeddedResource Include="Views\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserInfoForm.resx">
-      <DependentUpon>UserInfoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UsersInfoForm.resx">
+      <DependentUpon>UsersInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserListForm.resx">
       <DependentUpon>UserListForm.cs</DependentUpon>

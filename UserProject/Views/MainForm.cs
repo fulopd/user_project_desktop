@@ -29,7 +29,7 @@ namespace UserProject.Views
 
         private void buttonUserInfo_Click(object sender, EventArgs e)
         {
-            Form userInfoForm = new UserInfoForm();
+            Form userInfoForm = new UsersInfoForm();
             userInfoForm.ShowDialog();
         }
 
@@ -49,6 +49,12 @@ namespace UserProject.Views
         {
             Form UserListForm = new UserListForm();
             UserListForm.ShowDialog();
+        }
+
+        private void buttonGlobalTimeTable_Click(object sender, EventArgs e)
+        {
+            Form GlobalTimeTable = new GlobalTimeTableForm();
+            GlobalTimeTable.ShowDialog();
         }
     }
 }

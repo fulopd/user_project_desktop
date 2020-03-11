@@ -37,9 +37,9 @@
             this.start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.end_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paidleaveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sickleaveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
@@ -47,7 +47,10 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.start_date,
@@ -57,10 +60,11 @@
             this.sickleaveDataGridViewTextBoxColumn,
             this.Column1});
             this.dataGridView1.DataSource = this.timetableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(162, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 63);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(464, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 375);
             this.dataGridView1.TabIndex = 0;
             // 
             // start_date
@@ -71,6 +75,7 @@
             this.start_date.DefaultCellStyle = dataGridViewCellStyle1;
             this.start_date.HeaderText = "Dátum";
             this.start_date.Name = "start_date";
+            this.start_date.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -80,6 +85,7 @@
             this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "Kezdés";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // end_date
             // 
@@ -89,6 +95,23 @@
             this.end_date.DefaultCellStyle = dataGridViewCellStyle3;
             this.end_date.HeaderText = "Vége";
             this.end_date.Name = "end_date";
+            this.end_date.ReadOnly = true;
+            // 
+            // paidleaveDataGridViewTextBoxColumn
+            // 
+            this.paidleaveDataGridViewTextBoxColumn.DataPropertyName = "paid_leave";
+            this.paidleaveDataGridViewTextBoxColumn.HeaderText = "paid_leave";
+            this.paidleaveDataGridViewTextBoxColumn.Name = "paidleaveDataGridViewTextBoxColumn";
+            this.paidleaveDataGridViewTextBoxColumn.ReadOnly = true;
+            this.paidleaveDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sickleaveDataGridViewTextBoxColumn
+            // 
+            this.sickleaveDataGridViewTextBoxColumn.DataPropertyName = "sick_leave";
+            this.sickleaveDataGridViewTextBoxColumn.HeaderText = "sick_leave";
+            this.sickleaveDataGridViewTextBoxColumn.Name = "sickleaveDataGridViewTextBoxColumn";
+            this.sickleaveDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sickleaveDataGridViewTextBoxColumn.Visible = false;
             // 
             // Column1
             // 
@@ -98,20 +121,7 @@
             this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "Munkaidő";
             this.Column1.Name = "Column1";
-            // 
-            // paidleaveDataGridViewTextBoxColumn
-            // 
-            this.paidleaveDataGridViewTextBoxColumn.DataPropertyName = "paid_leave";
-            this.paidleaveDataGridViewTextBoxColumn.HeaderText = "paid_leave";
-            this.paidleaveDataGridViewTextBoxColumn.Name = "paidleaveDataGridViewTextBoxColumn";
-            this.paidleaveDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sickleaveDataGridViewTextBoxColumn
-            // 
-            this.sickleaveDataGridViewTextBoxColumn.DataPropertyName = "sick_leave";
-            this.sickleaveDataGridViewTextBoxColumn.HeaderText = "sick_leave";
-            this.sickleaveDataGridViewTextBoxColumn.Name = "sickleaveDataGridViewTextBoxColumn";
-            this.sickleaveDataGridViewTextBoxColumn.Visible = false;
+            this.Column1.ReadOnly = true;
             // 
             // timetableBindingSource
             // 

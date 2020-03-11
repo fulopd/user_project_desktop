@@ -32,6 +32,7 @@
             this.buttonUserTimeTable = new System.Windows.Forms.Button();
             this.buttonPosition = new System.Windows.Forms.Button();
             this.buttonUserList = new System.Windows.Forms.Button();
+            this.buttonGlobalTimeTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonUserInfo
@@ -74,11 +75,22 @@
             this.buttonUserList.UseVisualStyleBackColor = true;
             this.buttonUserList.Click += new System.EventHandler(this.buttonUserList_Click);
             // 
+            // buttonGlobalTimeTable
+            // 
+            this.buttonGlobalTimeTable.Location = new System.Drawing.Point(439, 12);
+            this.buttonGlobalTimeTable.Name = "buttonGlobalTimeTable";
+            this.buttonGlobalTimeTable.Size = new System.Drawing.Size(132, 23);
+            this.buttonGlobalTimeTable.TabIndex = 3;
+            this.buttonGlobalTimeTable.Text = "Teljes beosztás";
+            this.buttonGlobalTimeTable.UseVisualStyleBackColor = true;
+            this.buttonGlobalTimeTable.Click += new System.EventHandler(this.buttonGlobalTimeTable_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonGlobalTimeTable);
             this.Controls.Add(this.buttonUserList);
             this.Controls.Add(this.buttonPosition);
             this.Controls.Add(this.buttonUserTimeTable);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button buttonUserTimeTable;
         private System.Windows.Forms.Button buttonPosition;
         private System.Windows.Forms.Button buttonUserList;
+        private System.Windows.Forms.Button buttonGlobalTimeTable;
     }
 }

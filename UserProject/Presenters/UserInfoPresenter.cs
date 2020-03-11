@@ -17,7 +17,7 @@ namespace UserProject.Presenters
             view = param;
         }
 
-        public void getUserData() 
+        public void GetUserData() 
         {
             view.firstName = CurrentUser.user.personal_data.first_name;
             view.lastName = CurrentUser.user.personal_data.last_name;

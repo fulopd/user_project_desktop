@@ -8,7 +8,7 @@ using UserProject.Models;
 
 namespace UserProject.ViewInterfaces
 {
-    public interface IUserListView
+    public interface IUsersListView
     {
         BindingList<personal_data> userBindingList { get; set; }
         int pageNumber { get; set; }

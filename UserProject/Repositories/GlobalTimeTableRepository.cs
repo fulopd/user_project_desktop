@@ -1,23 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserProject.Models;
-using UserProject.Services;
 
 namespace UserProject.Repositories
 {
-    class UserTimeTableRepository
+    class GlobalTimeTableRepository : IDisposable
     {
         private userProjectDBContext db = new userProjectDBContext();
 
-        public List<time_table> getUserTimeTable() 
-        {
-            IQueryable<time_table> quary = db.time_table.Where(x => x.user_id == CurrentUser.id);
 
-            return new List<time_table>(quary.ToList());
+        public BindingList<user_data> proba()
+        {
+            db.user_data.Include("personal_data").Load();
+
+            return db.user_data.Local.ToBindingList();
+
+            //valami.ForEach(x => Debug.WriteLine(x.personal_data.first_name));
+
         }
+
+
+
+
+
+
         public void Dispose()
         {
             Dispose(true);

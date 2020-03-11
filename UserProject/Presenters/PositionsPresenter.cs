@@ -24,14 +24,13 @@ namespace UserProject.Presenters
             db.position.OrderBy(x => x.priority).Load();
             bindingPositionList = db.position.Local.ToBindingList();
         }
-        public void getAllPositon() 
+        public void GetAllPositon() 
         {
             view.statPositionList = db.position.OrderBy(x => x.priority).ToList();  
             
         }
-        public void getPermissions(position selectedItem)
-        {
-            
+        public void GetPermissions(position selectedItem)
+        {            
             if (!selectedItem.permission_ids.Equals(string.Empty))
             {
                 string[] sPermissonons = selectedItem.permission_ids.Split(',');
@@ -44,12 +43,8 @@ namespace UserProject.Presenters
                 view.availablePermissionsList = db.permission.ToList();
                 view.positionPermissionsList = null;
             }
-            
-
-
-
         }        
-        public void upList(position selectedItem)
+        public void UpList(position selectedItem)
         {
             int tempIndex = view.statPositionList.IndexOf(selectedItem);
             if (tempIndex>0)
@@ -58,7 +53,7 @@ namespace UserProject.Presenters
                 view.statPositionList.Insert(tempIndex - 1, selectedItem);
             }
         }
-        public void downList(position selectedItem)
+        public void DownList(position selectedItem)
         {
             int tempIndex = view.statPositionList.IndexOf(selectedItem);
             if (tempIndex < view.statPositionList.Count-1)
@@ -67,7 +62,7 @@ namespace UserProject.Presenters
                 view.statPositionList.Insert(tempIndex + 1, selectedItem);
             }
         }
-        private void setPriority()
+        private void SetPriority()
         {
             foreach (position item in bindingPositionList)
             {
@@ -75,21 +70,21 @@ namespace UserProject.Presenters
                 item.priority = temp.priority;
             }
         }
-        public void delete(position selectedItem)
+        public void Delete(position selectedItem)
         {
             if (selectedItem != null)
             {                
                 bindingPositionList.Remove(selectedItem);
                 view.statPositionList = bindingPositionList.ToList();                
-                Debug.WriteLine("delete - presenter");                
+                Debug.WriteLine("delete - PositionPresenter");                
             }
                     
         }        
-        public void addPosition(position newPosition)
+        public void AddPosition(position newPosition)
         {
             if (view.statPositionList.Any(x => x.position_name == newPosition.position_name))
             {
-                Debug.WriteLine("Már létezik");
+                Debug.WriteLine("Pozíció már létezik");
             }
             else
             {
@@ -99,9 +94,9 @@ namespace UserProject.Presenters
             }
             
         }
-        public void save() 
+        public void Save() 
         {
-            setPriority();
+            SetPriority();
             db.SaveChanges();
         }
     }

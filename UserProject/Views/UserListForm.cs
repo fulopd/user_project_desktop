@@ -13,15 +13,15 @@ using UserProject.ViewInterfaces;
 
 namespace UserProject.Views
 {
-    public partial class UserListForm : Form, IUserListView
+    public partial class UserListForm : Form, IUsersListView
     {
-        private UserListPresenter presenter;
+        private UsersListPresenter presenter;
         private int pageCount;
         private int colIndex;
         public UserListForm()
         {
             InitializeComponent();
-            presenter = new UserListPresenter(this);
+            presenter = new UsersListPresenter(this);
             Init();
         }
 
@@ -56,7 +56,7 @@ namespace UserProject.Views
 
         private void UserListForm_Load(object sender, EventArgs e)
         {
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         #region navButtons
@@ -64,7 +64,7 @@ namespace UserProject.Views
         private void buttonFirst_Click(object sender, EventArgs e)
         {
             pageNumber = 1;
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         private void buttonPrev_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace UserProject.Views
             if (pageNumber >= 2) // page != 1
             {
                 pageNumber--;
-                presenter.loadData();
+                presenter.LoadData();
             }
         }
 
@@ -82,21 +82,21 @@ namespace UserProject.Views
             if (pageNumber < pageCount)
             {
                 pageNumber++;
-                presenter.loadData();
+                presenter.LoadData();
             }
         }
 
         private void buttonLast_Click(object sender, EventArgs e)
         {
             pageNumber = pageCount;
-            presenter.loadData();
+            presenter.LoadData();
         }
         #endregion
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             Init();
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         private void dataGridViewUserList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -128,7 +128,7 @@ namespace UserProject.Views
 
             colIndex = e.ColumnIndex;
 
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         private void EditDGRow(int index)
@@ -169,7 +169,7 @@ namespace UserProject.Views
         {
             while (dataGridViewUserList.SelectedRows.Count > 0)
             {
-                presenter.remove(dataGridViewUserList.SelectedRows[0].Index);
+                presenter.Remove(dataGridViewUserList.SelectedRows[0].Index);
             }
         }
 
@@ -182,13 +182,13 @@ namespace UserProject.Views
                 dataGridViewUserList.Rows[sorIndex].Selected = true;
             }
             EditDGRow(dataGridViewUserList.SelectedRows[0].Index);
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             NewDGRow();
-            presenter.loadData();
+            presenter.LoadData();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
