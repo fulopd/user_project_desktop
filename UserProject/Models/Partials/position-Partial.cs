@@ -8,7 +8,7 @@ namespace UserProject.Models
 {
     public partial class position
     {
-        public position(string nev, int prio = 999, string desc = "", string perms = "")
+        public position(string nev, int prio = 9999, string desc = "", string perms = "")
         {
             this.user_data = new HashSet<user_data>();
             this.position_name = nev;
@@ -17,9 +17,9 @@ namespace UserProject.Models
             this.permission_ids = perms;            
         }
 
-        public override string ToString()
-        {
-            return this.position_name;
-        }
+        //public override string ToString()
+        //{
+        //    return this.position_name;
+        //}
     }
 }

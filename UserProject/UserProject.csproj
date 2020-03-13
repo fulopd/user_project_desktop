@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>UserProject</RootNamespace>
     <AssemblyName>UserProject</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Models\Partials\personal_data-Partial.cs" />
     <Compile Include="Models\Partials\position-Partial.cs" />
+    <Compile Include="Models\Partials\time_table-Partial.cs" />
     <Compile Include="Models\Partials\user_data-Partial.cs" />
     <Compile Include="Models\permission.cs">
       <DependentUpon>userProjectModel.tt</DependentUpon>
@@ -118,7 +119,7 @@
     <Compile Include="Presenters\UsersListPresenter.cs" />
     <Compile Include="Presenters\UserPresenter.cs" />
     <Compile Include="Presenters\UserTimeTablePresenter.cs" />
-    <Compile Include="Repositories\GlobalTimeTableRepository.cs" />
+    <Compile Include="Repositories\TimeTableRepository.cs" />
     <Compile Include="Repositories\PersonalDataRepository.cs" />
     <Compile Include="Repositories\PositionsRepository.cs" />
     <Compile Include="Repositories\UserDataRepository.cs" />

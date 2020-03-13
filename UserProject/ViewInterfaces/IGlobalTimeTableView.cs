@@ -10,6 +10,6 @@ namespace UserProject.ViewInterfaces
 {
     public interface IGlobalTimeTableView
     {
-        BindingList<user_data> userDataBindingList { get; set; }
+        List<user_data> userDataList { get; set; }
     }
 }

@@ -13,16 +13,16 @@ namespace UserProject.Presenters
     {
         IGlobalTimeTableView view;
           
-        GlobalTimeTableRepository repo = new GlobalTimeTableRepository();
+        TimeTableRepository repo = new TimeTableRepository();
 
         public GlobalTimeTablePresenter(IGlobalTimeTableView param)
         {
             view = param;
         }
 
-        public void proba() 
+        public void GetAllData() 
         {
-            view.userDataBindingList = repo.proba();
+            view.userDataList = repo.proba();
         }
 
 
