@@ -17,7 +17,7 @@ namespace UserProject.Models
         public int id { get; set; }
         public int user_id { get; set; }
         public System.DateTime start_date { get; set; }
-        public Nullable<System.DateTime> end_date { get; set; }
+        public System.DateTime end_date { get; set; }
         public Nullable<bool> paid_leave { get; set; }
         public Nullable<bool> sick_leave { get; set; }
         public System.DateTime update_at { get; set; }

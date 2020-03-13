@@ -12,22 +12,21 @@ namespace UserProject.Repositories
 {
     class TimeTableRepository : IDisposable
     {
-        private userProjectDBContext db = new userProjectDBContext();
+        private userProjectDBContext db;
 
-
-        public List<user_data> proba()
+        public TimeTableRepository(userProjectDBContext db)
         {
-            //db.user_data.Include(x => x.personal_data.first_name).Load();
-            //var asd = db.user_data.Include(x => x.position.position_name).ToList();
-            return db.user_data.ToList();
-
-            //valami.ForEach(x => Debug.WriteLine(x.personal_data.first_name));
-
+            this.db = db;
         }
+
 
         public bool Exists(time_table param)
         {
-            return db.time_table.Any(x => x.user_id == param.user_id && x.start_date == param.start_date);
+            return db.time_table.Any(x => x.user_id == param.user_id &&
+                                        x.start_date.Year == param.start_date.Year &&
+                                        x.start_date.Month == param.start_date.Month &&
+                                        x.start_date.Day == param.start_date.Day
+                                        );
         }
 
         public void Insert(time_table param)
@@ -39,23 +38,41 @@ namespace UserProject.Repositories
             db.time_table.Add(param);
         }
 
-        public void Delete(int id)
-        {
-            var timePoint = db.time_table.Find(id);
+        public void Delete(time_table param)
+        {           
+            var timePoint = db.time_table.SingleOrDefault(
+                                           x => x.user_id == param.user_id &&
+                                           x.start_date.Year == param.start_date.Year &&
+                                           x.start_date.Month == param.start_date.Month &&
+                                           x.start_date.Day == param.start_date.Day
+                                           );
+
             db.time_table.Remove(timePoint);
         }
 
         public void Update(time_table param)
         {
-            var timePoint = db.time_table.Find(param.id);
+            var timePoint = db.time_table.SingleOrDefault(
+                                        x => x.user_id == param.user_id &&
+                                        x.start_date.Year == param.start_date.Year &&
+                                        x.start_date.Month == param.start_date.Month &&
+                                        x.start_date.Day == param.start_date.Day
+                                        );
             if (timePoint != null)
             {
-                db.Entry(timePoint).CurrentValues.SetValues(param);                
-                //user.user_name = param.user_name;
-                //user.password = param.password;
-                //user.first_working_day = param.first_working_day;
-                //user.last_working_day = param.last_working_day;
-                //user.position_id = param.position_id;
+                //TODO: Módosítás szebben?
+                //db.Entry(timePoint).CurrentValues.SetValues(param);    
+                if (timePoint.start_date.Hour != param.start_date.Hour || timePoint.end_date.Hour != param.end_date.Hour)
+                {
+                    timePoint.user_id = param.user_id;
+                    timePoint.start_date = param.start_date;
+                    timePoint.end_date = param.end_date;
+                    timePoint.paid_leave = param.paid_leave;
+                    timePoint.sick_leave = param.sick_leave;
+                    timePoint.update_at = param.update_at;
+                    Debug.Write("update");
+                }
+
             }
         }
 

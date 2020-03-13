@@ -47,7 +47,7 @@
           <Property Name="priority" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="permission_ids" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="work_schedules" Type="time" Precision="0" />
+          <Property Name="work_schedules" Type="time" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="time_table">
           <Key>
@@ -56,7 +56,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="start_date" Type="datetime" Precision="0" Nullable="false" />
-          <Property Name="end_date" Type="datetime" Precision="0" />
+          <Property Name="end_date" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="paid_leave" Type="bool" />
           <Property Name="sick_leave" Type="bool" />
           <Property Name="update_at" Type="datetime" Precision="0" Nullable="false" />
@@ -203,7 +203,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="start_date" Type="DateTime" Nullable="false" />
-          <Property Name="end_date" Type="DateTime" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
           <Property Name="paid_leave" Type="Boolean" />
           <Property Name="sick_leave" Type="Boolean" />
           <Property Name="update_at" Type="DateTime" Nullable="false" />
