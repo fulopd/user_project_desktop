@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UserProject.Models;
 using UserProject.Presenters;
 using UserProject.ViewInterfaces;
 
@@ -31,18 +30,18 @@ namespace UserProject.Views
             get => (dataGridView1.DataSource as DataTable).Copy();
             set => dataGridView1.DataSource = value;
         }
-        
+
         private void GlobalTimeTableForm_Load(object sender, EventArgs e)
         {
             presenter.GetGlobalTimeTable();
-            customizeDGV();
-            
+            CustomizeDGV();
         }
 
-        private void customizeDGV()
+        private void CustomizeDGV()
         {
             SetDoubleBuffered(dataGridView1, true);
             dataGridView1.GridColor = Color.FromArgb(222, 226, 230);
+            this.dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             //Oszlopszélesség
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
@@ -50,14 +49,15 @@ namespace UserProject.Views
                 dataGridView1.Columns[i].Width = 35;
             }
             //Sor szín
-            foreach (DataGridViewRow row in dataGridView1.Rows) {
-                
-                if (row.Cells[dataGridView1.Columns.Count-1].Value.ToString()=="")
-                {                    
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+
+                if (row.Cells[dataGridView1.Columns.Count - 1].Value.ToString() == "")
+                {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 238, 186);
                 }
             }
-                       
+
             //Rendezés tiltása oszlop fejlécre kattintásnál
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
@@ -67,15 +67,14 @@ namespace UserProject.Views
                 if (int.TryParse(column.HeaderText, out day))
                 {
                     DateTime temp = new DateTime(2020, 02, day);
-                    if (temp.ToString("ddd")=="Szo" || temp.ToString("ddd")=="V")
+                    if (temp.ToString("ddd") == "Szo" || temp.ToString("ddd") == "V")
                     {
-                        
                         column.DefaultCellStyle.BackColor = Color.FromArgb(190, 229, 235);
                     }
                 }
 
-                
-                
+
+
             }
 
         }
@@ -89,6 +88,64 @@ namespace UserProject.Views
         {
             presenter.Save();
         }
-                
+        
+        //Cella érték validálás
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            string cellValue = (string)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            cellValue = cellValue.ToUpper();
+            switch (cellValue.Length)
+            {
+                case 1:
+                    if (cellValue != "B")
+                    {
+                        cellValue = string.Empty;
+                    }
+                    break;
+                case 3:
+                    if (cellValue != "FSZ")
+                    {
+                        cellValue = string.Empty;
+                    }
+                    break;
+                case 4:
+                case 5:
+                    if (cellValue.Contains('-') && !cellValue.Contains(' '))
+                    {
+                        string[] data = cellValue.Split('-');
+                        if (data.Length == 2)
+                        {
+                            int numOne;
+                            int numTwo;
+                            if (int.TryParse(data[0], out numOne) && int.TryParse(data[1], out numTwo))
+                            {
+                                if (!(numOne >= 0 && numOne < 24 && numTwo >= 0 && numTwo < 24))
+                                {
+                                    cellValue = string.Empty;
+                                }
+                            }
+                            else
+                            {
+                                cellValue = string.Empty;
+                            }
+                        }
+                        else
+                        {
+                            cellValue = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        cellValue = string.Empty;
+                    }
+                    break;                
+                default:
+                    cellValue = string.Empty;
+                    break;
+            }
+
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = cellValue;
+            Debug.WriteLine(cellValue);
+        }
     }
 }
