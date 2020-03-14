@@ -20,7 +20,7 @@ namespace UserProject.Presenters
         TimeTableRepository repoTimeTable = new TimeTableRepository(db);
         PositionsRepository repoPositions = new PositionsRepository();
 
-        DateTime selectedDate = new DateTime(2020, 02, 02);
+        DateTime selectedDate = new DateTime(2020, 03, 02);
 
 
         public GlobalTimeTablePresenter(IGlobalTimeTableView param)
@@ -70,9 +70,21 @@ namespace UserProject.Presenters
                             if (userTimeTable.Any(x => x.start_date.Day == i))
                             {
                                 time_table dayTime = userTimeTable.SingleOrDefault(x => x.start_date.Day == i);
-                                int startTime = dayTime.start_date.Hour;
-                                DateTime stopTime = (DateTime)dayTime.end_date;
-                                cell = startTime + "-" + stopTime.Hour;
+                                if ((bool)dayTime.paid_leave)
+                                {
+                                    cell = "FSZ";
+                                }
+                                else if ((bool)dayTime.sick_leave)
+                                {
+                                    cell = "B";
+                                }
+                                else
+                                {
+                                    int startTime = dayTime.start_date.Hour;
+                                    DateTime stopTime = (DateTime)dayTime.end_date;
+                                    cell = startTime + "-" + stopTime.Hour;
+                                }
+                                
                             }
 
                             dt.Rows[dt.Rows.Count - 1][i] = cell;

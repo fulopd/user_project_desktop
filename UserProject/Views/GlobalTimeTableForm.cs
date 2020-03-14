@@ -66,7 +66,7 @@ namespace UserProject.Views
                 int day;
                 if (int.TryParse(column.HeaderText, out day))
                 {
-                    DateTime temp = new DateTime(2020, 02, day);
+                    DateTime temp = new DateTime(2020, 01, day);
                     if (temp.ToString("ddd") == "Szo" || temp.ToString("ddd") == "V")
                     {
                         column.DefaultCellStyle.BackColor = Color.FromArgb(190, 229, 235);
