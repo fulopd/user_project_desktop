@@ -16,7 +16,7 @@ namespace UserProject.Repositories
 
         public BindingList<position> getAllPositions()
         {
-            db.position.Load();
+            db.position.OrderBy(x => x.priority).Load();
             return db.position.Local.ToBindingList();
         }
 

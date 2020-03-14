@@ -42,6 +42,7 @@ namespace UserProject.Views
         private void customizeDGV()
         {
             SetDoubleBuffered(dataGridView1, true);
+            dataGridView1.GridColor = Color.FromArgb(222, 226, 230);
             //Oszlopszélesség
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
@@ -53,13 +54,28 @@ namespace UserProject.Views
                 
                 if (row.Cells[dataGridView1.Columns.Count-1].Value.ToString()=="")
                 {                    
-                    row.DefaultCellStyle.BackColor = Color.Coral;
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 238, 186);
                 }
             }
-            //Rendezés tiltása
+                       
+            //Rendezés tiltása oszlop fejlécre kattintásnál
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                //oszlop szín (hétvége)
+                int day;
+                if (int.TryParse(column.HeaderText, out day))
+                {
+                    DateTime temp = new DateTime(2020, 02, day);
+                    if (temp.ToString("ddd")=="Szo" || temp.ToString("ddd")=="V")
+                    {
+                        
+                        column.DefaultCellStyle.BackColor = Color.FromArgb(190, 229, 235);
+                    }
+                }
+
+                
+                
             }
 
         }
