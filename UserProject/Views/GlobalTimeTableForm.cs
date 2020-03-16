@@ -22,6 +22,9 @@ namespace UserProject.Views
         {
             InitializeComponent();
             presenter = new GlobalTimeTablePresenter(this);
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "yyyy - MMMM";
+            dateTimePicker1.ShowUpDown = true;
         }
 
 
@@ -30,18 +33,24 @@ namespace UserProject.Views
             get => (dataGridView1.DataSource as DataTable).Copy();
             set => dataGridView1.DataSource = value;
         }
+        public DateTime selectedDate
+        {
+            get => dateTimePicker1.Value;            
+        }
 
         private void GlobalTimeTableForm_Load(object sender, EventArgs e)
         {
             presenter.GetGlobalTimeTable();
-            CustomizeDGV();
+            Init();            
         }
 
-        private void CustomizeDGV()
+        private void Init()
         {
+            labelMonth.Text = dateTimePicker1.Value.ToString("MMMM");
             SetDoubleBuffered(dataGridView1, true);
             dataGridView1.GridColor = Color.FromArgb(222, 226, 230);
-            this.dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridView1.Columns[dataGridView1.Columns.Count - 1].Visible = false;
             //Oszlopszélesség
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
@@ -57,7 +66,6 @@ namespace UserProject.Views
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 238, 186);
                 }
             }
-
             //Rendezés tiltása oszlop fejlécre kattintásnál
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
@@ -66,17 +74,14 @@ namespace UserProject.Views
                 int day;
                 if (int.TryParse(column.HeaderText, out day))
                 {
-                    DateTime temp = new DateTime(2020, 01, day);
+                    column.DefaultCellStyle.BackColor = Color.White;
+                    DateTime temp = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, day);
                     if (temp.ToString("ddd") == "Szo" || temp.ToString("ddd") == "V")
                     {
                         column.DefaultCellStyle.BackColor = Color.FromArgb(190, 229, 235);
                     }
                 }
-
-
-
             }
-
         }
         private void SetDoubleBuffered(DataGridView dataGridView, bool p)
         {
@@ -146,6 +151,32 @@ namespace UserProject.Views
 
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = cellValue;
             Debug.WriteLine(cellValue);
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            presenter.setDate();
+            Init();
+        }
+        private void buttonFillSelectedCell_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+            {
+                cell.Value = textBoxTimeIntervall.Text;
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                {
+                    cell.Value = "";
+                }
+                e.Handled = true;
+            }
         }
     }
 }

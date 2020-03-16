@@ -33,6 +33,7 @@
             this.buttonPosition = new System.Windows.Forms.Button();
             this.buttonUserList = new System.Windows.Forms.Button();
             this.buttonGlobalTimeTable = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // buttonUserInfo
@@ -85,16 +86,28 @@
             this.buttonGlobalTimeTable.UseVisualStyleBackColor = true;
             this.buttonGlobalTimeTable.Click += new System.EventHandler(this.buttonGlobalTimeTable_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(1, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(783, 420);
+            this.panel1.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonGlobalTimeTable);
             this.Controls.Add(this.buttonUserList);
             this.Controls.Add(this.buttonPosition);
             this.Controls.Add(this.buttonUserTimeTable);
             this.Controls.Add(this.buttonUserInfo);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -108,5 +121,6 @@
         private System.Windows.Forms.Button buttonPosition;
         private System.Windows.Forms.Button buttonUserList;
         private System.Windows.Forms.Button buttonGlobalTimeTable;
+        private System.Windows.Forms.Panel panel1;
     }
 }

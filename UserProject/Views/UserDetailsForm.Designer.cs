@@ -1,6 +1,6 @@
 ﻿namespace UserProject.Views
 {
-    partial class UserForm
+    partial class UserDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -306,7 +306,7 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // UserForm
+            // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -341,8 +341,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "UserForm";
-            this.Text = "UserForm";
+            this.Name = "UserDetailsForm";
+            this.Text = "UserDetailsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

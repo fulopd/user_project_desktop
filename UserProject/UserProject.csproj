@@ -115,23 +115,25 @@
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\PositionAddPresenter.cs" />
     <Compile Include="Presenters\PositionsPresenter.cs" />
+    <Compile Include="Presenters\UserDetailsListPresenter.cs" />
+    <Compile Include="Presenters\UserDetailsPresenter.cs" />
     <Compile Include="Presenters\UserInfoPresenter.cs" />
-    <Compile Include="Presenters\UsersListPresenter.cs" />
-    <Compile Include="Presenters\UserPresenter.cs" />
     <Compile Include="Presenters\UserTimeTablePresenter.cs" />
     <Compile Include="Repositories\TimeTableRepository.cs" />
     <Compile Include="Repositories\PersonalDataRepository.cs" />
     <Compile Include="Repositories\PositionsRepository.cs" />
     <Compile Include="Repositories\UserDataRepository.cs" />
+    <Compile Include="Repositories\UserDetailsVMRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
     <Compile Include="ViewInterfaces\IGlobalTimeTableView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IPositionAddView.cs" />
     <Compile Include="ViewInterfaces\IPositionsView.cs" />
+    <Compile Include="ViewInterfaces\IUserDetailsListView.cs" />
+    <Compile Include="ViewInterfaces\IUserDetailsView.cs" />
     <Compile Include="ViewInterfaces\IUserInfoView.cs" />
-    <Compile Include="ViewInterfaces\IUsersListView.cs" />
     <Compile Include="ViewInterfaces\IUserTimeTableView.cs" />
-    <Compile Include="ViewInterfaces\IUserView.cs" />
+    <Compile Include="ViewModels\UserDetailsViewModel.cs" />
     <Compile Include="Views\GlobalTimeTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,23 +166,23 @@
     <Compile Include="Views\PositionsForm.Designer.cs">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserForm.cs">
+    <Compile Include="Views\UserDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <Compile Include="Views\UserDetailsForm.Designer.cs">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDetailsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserDetailsListForm.Designer.cs">
+      <DependentUpon>UserDetailsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UsersInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\UsersInfoForm.Designer.cs">
       <DependentUpon>UsersInfoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\UserListForm.Designer.cs">
-      <DependentUpon>UserListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserTimeTableForm.cs">
       <SubType>Form</SubType>
@@ -213,14 +215,14 @@
     <EmbeddedResource Include="Views\PositionsForm.resx">
       <DependentUpon>PositionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UserDetailsForm.resx">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserDetailsListForm.resx">
+      <DependentUpon>UserDetailsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UsersInfoForm.resx">
       <DependentUpon>UsersInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserListForm.resx">
-      <DependentUpon>UserListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserTimeTableForm.resx">
       <DependentUpon>UserTimeTableForm.cs</DependentUpon>
@@ -238,6 +240,7 @@
     <None Include="Properties\DataSources\UserProject.Models.position.datasource" />
     <None Include="Properties\DataSources\UserProject.Models.time_table.datasource" />
     <None Include="Properties\DataSources\UserProject.Models.user_data.datasource" />
+    <None Include="Properties\DataSources\UserProject.ViewModels.UserDetailsViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

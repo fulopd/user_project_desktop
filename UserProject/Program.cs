@@ -17,8 +17,9 @@ namespace UserProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            Application.Run(new GlobalTimeTableForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new GlobalTimeTableForm());
+            //Application.Run(new UserDetailsListForm());
         }
     }
 }

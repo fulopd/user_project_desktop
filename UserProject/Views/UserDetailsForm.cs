@@ -10,22 +10,50 @@ using System.Windows.Forms;
 using UserProject.Models;
 using UserProject.Presenters;
 using UserProject.ViewInterfaces;
+using UserProject.ViewModels;
 
 namespace UserProject.Views
 {
-    public partial class UserForm : Form, IUserView
+    public partial class UserDetailsForm : Form, IUserDetailsView
     {
         private int personalId;
         private int userId;
-        private UserPresenter presenter;
-        public UserForm()
+        private UserDetailsPresenter presenter;
+
+        public UserDetailsForm()
         {
             InitializeComponent();
-            presenter = new UserPresenter(this);
-            presenter.LoadData();
+            presenter = new UserDetailsPresenter(this);
+            presenter.GetAllPositions();
         }
 
-        //https://github.com/borosbence/JarmuKolcsonzo/blob/master/JarmuKolcsonzo/Views/JarmuForm.cs
+        public UserDetailsViewModel udvm {
+            get 
+            {
+                var position = (position)comboBoxPositions.SelectedItem;
+                UserDetailsViewModel udvmTemp = new UserDetailsViewModel(
+                    user.id,
+                    user.user_name,
+                    personal.id,
+                    personal.first_name,
+                    personal.last_name,
+                    personal.mother,
+                    personal.birth_date,
+                    personal.location,
+                    personal.email,
+                    personal.phone,
+                    personal.picture,
+                    user.position_id,
+                    position.position_name
+                    );
+                return udvmTemp;
+            } 
+            set 
+            {
+                presenter.GetPersonalData(value.personalDataId);
+                presenter.GetUserData(value.userDataId);
+            } 
+        }
         public personal_data personal
         {
             get
@@ -57,24 +85,11 @@ namespace UserProject.Views
                 textBoxEmail.Text = value.email;
                 textBoxPhone.Text = value.phone;
                 textBoxPicture.Text = value.picture;
-
-                var user_data = value.user_data.SingleOrDefault(x => x.personal_data_id == value.id);
-
-                textBoxUserName.Text = user_data.user_name;
-                textBoxPassword.Text = user_data.password;
-                dateTimePickerFirstWorkingDay.Value = user_data.first_working_day.Value;
-                
-                if (user_data.last_working_day != null)
-                {
-                    dateTimePickerLastWorkingDay.Value = user_data.last_working_day.Value;
-                }
-                comboBoxPositions.SelectedValue = user_data.position_id;
-                userId = user_data.id;
             }
         }
         public user_data user
         {
-            get                
+            get
             {
                 var position = (position)comboBoxPositions.SelectedItem;
                 var positionId = position.id;
@@ -90,7 +105,19 @@ namespace UserProject.Views
                     user_data.id = userId;
                 }
                 return user_data;
-            }            
+            }
+            set 
+            {                                
+                textBoxUserName.Text = value.user_name;
+                textBoxPassword.Text = value.password;
+                dateTimePickerFirstWorkingDay.Value = value.first_working_day.Value;
+                if (value.last_working_day != null)
+                {
+                    dateTimePickerLastWorkingDay.Value = value.last_working_day.Value;
+                }
+                comboBoxPositions.SelectedValue = value.position_id;
+                userId = value.id;
+            }
         }
         public BindingList<position> positionList
         {
@@ -104,11 +131,14 @@ namespace UserProject.Views
             }
         }
 
+        
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            presenter.SavePersonalDataAndUserData(this.personal, this.user);
+            //TODO: Ellenőrzés
+            int perosnalId = presenter.SavePersonalData(personal);
+            presenter.SaveUserData(user, perosnalId);            
             this.DialogResult = DialogResult.OK;
-
         }
     }
 }

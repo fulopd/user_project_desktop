@@ -13,9 +13,7 @@ using UserProject.Services;
 namespace UserProject.Views
 {
     public partial class MainForm : Form
-    {
-        //<package id="EntityFramework" version="6.4.0" targetFramework="net452" />
-        //<package id = "EntityFramework" version="6.1.3" targetFramework="net452" />
+    {        
         public MainForm()
         {
             InitializeComponent();
@@ -26,35 +24,51 @@ namespace UserProject.Views
             this.Text = "User Project - "+ CurrentUser.user.user_name;
                                                   
         }
-
+        private void OpenFormInPanel(Form param)         
+        {
+            panel1.Controls.Clear();
+            param.TopLevel = false;
+            param.AutoScroll = true;
+            param.FormBorderStyle = FormBorderStyle.None;
+            param.Dock = DockStyle.Fill;
+            panel1.Controls.Add(param);            
+            param.Show();
+        }
         private void buttonUserInfo_Click(object sender, EventArgs e)
         {
+            //Form userInfoForm = new UsersInfoForm();
+            //userInfoForm.ShowDialog();
             Form userInfoForm = new UsersInfoForm();
-            userInfoForm.ShowDialog();
+            OpenFormInPanel(userInfoForm);
+            
         }
 
         private void buttonUserTimeTable_Click(object sender, EventArgs e)
         {
             Form userTimeTableForm = new UserTimeTableForm();
-            userTimeTableForm.ShowDialog();
+            //userTimeTableForm.ShowDialog();
+            OpenFormInPanel(userTimeTableForm);
         }
 
         private void buttonPosition_Click(object sender, EventArgs e)
         {
             Form PositionsForm = new PositionsForm();
-            PositionsForm.ShowDialog();
+            //PositionsForm.ShowDialog();
+            OpenFormInPanel(PositionsForm);
         }
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            Form UserListForm = new UserListForm();
-            UserListForm.ShowDialog();
+            Form UserDetailsListForm = new UserDetailsListForm();
+            //UserListForm.ShowDialog();
+            OpenFormInPanel(UserDetailsListForm);
         }
 
         private void buttonGlobalTimeTable_Click(object sender, EventArgs e)
         {
             Form GlobalTimeTable = new GlobalTimeTableForm();
             GlobalTimeTable.ShowDialog();
+            //OpenFormInPanel(GlobalTimeTable);
         }
     }
 }

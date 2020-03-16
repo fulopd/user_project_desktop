@@ -12,13 +12,8 @@ namespace UserProject.Repositories
 {
     class TimeTableRepository : IDisposable
     {
-        private userProjectDBContext db;
-
-        public TimeTableRepository(userProjectDBContext db)
-        {
-            this.db = db;
-        }
-
+        private userProjectDBContext db = new userProjectDBContext();
+        
 
         public bool Exists(time_table param)
         {

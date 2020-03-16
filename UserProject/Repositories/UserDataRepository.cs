@@ -13,16 +13,17 @@ namespace UserProject.Repositories
     class UserDataRepository : IDisposable
     {
        
-        private userProjectDBContext db;
+        private userProjectDBContext db = new userProjectDBContext();
 
-        public UserDataRepository(userProjectDBContext db)
-        {
-            this.db = db;
-        }
        
         public bool Exists(user_data user)
         {
             return db.user_data.Any(x => x.id == user.id);
+        }
+
+        public user_data GetUserData(int id) 
+        {
+            return db.user_data.Find(id);
         }
 
         public void Insert(user_data user)

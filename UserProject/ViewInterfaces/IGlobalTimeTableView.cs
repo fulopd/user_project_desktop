@@ -12,5 +12,6 @@ namespace UserProject.ViewInterfaces
     public interface IGlobalTimeTableView
     {        
         DataTable globalTimeTable { get; set; }
+        DateTime selectedDate { get; }
     }
 }

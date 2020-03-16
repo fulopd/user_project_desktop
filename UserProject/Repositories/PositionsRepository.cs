@@ -13,7 +13,7 @@ namespace UserProject.Repositories
     class PositionsRepository : IDisposable
     {
         private userProjectDBContext db = new userProjectDBContext();
-
+      
         public BindingList<position> getAllPositions()
         {
             db.position.OrderBy(x => x.priority).Load();

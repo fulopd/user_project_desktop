@@ -12,16 +12,15 @@ namespace UserProject.Repositories
 {
     class PersonalDataRepository : IDisposable
     {
-        //private userProjectDBContext db = new userProjectDBContext();
-        private userProjectDBContext db;
+        private userProjectDBContext db = new userProjectDBContext();        
         private int _totalItems;
 
-        public PersonalDataRepository(userProjectDBContext db)
+        public personal_data GetPersonalData(int id)
         {
-            this.db = db;
+            return db.personal_data.Find(id);
         }
 
-        public BindingList<personal_data> GetAllUserPersonalData(
+        public BindingList<personal_data> GetAllPersonalData(
             int page = 0,
             int itemsPerPage = 0,
             string search = null,
