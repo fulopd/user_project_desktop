@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFirst = new System.Windows.Forms.Button();
             this.buttonPrev = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,7 +58,6 @@
             this.positionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDetailsViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDetailsViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +65,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -103,7 +102,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 60);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 37);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -114,25 +114,15 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 354);
             this.dataGridView1.TabIndex = 0;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.buttonFirst);
-            this.flowLayoutPanel1.Controls.Add(this.buttonPrev);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.buttonNext);
-            this.flowLayoutPanel1.Controls.Add(this.buttonLast);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(210, 420);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(368, 33);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
             // buttonFirst
             // 
-            this.buttonFirst.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonFirst.Location = new System.Drawing.Point(3, 3);
+            this.buttonFirst.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonFirst.Location = new System.Drawing.Point(236, 401);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(75, 23);
             this.buttonFirst.TabIndex = 0;
@@ -142,8 +132,8 @@
             // 
             // buttonPrev
             // 
-            this.buttonPrev.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPrev.Location = new System.Drawing.Point(84, 3);
+            this.buttonPrev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonPrev.Location = new System.Drawing.Point(317, 401);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(75, 23);
             this.buttonPrev.TabIndex = 1;
@@ -153,9 +143,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 8);
+            this.label1.Location = new System.Drawing.Point(398, 406);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -163,8 +153,8 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonNext.Location = new System.Drawing.Point(206, 3);
+            this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonNext.Location = new System.Drawing.Point(439, 401);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 3;
@@ -174,8 +164,8 @@
             // 
             // buttonLast
             // 
-            this.buttonLast.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLast.Location = new System.Drawing.Point(287, 3);
+            this.buttonLast.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonLast.Location = new System.Drawing.Point(520, 401);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(75, 23);
             this.buttonLast.TabIndex = 4;
@@ -185,14 +175,14 @@
             // 
             // textBoxSearchText
             // 
-            this.textBoxSearchText.Location = new System.Drawing.Point(12, 33);
+            this.textBoxSearchText.Location = new System.Drawing.Point(12, 10);
             this.textBoxSearchText.Name = "textBoxSearchText";
             this.textBoxSearchText.Size = new System.Drawing.Size(156, 20);
             this.textBoxSearchText.TabIndex = 2;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(174, 31);
+            this.buttonSearch.Location = new System.Drawing.Point(174, 8);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 3;
@@ -202,7 +192,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(255, 31);
+            this.buttonEdit.Location = new System.Drawing.Point(255, 8);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 4;
@@ -212,7 +202,7 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(336, 30);
+            this.buttonNew.Location = new System.Drawing.Point(336, 7);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(75, 23);
             this.buttonNew.TabIndex = 5;
@@ -222,7 +212,7 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(417, 30);
+            this.buttonRemove.Location = new System.Drawing.Point(417, 7);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 6;
@@ -233,63 +223,63 @@
             // positionPositionnameDataGridViewTextBoxColumn
             // 
             this.positionPositionnameDataGridViewTextBoxColumn.DataPropertyName = "positionPosition_name";
-            this.positionPositionnameDataGridViewTextBoxColumn.HeaderText = "positionPosition_name";
+            this.positionPositionnameDataGridViewTextBoxColumn.HeaderText = "Beosztás";
             this.positionPositionnameDataGridViewTextBoxColumn.Name = "positionPositionnameDataGridViewTextBoxColumn";
             this.positionPositionnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataFirstnameDataGridViewTextBoxColumn
             // 
             this.personalDataFirstnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataFirst_name";
-            this.personalDataFirstnameDataGridViewTextBoxColumn.HeaderText = "personalDataFirst_name";
+            this.personalDataFirstnameDataGridViewTextBoxColumn.HeaderText = "Vezetéknév";
             this.personalDataFirstnameDataGridViewTextBoxColumn.Name = "personalDataFirstnameDataGridViewTextBoxColumn";
             this.personalDataFirstnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataLastnameDataGridViewTextBoxColumn
             // 
             this.personalDataLastnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataLast_name";
-            this.personalDataLastnameDataGridViewTextBoxColumn.HeaderText = "personalDataLast_name";
+            this.personalDataLastnameDataGridViewTextBoxColumn.HeaderText = "Keresztnév";
             this.personalDataLastnameDataGridViewTextBoxColumn.Name = "personalDataLastnameDataGridViewTextBoxColumn";
             this.personalDataLastnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataLocationDataGridViewTextBoxColumn
             // 
             this.personalDataLocationDataGridViewTextBoxColumn.DataPropertyName = "personalDataLocation";
-            this.personalDataLocationDataGridViewTextBoxColumn.HeaderText = "personalDataLocation";
+            this.personalDataLocationDataGridViewTextBoxColumn.HeaderText = "Település";
             this.personalDataLocationDataGridViewTextBoxColumn.Name = "personalDataLocationDataGridViewTextBoxColumn";
             this.personalDataLocationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataEmailDataGridViewTextBoxColumn
             // 
             this.personalDataEmailDataGridViewTextBoxColumn.DataPropertyName = "personalDataEmail";
-            this.personalDataEmailDataGridViewTextBoxColumn.HeaderText = "personalDataEmail";
+            this.personalDataEmailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.personalDataEmailDataGridViewTextBoxColumn.Name = "personalDataEmailDataGridViewTextBoxColumn";
             this.personalDataEmailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataPhoneDataGridViewTextBoxColumn
             // 
             this.personalDataPhoneDataGridViewTextBoxColumn.DataPropertyName = "personalDataPhone";
-            this.personalDataPhoneDataGridViewTextBoxColumn.HeaderText = "personalDataPhone";
+            this.personalDataPhoneDataGridViewTextBoxColumn.HeaderText = "Telefon";
             this.personalDataPhoneDataGridViewTextBoxColumn.Name = "personalDataPhoneDataGridViewTextBoxColumn";
             this.personalDataPhoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataBirthdateDataGridViewTextBoxColumn
             // 
             this.personalDataBirthdateDataGridViewTextBoxColumn.DataPropertyName = "personalDataBirth_date";
-            this.personalDataBirthdateDataGridViewTextBoxColumn.HeaderText = "personalDataBirth_date";
+            this.personalDataBirthdateDataGridViewTextBoxColumn.HeaderText = "Születési dátum";
             this.personalDataBirthdateDataGridViewTextBoxColumn.Name = "personalDataBirthdateDataGridViewTextBoxColumn";
             this.personalDataBirthdateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // personalDataMotherDataGridViewTextBoxColumn
             // 
             this.personalDataMotherDataGridViewTextBoxColumn.DataPropertyName = "personalDataMother";
-            this.personalDataMotherDataGridViewTextBoxColumn.HeaderText = "personalDataMother";
+            this.personalDataMotherDataGridViewTextBoxColumn.HeaderText = "Anyja Neve";
             this.personalDataMotherDataGridViewTextBoxColumn.Name = "personalDataMotherDataGridViewTextBoxColumn";
             this.personalDataMotherDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userDataUsernameDataGridViewTextBoxColumn
             // 
             this.userDataUsernameDataGridViewTextBoxColumn.DataPropertyName = "userDataUser_name";
-            this.userDataUsernameDataGridViewTextBoxColumn.HeaderText = "userDataUser_name";
+            this.userDataUsernameDataGridViewTextBoxColumn.HeaderText = "Felhasználó";
             this.userDataUsernameDataGridViewTextBoxColumn.Name = "userDataUsernameDataGridViewTextBoxColumn";
             this.userDataUsernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -299,6 +289,7 @@
             this.personalDataPictureDataGridViewTextBoxColumn.HeaderText = "personalDataPicture";
             this.personalDataPictureDataGridViewTextBoxColumn.Name = "personalDataPictureDataGridViewTextBoxColumn";
             this.personalDataPictureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personalDataPictureDataGridViewTextBoxColumn.Visible = false;
             // 
             // userDataIdDataGridViewTextBoxColumn
             // 
@@ -332,20 +323,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 433);
+            this.Controls.Add(this.buttonFirst);
             this.Controls.Add(this.buttonRemove);
+            this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNew);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.textBoxSearchText);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "UserDetailsListForm";
             this.Text = "UserDetailsListForm";
             this.Load += new System.EventHandler(this.UserDetailsListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDetailsViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -356,7 +349,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource userDetailsViewModelBindingSource;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttonFirst;
         private System.Windows.Forms.Button buttonPrev;
         private System.Windows.Forms.Label label1;

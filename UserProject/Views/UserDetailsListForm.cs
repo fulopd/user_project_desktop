@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,9 +56,15 @@ namespace UserProject.Views
 
         private void UserDetailsListForm_Load(object sender, EventArgs e)
         {
+            SetDoubleBuffered(dataGridView1, true);
             presenter.LoadData();
         }
-
+        private void SetDoubleBuffered(DataGridView dataGridView, bool p)
+        {
+            Type dgvType = dataGridView.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dataGridView, p, null);
+        }
         private void buttonFirst_Click(object sender, EventArgs e)
         {
             pageNumber = 1;

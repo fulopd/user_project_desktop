@@ -93,14 +93,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(1, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(783, 420);
+            this.panel1.Size = new System.Drawing.Size(978, 494);
             this.panel1.TabIndex = 4;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(979, 535);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonGlobalTimeTable);
             this.Controls.Add(this.buttonUserList);

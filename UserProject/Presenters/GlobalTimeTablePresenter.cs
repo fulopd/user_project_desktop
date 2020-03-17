@@ -56,42 +56,46 @@ namespace UserProject.Presenters
                     dt.Rows.Add(positionItem.position_name);
                     foreach (var item in positionItem.user_data)
                     {
-                        //Első oszlopban név kiíratása
-                        dt.Rows.Add(item.personal_data.first_name + " " + item.personal_data.last_name);
-                        //Utolsó oszlopba Névhez tartozó user_data ID kiíratása
-                        dt.Rows[dt.Rows.Count - 1][dt.Columns.Count - 1] = item.id;
-                        //Adott userhez tartozó beosztás lekérés (kiválasztott időszakra)
-                        List<time_table> userTimeTable = new List<time_table>();
-                        userTimeTable = item.time_table.Where(x => x.start_date.Year == selectedYear && x.start_date.Month == selectedMonth).ToList();
-                        //Ha van a kiválasztott időszakra beosztása a neki létrehozott sorba kiíratás
-                        if (userTimeTable.Count > 0)
+                        //aktív állományban van vagy a kiválasztott hónapban lépett ki vagy attól régebben
+                        if (item.last_working_day == null || (item.last_working_day.Value.Year >= selectedYear && item.last_working_day.Value.Month >= selectedMonth))
                         {
-                            //Oszlop index megfelel dátumnak(nap) (1 es oszlop indexbe kell hogy kerüljön elseje...)
-                            for (int i = 1; i <= dt.Columns.Count - 2; i++)
+                            //Első oszlopban név kiíratása
+                            dt.Rows.Add(item.personal_data.first_name + " " + item.personal_data.last_name);
+                            //Utolsó oszlopba Névhez tartozó user_data ID kiíratása
+                            dt.Rows[dt.Rows.Count - 1][dt.Columns.Count - 1] = item.id;
+                            //Adott userhez tartozó beosztás lekérés (kiválasztott időszakra)
+                            List<time_table> userTimeTable = new List<time_table>();
+                            userTimeTable = item.time_table.Where(x => x.start_date.Year == selectedYear && x.start_date.Month == selectedMonth).ToList();
+                            //Ha van a kiválasztott időszakra beosztása a neki létrehozott sorba kiíratás
+                            if (userTimeTable.Count > 0)
                             {
-                                string cell = "";
-                                if (userTimeTable.Any(x => x.start_date.Day == i))
+                                //Oszlop index megfelel dátumnak(nap) (1 es oszlop indexbe kell hogy kerüljön elseje...)
+                                for (int i = 1; i <= dt.Columns.Count - 2; i++)
                                 {
-                                    time_table dayTime = userTimeTable.SingleOrDefault(x => x.start_date.Day == i);
-                                    if ((bool)dayTime.paid_leave)
+                                    string cell = "";
+                                    if (userTimeTable.Any(x => x.start_date.Day == i))
                                     {
-                                        cell = "FSZ";
-                                    }
-                                    else if ((bool)dayTime.sick_leave)
-                                    {
-                                        cell = "B";
-                                    }
-                                    else
-                                    {
-                                        int startTime = dayTime.start_date.Hour;
-                                        DateTime stopTime = (DateTime)dayTime.end_date;
-                                        cell = startTime + "-" + stopTime.Hour;
+                                        time_table dayTime = userTimeTable.SingleOrDefault(x => x.start_date.Day == i);
+                                        if ((bool)dayTime.paid_leave)
+                                        {
+                                            cell = "FSZ";
+                                        }
+                                        else if ((bool)dayTime.sick_leave)
+                                        {
+                                            cell = "B";
+                                        }
+                                        else
+                                        {
+                                            int startTime = dayTime.start_date.Hour;
+                                            DateTime stopTime = (DateTime)dayTime.end_date;
+                                            cell = startTime + "-" + stopTime.Hour;
+                                        }
+
                                     }
 
+                                    dt.Rows[dt.Rows.Count - 1][i] = cell;
                                 }
-
-                                dt.Rows[dt.Rows.Count - 1][i] = cell;
-                            }
+                            } 
                         }
 
                     }

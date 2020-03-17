@@ -58,6 +58,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.comboBoxPositions = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.checkBoxLastDay = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -266,7 +267,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(416, 163);
+            this.label15.Location = new System.Drawing.Point(422, 233);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(46, 13);
             this.label15.TabIndex = 0;
@@ -274,7 +275,8 @@
             // 
             // dateTimePickerLastWorkingDay
             // 
-            this.dateTimePickerLastWorkingDay.Location = new System.Drawing.Point(491, 159);
+            this.dateTimePickerLastWorkingDay.Enabled = false;
+            this.dateTimePickerLastWorkingDay.Location = new System.Drawing.Point(497, 229);
             this.dateTimePickerLastWorkingDay.Name = "dateTimePickerLastWorkingDay";
             this.dateTimePickerLastWorkingDay.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerLastWorkingDay.TabIndex = 2;
@@ -282,7 +284,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(416, 194);
+            this.label16.Location = new System.Drawing.Point(416, 167);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 0;
@@ -291,7 +293,7 @@
             // comboBoxPositions
             // 
             this.comboBoxPositions.FormattingEnabled = true;
-            this.comboBoxPositions.Location = new System.Drawing.Point(491, 190);
+            this.comboBoxPositions.Location = new System.Drawing.Point(491, 163);
             this.comboBoxPositions.Name = "comboBoxPositions";
             this.comboBoxPositions.Size = new System.Drawing.Size(200, 21);
             this.comboBoxPositions.TabIndex = 5;
@@ -306,11 +308,23 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // checkBoxLastDay
+            // 
+            this.checkBoxLastDay.AutoSize = true;
+            this.checkBoxLastDay.Location = new System.Drawing.Point(425, 206);
+            this.checkBoxLastDay.Name = "checkBoxLastDay";
+            this.checkBoxLastDay.Size = new System.Drawing.Size(156, 17);
+            this.checkBoxLastDay.TabIndex = 7;
+            this.checkBoxLastDay.Text = "Munkaviszony megszűnése";
+            this.checkBoxLastDay.UseVisualStyleBackColor = true;
+            this.checkBoxLastDay.CheckedChanged += new System.EventHandler(this.checkBoxLastDay_CheckedChanged);
+            // 
             // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxLastDay);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxPositions);
             this.Controls.Add(this.textBoxPicture);
@@ -380,5 +394,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBoxPositions;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.CheckBox checkBoxLastDay;
     }
 }

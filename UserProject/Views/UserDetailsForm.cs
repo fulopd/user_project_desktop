@@ -91,13 +91,18 @@ namespace UserProject.Views
         {
             get
             {
+                DateTime? LastDay = null;
+                if (checkBoxLastDay.Checked)
+                {
+                    LastDay = dateTimePickerLastWorkingDay.Value;
+                }
                 var position = (position)comboBoxPositions.SelectedItem;
                 var positionId = position.id;
                 var user_data = new user_data(
                         textBoxUserName.Text,
                         textBoxPassword.Text,
                         dateTimePickerFirstWorkingDay.Value,
-                        dateTimePickerLastWorkingDay.Value,
+                        LastDay,                        
                         positionId
                     );
                 if (userId > 0)
@@ -114,6 +119,11 @@ namespace UserProject.Views
                 if (value.last_working_day != null)
                 {
                     dateTimePickerLastWorkingDay.Value = value.last_working_day.Value;
+                    checkBoxLastDay.Checked = true;
+                }
+                else
+                {
+                    checkBoxLastDay.Checked = false;
                 }
                 comboBoxPositions.SelectedValue = value.position_id;
                 userId = value.id;
@@ -139,6 +149,11 @@ namespace UserProject.Views
             int perosnalId = presenter.SavePersonalData(personal);
             presenter.SaveUserData(user, perosnalId);            
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void checkBoxLastDay_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePickerLastWorkingDay.Enabled = checkBoxLastDay.Checked;
         }
     }
 }

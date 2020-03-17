@@ -41,7 +41,12 @@ namespace UserProject.Presenters
             }
             else
             {
-                var user = db.user_data.SingleOrDefault(x => x.user_name == view.userName && x.password == view.password);
+                DateTime date = DateTime.Now;
+                
+                var user = db.user_data.SingleOrDefault(x => 
+                        x.user_name == view.userName && 
+                        x.password == view.password && 
+                        (x.last_working_day == null || x.last_working_day >= date.Date));
 
                 if (user != null)
                 {
