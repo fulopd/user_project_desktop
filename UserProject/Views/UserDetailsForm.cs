@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserProject.Models;
 using UserProject.Presenters;
+using UserProject.Services;
 using UserProject.ViewInterfaces;
 using UserProject.ViewModels;
 
@@ -19,6 +21,7 @@ namespace UserProject.Views
         private int personalId;
         private int userId;
         private UserDetailsPresenter presenter;
+        private string localFileFullPath = "";
 
         public UserDetailsForm()
         {
@@ -27,8 +30,9 @@ namespace UserProject.Views
             presenter.GetAllPositions();
         }
 
-        public UserDetailsViewModel udvm {
-            get 
+        public UserDetailsViewModel udvm
+        {
+            get
             {
                 var position = (position)comboBoxPositions.SelectedItem;
                 UserDetailsViewModel udvmTemp = new UserDetailsViewModel(
@@ -47,12 +51,12 @@ namespace UserProject.Views
                     position.position_name
                     );
                 return udvmTemp;
-            } 
-            set 
+            }
+            set
             {
                 presenter.GetPersonalData(value.personalDataId);
                 presenter.GetUserData(value.userDataId);
-            } 
+            }
         }
         public personal_data personal
         {
@@ -66,7 +70,7 @@ namespace UserProject.Views
                     textBoxLocation.Text,
                     textBoxEmail.Text,
                     textBoxPhone.Text,
-                    textBoxPicture.Text
+                    textBoxPicture.Text == string.Empty ? "profile.jpg" : textBoxPicture.Text
                     );
                 if (personalId > 0)
                 {
@@ -102,7 +106,7 @@ namespace UserProject.Views
                         textBoxUserName.Text,
                         textBoxPassword.Text,
                         dateTimePickerFirstWorkingDay.Value,
-                        LastDay,                        
+                        LastDay,
                         positionId
                     );
                 if (userId > 0)
@@ -111,8 +115,8 @@ namespace UserProject.Views
                 }
                 return user_data;
             }
-            set 
-            {                                
+            set
+            {
                 textBoxUserName.Text = value.user_name;
                 textBoxPassword.Text = value.password;
                 dateTimePickerFirstWorkingDay.Value = value.first_working_day.Value;
@@ -141,19 +145,53 @@ namespace UserProject.Views
             }
         }
 
-        
+
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //TODO: Ellenőrzés
             int perosnalId = presenter.SavePersonalData(personal);
-            presenter.SaveUserData(user, perosnalId);            
+            presenter.SaveUserData(user, perosnalId);
+
+            if (localFileFullPath!="")
+            {
+                string newFileName = perosnalId + ".jpg";
+                FTP.upload(localFileFullPath, newFileName);
+                presenter.UpdatePictur(perosnalId, newFileName);
+            }
+            
             this.DialogResult = DialogResult.OK;
         }
 
         private void checkBoxLastDay_CheckedChanged(object sender, EventArgs e)
         {
             dateTimePickerLastWorkingDay.Enabled = checkBoxLastDay.Checked;
+        }
+
+        private void buttonOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"D:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "jpg",
+                Filter = "Image files (*.jpg)|*.jpg",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                localFileFullPath = openFileDialog1.FileName;
+                textBoxPicture.Text = localFileFullPath;
+            }
         }
     }
 }

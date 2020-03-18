@@ -114,11 +114,11 @@ namespace UserProject.Repositories
             db.personal_data.Add(param);
         }
 
-        public void Delete(int id)
-        {
-            var personal = db.personal_data.Find(id);
-            db.personal_data.Remove(personal);
-        }
+        //public void Delete(int id)
+        //{
+        //    var personal = db.personal_data.Find(id);
+        //    db.personal_data.Remove(personal);
+        //}
 
         public void Update(personal_data param)
         {
@@ -128,6 +128,17 @@ namespace UserProject.Repositories
                 db.Entry(personal).CurrentValues.SetValues(param);
             }
         }
+        public void UpdatePicture(int id, string fileName)
+        {
+            var personal = db.personal_data.Find(id);
+            if (personal != null)
+            {
+                personal.picture = fileName;
+                db.Entry(personal).State = EntityState.Modified;
+                Save();
+            }
+        }
+
         public void Save()
         {
             db.SaveChanges();

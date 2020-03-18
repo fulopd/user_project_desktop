@@ -59,6 +59,8 @@
             this.comboBoxPositions = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxLastDay = new System.Windows.Forms.CheckBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.buttonOpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -319,11 +321,26 @@
             this.checkBoxLastDay.UseVisualStyleBackColor = true;
             this.checkBoxLastDay.CheckedChanged += new System.EventHandler(this.checkBoxLastDay_CheckedChanged);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // buttonOpenFile
+            // 
+            this.buttonOpenFile.Location = new System.Drawing.Point(283, 260);
+            this.buttonOpenFile.Name = "buttonOpenFile";
+            this.buttonOpenFile.Size = new System.Drawing.Size(44, 23);
+            this.buttonOpenFile.TabIndex = 8;
+            this.buttonOpenFile.Text = "Tallóz";
+            this.buttonOpenFile.UseVisualStyleBackColor = true;
+            this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
+            // 
             // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOpenFile);
             this.Controls.Add(this.checkBoxLastDay);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxPositions);
@@ -395,5 +412,7 @@
         private System.Windows.Forms.ComboBox comboBoxPositions;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox checkBoxLastDay;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button buttonOpenFile;
     }
 }

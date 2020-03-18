@@ -40,21 +40,21 @@ namespace UserProject.Presenters
             view.bindingList[rowIndex] = param;
         }
 
-        public void Remove(int rowIndex, UserDetailsViewModel param) 
-        {
-            using (UserDataRepository userRepo = new UserDataRepository())
-            {
-                userRepo.Delete(param.userDataId);
-                userRepo.Save();
-            }
+        //public void Remove(int rowIndex, UserDetailsViewModel param) 
+        //{
+        //    using (UserDataRepository userRepo = new UserDataRepository())
+        //    {
+        //        userRepo.Delete(param.userDataId);
+        //        userRepo.Save();
+        //    }
 
-            using (PersonalDataRepository personalRepo = new PersonalDataRepository())
-            {                
-                personalRepo.Delete(param.personalDataId);
-                personalRepo.Save();
-            }
+        //    using (PersonalDataRepository personalRepo = new PersonalDataRepository())
+        //    {                
+        //        personalRepo.Delete(param.personalDataId);
+        //        personalRepo.Save();
+        //    }
 
-            view.bindingList.RemoveAt(rowIndex);
-        }
+        //    view.bindingList.RemoveAt(rowIndex);
+        //}
     }
 }

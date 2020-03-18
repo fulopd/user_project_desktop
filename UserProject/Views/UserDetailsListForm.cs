@@ -157,29 +157,7 @@ namespace UserProject.Views
                 }
             }
         }
-
-        private void buttonRemove_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows != null)
-            {
-                var sorIndex = dataGridView1.SelectedCells[0].RowIndex;
-                dataGridView1.ClearSelection();
-                dataGridView1.Rows[sorIndex].Selected = true;
-            }
-            RemoveDGRow(dataGridView1.SelectedRows[0].Index);
-
-        }
-
-        private void RemoveDGRow(int index)
-        {
-            var userDetail = (UserDetailsViewModel)dataGridView1.Rows[index].DataBoundItem;
-            if (userDetail != null)
-            {
-                presenter.Remove(dataGridView1.SelectedRows[0].Index, userDetail);
-            }
-
-        }
-
+        
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (colIndex == e.ColumnIndex)
@@ -193,8 +171,7 @@ namespace UserProject.Views
                     sortBy = "id";
                     break;
                 case 0:
-                    sortBy = "position";
-                    Debug.WriteLine(e.ColumnIndex);
+                    sortBy = "position";                    
                     break;
                 case 1:
                     sortBy = "firstname";

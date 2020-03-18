@@ -125,6 +125,7 @@
     <Compile Include="Repositories\UserDataRepository.cs" />
     <Compile Include="Repositories\UserDetailsVMRepository.cs" />
     <Compile Include="Services\CurrentUser.cs" />
+    <Compile Include="Services\FTP.cs" />
     <Compile Include="ViewInterfaces\IGlobalTimeTableView.cs" />
     <Compile Include="ViewInterfaces\ILoginView.cs" />
     <Compile Include="ViewInterfaces\IPositionAddView.cs" />

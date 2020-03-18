@@ -35,23 +35,23 @@ namespace UserProject.Repositories
             db.user_data.Add(user);
         }
 
-        public void Delete(int id)
-        {
-            var user = db.user_data.Find(id);
-            db.user_data.Remove(user);
-        }
+        //public void Delete(int id)
+        //{
+        //    var user = db.user_data.Find(id);
+        //    db.user_data.Remove(user);
+        //}
 
         public void Update(user_data param)
         {
             var user = db.user_data.Find(param.id);
             if (user != null)
-            {
-                //db.Entry(user).CurrentValues.SetValues(param);                
+            {               
                 user.user_name = param.user_name;
                 user.password = param.password;
                 user.first_working_day = param.first_working_day;
                 user.last_working_day = param.last_working_day;
                 user.position_id = param.position_id;
+                db.Entry(user).State = EntityState.Modified;
             }
         }
         

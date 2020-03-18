@@ -46,6 +46,14 @@ namespace UserProject.Presenters
             
         }
 
+        public void UpdatePictur(int id, string fileName)
+        {
+            using (PersonalDataRepository personalRepo = new PersonalDataRepository())
+            {
+                personalRepo.UpdatePicture(id, fileName);
+            }
+        }
+
         public int SavePersonalData(personal_data personalParam)
         {
             int id;
