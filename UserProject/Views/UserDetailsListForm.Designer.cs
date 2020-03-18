@@ -43,6 +43,7 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
+            this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.positionPositionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personalDataFirstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personalDataLastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,13 +117,14 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(948, 354);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // buttonFirst
             // 
             this.buttonFirst.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonFirst.Location = new System.Drawing.Point(236, 401);
+            this.buttonFirst.Location = new System.Drawing.Point(322, 401);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(75, 23);
             this.buttonFirst.TabIndex = 0;
@@ -133,7 +135,7 @@
             // buttonPrev
             // 
             this.buttonPrev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonPrev.Location = new System.Drawing.Point(317, 401);
+            this.buttonPrev.Location = new System.Drawing.Point(403, 401);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(75, 23);
             this.buttonPrev.TabIndex = 1;
@@ -145,7 +147,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(398, 406);
+            this.label1.Location = new System.Drawing.Point(484, 406);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -154,7 +156,7 @@
             // buttonNext
             // 
             this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonNext.Location = new System.Drawing.Point(439, 401);
+            this.buttonNext.Location = new System.Drawing.Point(525, 401);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 3;
@@ -165,7 +167,7 @@
             // buttonLast
             // 
             this.buttonLast.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonLast.Location = new System.Drawing.Point(520, 401);
+            this.buttonLast.Location = new System.Drawing.Point(606, 401);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(75, 23);
             this.buttonLast.TabIndex = 4;
@@ -219,6 +221,17 @@
             this.buttonRemove.Text = "Törlés";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // checkBoxActive
+            // 
+            this.checkBoxActive.AutoSize = true;
+            this.checkBoxActive.Location = new System.Drawing.Point(498, 12);
+            this.checkBoxActive.Name = "checkBoxActive";
+            this.checkBoxActive.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxActive.TabIndex = 7;
+            this.checkBoxActive.Text = "Inaktív dolgozók";
+            this.checkBoxActive.UseVisualStyleBackColor = true;
+            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
             // 
             // positionPositionnameDataGridViewTextBoxColumn
             // 
@@ -323,7 +336,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 433);
+            this.ClientSize = new System.Drawing.Size(972, 433);
+            this.Controls.Add(this.checkBoxActive);
             this.Controls.Add(this.buttonFirst);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonPrev);
@@ -372,5 +386,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userDataIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personalDataIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox checkBoxActive;
     }
 }

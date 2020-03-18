@@ -16,6 +16,7 @@ namespace UserProject.ViewInterfaces
         string search { get; }
         string sortBy { get; set; }
         bool ascending { get; set; }
+        bool active { get; set; }
         int totalItems { set; }
     }
 }

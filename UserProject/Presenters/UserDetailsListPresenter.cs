@@ -24,7 +24,7 @@ namespace UserProject.Presenters
             using (UserDetailsVMRepository repo = new UserDetailsVMRepository())
             {
                 view.bindingList = repo.GetAllRendelesVM(
-                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending);
+                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending, view.active);
                 view.totalItems = repo.Count();
             }
 

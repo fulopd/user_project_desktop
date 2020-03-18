@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -18,7 +19,7 @@ namespace UserProject.Views
     {
         UserDetailsListPresenter presenter;
         private int pageCount;
-        private int sortIndex;
+        private int colIndex;        
 
         public UserDetailsListForm()
         {
@@ -36,23 +37,26 @@ namespace UserProject.Views
         {
             pageNumber = 1;
             itemsPerPage = 20;
-            sortBy = "Id";
-            sortIndex = 0;
+            sortBy = "Id";            
             ascending = true;
+            active = true;
         }
         public int pageNumber { get; set; }
         public int itemsPerPage { get; set; }
         public string search => textBoxSearchText.Text;
         public string sortBy { get; set; }
         public bool ascending { get; set; }
+        public bool active { get; set; }
         public int totalItems
         {
             set
             {
                 pageCount = (value - 1) / itemsPerPage + 1;
-                label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();                
+                label1.Text = pageNumber.ToString() + "/" + pageCount.ToString();
             }
         }
+
+
 
         private void UserDetailsListForm_Load(object sender, EventArgs e)
         {
@@ -99,7 +103,12 @@ namespace UserProject.Views
         {
             presenter.LoadData();
         }
-
+        private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
+        {
+            active = !active;
+            Debug.WriteLine(active);
+            presenter.LoadData();
+        }
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows != null)
@@ -150,15 +159,15 @@ namespace UserProject.Views
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
-        {            
+        {
             if (dataGridView1.SelectedRows != null)
             {
                 var sorIndex = dataGridView1.SelectedCells[0].RowIndex;
                 dataGridView1.ClearSelection();
-                dataGridView1.Rows[sorIndex].Selected = true;                
+                dataGridView1.Rows[sorIndex].Selected = true;
             }
             RemoveDGRow(dataGridView1.SelectedRows[0].Index);
-            
+
         }
 
         private void RemoveDGRow(int index)
@@ -168,7 +177,54 @@ namespace UserProject.Views
             {
                 presenter.Remove(dataGridView1.SelectedRows[0].Index, userDetail);
             }
-            
+
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (colIndex == e.ColumnIndex)
+            {
+                ascending = !ascending;
+            }
+
+            switch (e.ColumnIndex)
+            {
+                default:
+                    sortBy = "id";
+                    break;
+                case 0:
+                    sortBy = "position";
+                    Debug.WriteLine(e.ColumnIndex);
+                    break;
+                case 1:
+                    sortBy = "firstname";
+                    break;
+                case 2:
+                    sortBy = "lastname";
+                    break;
+                case 3:
+                    sortBy = "location";
+                    break;
+                case 4:
+                    sortBy = "email";
+                    break;
+                case 5:
+                    sortBy = "phone";
+                    break;
+                case 6:
+                    sortBy = "birth";
+                    break;
+                case 7:
+                    sortBy = "mother";
+                    break;
+                case 8:
+                    sortBy = "user";
+                    break;
+
+            }
+
+            colIndex = e.ColumnIndex;
+            presenter.LoadData();
         }
     }
 }

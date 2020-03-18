@@ -14,15 +14,28 @@ namespace UserProject.Repositories
     {
         private userProjectDBContext db = new userProjectDBContext();
         private int _totalItems;
+        private DateTime date = DateTime.Now; 
 
         public BindingList<UserDetailsViewModel> GetAllRendelesVM(
             int page = 0,
             int itemsPerPage = 0,
             string search = null,
             string sortBy = null,
-            bool ascending = true)
+            bool ascending = true,
+            bool active = true)
         {
             var query = db.user_data.OrderBy(x => x.id).AsQueryable();
+
+            //aktív / inaktív dolgozók
+            if (active)
+            {
+                query = query.Where(x => x.last_working_day == null || x.last_working_day >= date.Date);//active
+            }
+            else
+            {
+                query = query.Where(x => x.last_working_day != null || x.last_working_day <= date.Date);//inactive
+            }
+            
            
             // Keresés
             if (!string.IsNullOrWhiteSpace(search))
@@ -38,40 +51,42 @@ namespace UserProject.Repositories
             }
 
             // Sorbarendezés
-            //if (!string.IsNullOrWhiteSpace(sortBy))
-            //{
-            //    switch (sortBy)
-            //    {
-            //        default:
-            //            query = ascending ? query.OrderBy(x => x.id) : query.OrderByDescending(x => x.id);
-            //            break;
-            //        case "ugyfelnev":
-            //            query = ascending ? query.
-            //                OrderBy(x => x.ugyfel.vezeteknev).
-            //                ThenBy(x => x.ugyfel.keresztnev) : query.
-            //                OrderByDescending(x => x.ugyfel.vezeteknev).
-            //                ThenByDescending(x => x.ugyfel.keresztnev);
-            //            break;
-            //        case "telefonszam":
-            //            query = ascending ? query.OrderBy(x => x.ugyfel.telefonszam) : query.OrderByDescending(x => x.ugyfel.telefonszam);
-            //            break;
-            //        case "email":
-            //            query = ascending ? query.OrderBy(x => x.ugyfel.email) : query.OrderByDescending(x => x.ugyfel.email);
-            //            break;
-            //        case "pont":
-            //            query = ascending ? query.OrderBy(x => x.ugyfel.pont) : query.OrderByDescending(x => x.ugyfel.pont);
-            //            break;
-            //        case "rendszam":
-            //            query = ascending ? query.OrderBy(x => x.jarmu.rendszam) : query.OrderByDescending(x => x.jarmu.rendszam);
-            //            break;
-            //        case "ferohely":
-            //            query = ascending ? query.OrderBy(x => x.jarmu.ferohely) : query.OrderByDescending(x => x.jarmu.ferohely);
-            //            break;
-            //        case "datum":
-            //            query = ascending ? query.OrderBy(x => x.datum) : query.OrderByDescending(x => x.datum);
-            //            break;
-            //    }
-            //}
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                switch (sortBy)
+                {
+                    default:
+                        query = ascending ? query.OrderBy(x => x.id) : query.OrderByDescending(x => x.id);
+                        break;                    
+                    case "position":
+                        query = ascending ? query.OrderBy(x => x.position.position_name) : query.OrderByDescending(x => x.position.position_name);
+                        break;
+                    case "firstname":
+                        query = ascending ? query.OrderBy(x => x.personal_data.first_name) : query.OrderByDescending(x => x.personal_data.first_name);
+                        break;
+                    case "lastname":
+                        query = ascending ? query.OrderBy(x => x.personal_data.last_name) : query.OrderByDescending(x => x.personal_data.last_name);
+                        break;
+                    case "location":
+                        query = ascending ? query.OrderBy(x => x.personal_data.location) : query.OrderByDescending(x => x.personal_data.location);
+                        break;
+                    case "email":
+                        query = ascending ? query.OrderBy(x => x.personal_data.email) : query.OrderByDescending(x => x.personal_data.email);
+                        break;
+                    case "phone":
+                        query = ascending ? query.OrderBy(x => x.personal_data.phone) : query.OrderByDescending(x => x.personal_data.phone);
+                        break;
+                    case "birth":
+                        query = ascending ? query.OrderBy(x => x.personal_data.birth_date) : query.OrderByDescending(x => x.personal_data.birth_date);
+                        break;
+                    case "mother":
+                        query = ascending ? query.OrderBy(x => x.personal_data.mother) : query.OrderByDescending(x => x.personal_data.mother);
+                        break;
+                    case "user":
+                        query = ascending ? query.OrderBy(x => x.user_name) : query.OrderByDescending(x => x.user_name);
+                        break;
+                }
+            }
 
 
             // Összes találat kiszámítása
