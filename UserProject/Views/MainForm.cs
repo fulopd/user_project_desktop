@@ -96,11 +96,7 @@ namespace UserProject.Views
                     if (!db.Database.Exists())
                     {
                         connect = false;
-                    }
-                    else
-                    {
-                        Debug.WriteLine("fut");
-                    }
+                    }                    
                 }
             }
         }

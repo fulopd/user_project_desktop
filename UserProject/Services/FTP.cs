@@ -9,15 +9,18 @@ namespace UserProject.Services
 {
     public static class FTP
     {
-        private static string host;
-        
+        public static string host = "ftp://localhost/user_project_web/";
+        public static string user = "test";
+        public static string pass = "test";
+
+
         //TODO: Adatok bekérése, kapcsolat ellenőrzése
         public static void upload(string localFileFullPath, string destFileName) 
         {
             using (var client = new WebClient())
             {                
-                client.Credentials = new NetworkCredential("test", "test");                
-                client.UploadFile("ftp://localhost/user_project_web/Images/"+ destFileName,
+                client.Credentials = new NetworkCredential(user, pass);                
+                client.UploadFile(host + "Images/"+ destFileName,
                                     WebRequestMethods.Ftp.UploadFile,
                                     localFileFullPath);                
             }

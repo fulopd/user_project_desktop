@@ -206,10 +206,17 @@ namespace UserProject.Views
                 int perosnalId = presenter.SavePersonalData(personal);
                 presenter.SaveUserData(user, perosnalId);
 
-                if (localFileFullPath != "")
+                if (localFileFullPath != "")//Csak tallózás után lesz értéke
                 {
                     string newFileName = perosnalId + ".jpg";
-                    FTP.upload(localFileFullPath, newFileName);
+                    try
+                    {
+                        FTP.upload(localFileFullPath, newFileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("File feltöltése nem lehetséges. "+ex.ToString(),"Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
                     presenter.UpdatePictur(perosnalId, newFileName);
                 }
                 this.DialogResult = DialogResult.OK;
@@ -224,8 +231,8 @@ namespace UserProject.Views
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                InitialDirectory = @"D:\",
-                Title = "Browse Text Files",
+                InitialDirectory = @"C:\",
+                Title = "Browse Image File",
 
                 CheckFileExists = true,
                 CheckPathExists = true,

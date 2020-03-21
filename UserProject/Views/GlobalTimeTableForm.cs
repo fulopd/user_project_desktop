@@ -91,7 +91,15 @@ namespace UserProject.Views
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            presenter.Save();
+            DialogResult dialogResult = MessageBox.Show("Biztosan menteni szeretnég az össze módosítást?\n" +
+                                                    "Mentés után a módosítások visszavonása nem lehetséges",
+                                                    "Mentés",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                presenter.Save();
+            }
         }
         
         //Cella érték validálás

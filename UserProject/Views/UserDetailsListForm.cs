@@ -203,5 +203,13 @@ namespace UserProject.Views
             colIndex = e.ColumnIndex;
             presenter.LoadData();
         }
+
+        private void textBoxSearchText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonSearch.PerformClick();
+            }
+        }
     }
 }

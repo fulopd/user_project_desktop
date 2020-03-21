@@ -61,7 +61,7 @@ namespace UserProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Már létezik.
+        ///   Looks up a localized string similar to Már létezik!.
         /// </summary>
         public static string errorExist {
             get {
@@ -70,11 +70,21 @@ namespace UserProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mező kitöltése kötelező.
+        ///   Looks up a localized string similar to Mező kitöltése kötelező!.
         /// </summary>
         public static string errorRequired {
             get {
                 return ResourceManager.GetString("errorRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Biztosan menteni szeretné az össze módosítást?
+        ///Mentés után a módosítások visszavonása nem lehetséges!.
+        /// </summary>
+        public static string messageSave {
+            get {
+                return ResourceManager.GetString("messageSave", resourceCulture);
             }
         }
     }

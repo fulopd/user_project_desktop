@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserProject.Models;
 using UserProject.Presenters;
+using UserProject.Properties;
 using UserProject.ViewInterfaces;
 
 namespace UserProject.Views
@@ -162,7 +163,21 @@ namespace UserProject.Views
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            presenter.Save();
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show(Resources.messageSave,
+                                                            "Mentés",
+                                                            MessageBoxButtons.YesNo,
+                                                            MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    presenter.Save();
+                }
+            }
+            catch (Exception ed)
+            {
+                MessageBox.Show("Függőségek miatt a törlést nem lehet végrehajtani!\n" + ed.Message,"Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
         private void buttonNewPosition_Click(object sender, EventArgs e)
         {

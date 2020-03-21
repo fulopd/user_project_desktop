@@ -118,9 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="errorExist" xml:space="preserve">
-    <value>Már létezik</value>
+    <value>Már létezik!</value>
   </data>
   <data name="errorRequired" xml:space="preserve">
-    <value>Mező kitöltése kötelező</value>
+    <value>Mező kitöltése kötelező!</value>
+  </data>
+  <data name="messageSave" xml:space="preserve">
+    <value>Biztosan menteni szeretné az össze módosítást?
+Mentés után a módosítások visszavonása nem lehetséges!</value>
   </data>
 </root>
