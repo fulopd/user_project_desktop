@@ -21,6 +21,11 @@ namespace UserProject.Repositories
             return db.user_data.Any(x => x.id == user.id);
         }
 
+        public bool UserNameExist(string usertName)
+        {
+            return db.user_data.Any(x => x.user_name == usertName);
+        }
+
         public user_data GetUserData(int id) 
         {
             return db.user_data.Find(id);

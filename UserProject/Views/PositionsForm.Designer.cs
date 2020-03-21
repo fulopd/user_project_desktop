@@ -45,13 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewAvailablePermissions = new System.Windows.Forms.DataGridView();
             this.dataGridViewPositionPermissions = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +54,12 @@
             this.workschedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userdataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionPermissions)).BeginInit();
@@ -69,17 +69,17 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(408, 11);
+            this.textBoxDescription.Location = new System.Drawing.Point(349, 14);
             this.textBoxDescription.MaxLength = 1000;
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(298, 151);
+            this.textBoxDescription.Size = new System.Drawing.Size(534, 151);
             this.textBoxDescription.TabIndex = 6;
             this.textBoxDescription.Leave += new System.EventHandler(this.textBoxDescription_Leave);
             // 
             // buttonNewPosition
             // 
-            this.buttonNewPosition.Location = new System.Drawing.Point(60, 168);
+            this.buttonNewPosition.Location = new System.Drawing.Point(48, 174);
             this.buttonNewPosition.Name = "buttonNewPosition";
             this.buttonNewPosition.Size = new System.Drawing.Size(75, 23);
             this.buttonNewPosition.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             // buttonPositionDelete
             // 
-            this.buttonPositionDelete.Location = new System.Drawing.Point(141, 168);
+            this.buttonPositionDelete.Location = new System.Drawing.Point(129, 174);
             this.buttonPositionDelete.Name = "buttonPositionDelete";
             this.buttonPositionDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonPositionDelete.TabIndex = 3;
@@ -99,9 +99,9 @@
             // 
             // buttonPositionUp
             // 
-            this.buttonPositionUp.Location = new System.Drawing.Point(222, 168);
+            this.buttonPositionUp.Location = new System.Drawing.Point(232, 175);
             this.buttonPositionUp.Name = "buttonPositionUp";
-            this.buttonPositionUp.Size = new System.Drawing.Size(31, 23);
+            this.buttonPositionUp.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionUp.TabIndex = 4;
             this.buttonPositionUp.Text = "Fel";
             this.buttonPositionUp.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             // buttonPositionDown
             // 
-            this.buttonPositionDown.Location = new System.Drawing.Point(259, 168);
+            this.buttonPositionDown.Location = new System.Drawing.Point(275, 175);
             this.buttonPositionDown.Name = "buttonPositionDown";
             this.buttonPositionDown.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionDown.TabIndex = 5;
@@ -119,7 +119,7 @@
             // 
             // buttonPermisionAdd
             // 
-            this.buttonPermisionAdd.Location = new System.Drawing.Point(343, 269);
+            this.buttonPermisionAdd.Location = new System.Drawing.Point(451, 330);
             this.buttonPermisionAdd.Name = "buttonPermisionAdd";
             this.buttonPermisionAdd.Size = new System.Drawing.Size(31, 23);
             this.buttonPermisionAdd.TabIndex = 8;
@@ -129,7 +129,7 @@
             // 
             // buttonPermisionRemove
             // 
-            this.buttonPermisionRemove.Location = new System.Drawing.Point(343, 312);
+            this.buttonPermisionRemove.Location = new System.Drawing.Point(451, 371);
             this.buttonPermisionRemove.Name = "buttonPermisionRemove";
             this.buttonPermisionRemove.Size = new System.Drawing.Size(31, 23);
             this.buttonPermisionRemove.TabIndex = 9;
@@ -171,7 +171,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPositions.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPositions.Location = new System.Drawing.Point(48, 11);
+            this.dataGridViewPositions.Location = new System.Drawing.Point(48, 14);
             this.dataGridViewPositions.MultiSelect = false;
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
@@ -192,7 +192,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(631, 177);
+            this.buttonSave.Location = new System.Drawing.Point(847, 453);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 11;
@@ -203,7 +203,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 209);
+            this.label1.Location = new System.Drawing.Point(45, 235);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 7;
@@ -212,7 +212,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(405, 211);
+            this.label2.Location = new System.Drawing.Point(520, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 13);
             this.label2.TabIndex = 7;
@@ -231,13 +231,13 @@
             this.permissionnameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn1});
             this.dataGridViewAvailablePermissions.DataSource = this.permissionBindingSource;
-            this.dataGridViewAvailablePermissions.Location = new System.Drawing.Point(48, 225);
+            this.dataGridViewAvailablePermissions.Location = new System.Drawing.Point(48, 252);
             this.dataGridViewAvailablePermissions.MultiSelect = false;
             this.dataGridViewAvailablePermissions.Name = "dataGridViewAvailablePermissions";
             this.dataGridViewAvailablePermissions.ReadOnly = true;
             this.dataGridViewAvailablePermissions.RowHeadersVisible = false;
             this.dataGridViewAvailablePermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAvailablePermissions.Size = new System.Drawing.Size(264, 168);
+            this.dataGridViewAvailablePermissions.Size = new System.Drawing.Size(360, 190);
             this.dataGridViewAvailablePermissions.TabIndex = 7;
             // 
             // dataGridViewPositionPermissions
@@ -251,83 +251,35 @@
             this.dataGridViewPositionPermissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn2,
             this.permissionnameDataGridViewTextBoxColumn1,
-            this.descriptionDataGridViewTextBoxColumn2});
+            this.description});
             this.dataGridViewPositionPermissions.DataSource = this.permissionBindingSource;
-            this.dataGridViewPositionPermissions.Location = new System.Drawing.Point(408, 227);
+            this.dataGridViewPositionPermissions.Location = new System.Drawing.Point(523, 252);
             this.dataGridViewPositionPermissions.MultiSelect = false;
             this.dataGridViewPositionPermissions.Name = "dataGridViewPositionPermissions";
             this.dataGridViewPositionPermissions.ReadOnly = true;
             this.dataGridViewPositionPermissions.RowHeadersVisible = false;
             this.dataGridViewPositionPermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPositionPermissions.Size = new System.Drawing.Size(298, 168);
+            this.dataGridViewPositionPermissions.Size = new System.Drawing.Size(360, 190);
             this.dataGridViewPositionPermissions.TabIndex = 7;
-            // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // permissionnameDataGridViewTextBoxColumn1
-            // 
-            this.permissionnameDataGridViewTextBoxColumn1.DataPropertyName = "permission_name";
-            this.permissionnameDataGridViewTextBoxColumn1.HeaderText = "permission_name";
-            this.permissionnameDataGridViewTextBoxColumn1.Name = "permissionnameDataGridViewTextBoxColumn1";
-            this.permissionnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn2
-            // 
-            this.descriptionDataGridViewTextBoxColumn2.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn2.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn2.Name = "descriptionDataGridViewTextBoxColumn2";
-            this.descriptionDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // permissionBindingSource
             // 
             this.permissionBindingSource.DataSource = typeof(UserProject.Models.permission);
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // permissionnameDataGridViewTextBoxColumn
-            // 
-            this.permissionnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.permissionnameDataGridViewTextBoxColumn.DataPropertyName = "permission_name";
-            this.permissionnameDataGridViewTextBoxColumn.HeaderText = "permission_name";
-            this.permissionnameDataGridViewTextBoxColumn.Name = "permissionnameDataGridViewTextBoxColumn";
-            this.permissionnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.permissionnameDataGridViewTextBoxColumn.Width = 113;
-            // 
-            // descriptionDataGridViewTextBoxColumn1
-            // 
-            this.descriptionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
-            this.descriptionDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn1.Width = 83;
-            // 
             // priorityDataGridViewTextBoxColumn
             // 
             this.priorityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.priorityDataGridViewTextBoxColumn.DataPropertyName = "priority";
-            this.priorityDataGridViewTextBoxColumn.HeaderText = "priority";
+            this.priorityDataGridViewTextBoxColumn.HeaderText = "Prioritás";
             this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
             this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priorityDataGridViewTextBoxColumn.Width = 62;
+            this.priorityDataGridViewTextBoxColumn.Width = 69;
             // 
             // positionnameDataGridViewTextBoxColumn
             // 
             this.positionnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.positionnameDataGridViewTextBoxColumn.DataPropertyName = "position_name";
-            this.positionnameDataGridViewTextBoxColumn.HeaderText = "position_name";
+            this.positionnameDataGridViewTextBoxColumn.HeaderText = "Munkakör megnevezés";
             this.positionnameDataGridViewTextBoxColumn.Name = "positionnameDataGridViewTextBoxColumn";
             this.positionnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -375,11 +327,62 @@
             // 
             this.positionBindingSource.DataSource = typeof(UserProject.Models.position);
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // permissionnameDataGridViewTextBoxColumn
+            // 
+            this.permissionnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.permissionnameDataGridViewTextBoxColumn.DataPropertyName = "permission_name";
+            this.permissionnameDataGridViewTextBoxColumn.HeaderText = "Jogosultság ";
+            this.permissionnameDataGridViewTextBoxColumn.Name = "permissionnameDataGridViewTextBoxColumn";
+            this.permissionnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.permissionnameDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // descriptionDataGridViewTextBoxColumn1
+            // 
+            this.descriptionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Leírás";
+            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
+            this.descriptionDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn2.Width = 40;
+            // 
+            // permissionnameDataGridViewTextBoxColumn1
+            // 
+            this.permissionnameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.permissionnameDataGridViewTextBoxColumn1.DataPropertyName = "permission_name";
+            this.permissionnameDataGridViewTextBoxColumn1.HeaderText = "Jogosultság ";
+            this.permissionnameDataGridViewTextBoxColumn1.Name = "permissionnameDataGridViewTextBoxColumn1";
+            this.permissionnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.permissionnameDataGridViewTextBoxColumn1.Width = 91;
+            // 
+            // description
+            // 
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.description.DataPropertyName = "description";
+            this.description.HeaderText = "Leírás";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            // 
             // PositionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 412);
+            this.ClientSize = new System.Drawing.Size(934, 488);
             this.Controls.Add(this.dataGridViewPositionPermissions);
             this.Controls.Add(this.dataGridViewAvailablePermissions);
             this.Controls.Add(this.label2);
@@ -418,6 +421,11 @@
         private System.Windows.Forms.DataGridView dataGridViewPositions;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.BindingSource positionBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridViewAvailablePermissions;
+        private System.Windows.Forms.BindingSource permissionBindingSource;
+        private System.Windows.Forms.DataGridView dataGridViewPositionPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -425,16 +433,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionidsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn workschedulesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userdataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridViewAvailablePermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource permissionBindingSource;
-        private System.Windows.Forms.DataGridView dataGridViewPositionPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionnameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
     }
 }

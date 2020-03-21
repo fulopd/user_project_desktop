@@ -11,6 +11,7 @@ namespace UserProject.Services
     {
         private static string host;
         
+        //TODO: Adatok bekérése, kapcsolat ellenőrzése
         public static void upload(string localFileFullPath, string destFileName) 
         {
             using (var client = new WebClient())

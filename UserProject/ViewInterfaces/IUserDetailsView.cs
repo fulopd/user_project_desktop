@@ -15,5 +15,12 @@ namespace UserProject.ViewInterfaces
         personal_data personal { get; set; }
         user_data user { get; set; }
         BindingList<position> positionList { get; set; }
+        string errorUserName { get; set; }
+        string errorFirstName { get; set; }
+        string errorLastName { get; set; }
+        string errorMother { get; set; }
+        string errorPhone { get; set; }
+        string errorLocation { get; set; }
+        string errorPassword { get; set; }
     }
 }

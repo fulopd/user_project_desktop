@@ -33,6 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonFirst = new System.Windows.Forms.Button();
+            this.buttonPrev = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonLast = new System.Windows.Forms.Button();
+            this.textBoxSearchText = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.positionPositionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personalDataFirstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personalDataLastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,16 +57,6 @@
             this.personalDataIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDetailsViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonFirst = new System.Windows.Forms.Button();
-            this.buttonPrev = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.buttonLast = new System.Windows.Forms.Button();
-            this.textBoxSearchText = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.checkBoxActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDetailsViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -119,105 +120,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(905, 354);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
-            // 
-            // positionPositionnameDataGridViewTextBoxColumn
-            // 
-            this.positionPositionnameDataGridViewTextBoxColumn.DataPropertyName = "positionPosition_name";
-            this.positionPositionnameDataGridViewTextBoxColumn.HeaderText = "Beosztás";
-            this.positionPositionnameDataGridViewTextBoxColumn.Name = "positionPositionnameDataGridViewTextBoxColumn";
-            this.positionPositionnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataFirstnameDataGridViewTextBoxColumn
-            // 
-            this.personalDataFirstnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataFirst_name";
-            this.personalDataFirstnameDataGridViewTextBoxColumn.HeaderText = "Vezetéknév";
-            this.personalDataFirstnameDataGridViewTextBoxColumn.Name = "personalDataFirstnameDataGridViewTextBoxColumn";
-            this.personalDataFirstnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataLastnameDataGridViewTextBoxColumn
-            // 
-            this.personalDataLastnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataLast_name";
-            this.personalDataLastnameDataGridViewTextBoxColumn.HeaderText = "Keresztnév";
-            this.personalDataLastnameDataGridViewTextBoxColumn.Name = "personalDataLastnameDataGridViewTextBoxColumn";
-            this.personalDataLastnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataLocationDataGridViewTextBoxColumn
-            // 
-            this.personalDataLocationDataGridViewTextBoxColumn.DataPropertyName = "personalDataLocation";
-            this.personalDataLocationDataGridViewTextBoxColumn.HeaderText = "Település";
-            this.personalDataLocationDataGridViewTextBoxColumn.Name = "personalDataLocationDataGridViewTextBoxColumn";
-            this.personalDataLocationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataEmailDataGridViewTextBoxColumn
-            // 
-            this.personalDataEmailDataGridViewTextBoxColumn.DataPropertyName = "personalDataEmail";
-            this.personalDataEmailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.personalDataEmailDataGridViewTextBoxColumn.Name = "personalDataEmailDataGridViewTextBoxColumn";
-            this.personalDataEmailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataPhoneDataGridViewTextBoxColumn
-            // 
-            this.personalDataPhoneDataGridViewTextBoxColumn.DataPropertyName = "personalDataPhone";
-            this.personalDataPhoneDataGridViewTextBoxColumn.HeaderText = "Telefon";
-            this.personalDataPhoneDataGridViewTextBoxColumn.Name = "personalDataPhoneDataGridViewTextBoxColumn";
-            this.personalDataPhoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataBirthdateDataGridViewTextBoxColumn
-            // 
-            this.personalDataBirthdateDataGridViewTextBoxColumn.DataPropertyName = "personalDataBirth_date";
-            this.personalDataBirthdateDataGridViewTextBoxColumn.HeaderText = "Születési dátum";
-            this.personalDataBirthdateDataGridViewTextBoxColumn.Name = "personalDataBirthdateDataGridViewTextBoxColumn";
-            this.personalDataBirthdateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataMotherDataGridViewTextBoxColumn
-            // 
-            this.personalDataMotherDataGridViewTextBoxColumn.DataPropertyName = "personalDataMother";
-            this.personalDataMotherDataGridViewTextBoxColumn.HeaderText = "Anyja Neve";
-            this.personalDataMotherDataGridViewTextBoxColumn.Name = "personalDataMotherDataGridViewTextBoxColumn";
-            this.personalDataMotherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userDataUsernameDataGridViewTextBoxColumn
-            // 
-            this.userDataUsernameDataGridViewTextBoxColumn.DataPropertyName = "userDataUser_name";
-            this.userDataUsernameDataGridViewTextBoxColumn.HeaderText = "Felhasználó";
-            this.userDataUsernameDataGridViewTextBoxColumn.Name = "userDataUsernameDataGridViewTextBoxColumn";
-            this.userDataUsernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalDataPictureDataGridViewTextBoxColumn
-            // 
-            this.personalDataPictureDataGridViewTextBoxColumn.DataPropertyName = "personalDataPicture";
-            this.personalDataPictureDataGridViewTextBoxColumn.HeaderText = "personalDataPicture";
-            this.personalDataPictureDataGridViewTextBoxColumn.Name = "personalDataPictureDataGridViewTextBoxColumn";
-            this.personalDataPictureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.personalDataPictureDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // userDataIdDataGridViewTextBoxColumn
-            // 
-            this.userDataIdDataGridViewTextBoxColumn.DataPropertyName = "userDataId";
-            this.userDataIdDataGridViewTextBoxColumn.HeaderText = "userDataId";
-            this.userDataIdDataGridViewTextBoxColumn.Name = "userDataIdDataGridViewTextBoxColumn";
-            this.userDataIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.userDataIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // personalDataIdDataGridViewTextBoxColumn
-            // 
-            this.personalDataIdDataGridViewTextBoxColumn.DataPropertyName = "personalDataId";
-            this.personalDataIdDataGridViewTextBoxColumn.HeaderText = "personalDataId";
-            this.personalDataIdDataGridViewTextBoxColumn.Name = "personalDataIdDataGridViewTextBoxColumn";
-            this.personalDataIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.personalDataIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // positionIdDataGridViewTextBoxColumn
-            // 
-            this.positionIdDataGridViewTextBoxColumn.DataPropertyName = "positionId";
-            this.positionIdDataGridViewTextBoxColumn.HeaderText = "positionId";
-            this.positionIdDataGridViewTextBoxColumn.Name = "positionIdDataGridViewTextBoxColumn";
-            this.positionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.positionIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // userDetailsViewModelBindingSource
-            // 
-            this.userDetailsViewModelBindingSource.DataSource = typeof(UserProject.ViewModels.UserDetailsViewModel);
             // 
             // buttonFirst
             // 
@@ -321,10 +223,111 @@
             this.checkBoxActive.UseVisualStyleBackColor = true;
             this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
             // 
+            // positionPositionnameDataGridViewTextBoxColumn
+            // 
+            this.positionPositionnameDataGridViewTextBoxColumn.DataPropertyName = "positionPosition_name";
+            this.positionPositionnameDataGridViewTextBoxColumn.HeaderText = "Beosztás";
+            this.positionPositionnameDataGridViewTextBoxColumn.Name = "positionPositionnameDataGridViewTextBoxColumn";
+            this.positionPositionnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataFirstnameDataGridViewTextBoxColumn
+            // 
+            this.personalDataFirstnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataFirst_name";
+            this.personalDataFirstnameDataGridViewTextBoxColumn.HeaderText = "Vezetéknév";
+            this.personalDataFirstnameDataGridViewTextBoxColumn.Name = "personalDataFirstnameDataGridViewTextBoxColumn";
+            this.personalDataFirstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataLastnameDataGridViewTextBoxColumn
+            // 
+            this.personalDataLastnameDataGridViewTextBoxColumn.DataPropertyName = "personalDataLast_name";
+            this.personalDataLastnameDataGridViewTextBoxColumn.HeaderText = "Keresztnév";
+            this.personalDataLastnameDataGridViewTextBoxColumn.Name = "personalDataLastnameDataGridViewTextBoxColumn";
+            this.personalDataLastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataLocationDataGridViewTextBoxColumn
+            // 
+            this.personalDataLocationDataGridViewTextBoxColumn.DataPropertyName = "personalDataLocation";
+            this.personalDataLocationDataGridViewTextBoxColumn.HeaderText = "Település";
+            this.personalDataLocationDataGridViewTextBoxColumn.Name = "personalDataLocationDataGridViewTextBoxColumn";
+            this.personalDataLocationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataEmailDataGridViewTextBoxColumn
+            // 
+            this.personalDataEmailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.personalDataEmailDataGridViewTextBoxColumn.DataPropertyName = "personalDataEmail";
+            this.personalDataEmailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.personalDataEmailDataGridViewTextBoxColumn.Name = "personalDataEmailDataGridViewTextBoxColumn";
+            this.personalDataEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataPhoneDataGridViewTextBoxColumn
+            // 
+            this.personalDataPhoneDataGridViewTextBoxColumn.DataPropertyName = "personalDataPhone";
+            this.personalDataPhoneDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.personalDataPhoneDataGridViewTextBoxColumn.Name = "personalDataPhoneDataGridViewTextBoxColumn";
+            this.personalDataPhoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataBirthdateDataGridViewTextBoxColumn
+            // 
+            this.personalDataBirthdateDataGridViewTextBoxColumn.DataPropertyName = "personalDataBirth_date";
+            this.personalDataBirthdateDataGridViewTextBoxColumn.HeaderText = "Születési dátum";
+            this.personalDataBirthdateDataGridViewTextBoxColumn.Name = "personalDataBirthdateDataGridViewTextBoxColumn";
+            this.personalDataBirthdateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataMotherDataGridViewTextBoxColumn
+            // 
+            this.personalDataMotherDataGridViewTextBoxColumn.DataPropertyName = "personalDataMother";
+            this.personalDataMotherDataGridViewTextBoxColumn.HeaderText = "Anyja Neve";
+            this.personalDataMotherDataGridViewTextBoxColumn.Name = "personalDataMotherDataGridViewTextBoxColumn";
+            this.personalDataMotherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userDataUsernameDataGridViewTextBoxColumn
+            // 
+            this.userDataUsernameDataGridViewTextBoxColumn.DataPropertyName = "userDataUser_name";
+            this.userDataUsernameDataGridViewTextBoxColumn.HeaderText = "Felhasználó";
+            this.userDataUsernameDataGridViewTextBoxColumn.Name = "userDataUsernameDataGridViewTextBoxColumn";
+            this.userDataUsernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personalDataPictureDataGridViewTextBoxColumn
+            // 
+            this.personalDataPictureDataGridViewTextBoxColumn.DataPropertyName = "personalDataPicture";
+            this.personalDataPictureDataGridViewTextBoxColumn.HeaderText = "personalDataPicture";
+            this.personalDataPictureDataGridViewTextBoxColumn.Name = "personalDataPictureDataGridViewTextBoxColumn";
+            this.personalDataPictureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personalDataPictureDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // userDataIdDataGridViewTextBoxColumn
+            // 
+            this.userDataIdDataGridViewTextBoxColumn.DataPropertyName = "userDataId";
+            this.userDataIdDataGridViewTextBoxColumn.HeaderText = "userDataId";
+            this.userDataIdDataGridViewTextBoxColumn.Name = "userDataIdDataGridViewTextBoxColumn";
+            this.userDataIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.userDataIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // personalDataIdDataGridViewTextBoxColumn
+            // 
+            this.personalDataIdDataGridViewTextBoxColumn.DataPropertyName = "personalDataId";
+            this.personalDataIdDataGridViewTextBoxColumn.HeaderText = "personalDataId";
+            this.personalDataIdDataGridViewTextBoxColumn.Name = "personalDataIdDataGridViewTextBoxColumn";
+            this.personalDataIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personalDataIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // positionIdDataGridViewTextBoxColumn
+            // 
+            this.positionIdDataGridViewTextBoxColumn.DataPropertyName = "positionId";
+            this.positionIdDataGridViewTextBoxColumn.HeaderText = "positionId";
+            this.positionIdDataGridViewTextBoxColumn.Name = "positionIdDataGridViewTextBoxColumn";
+            this.positionIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.positionIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // userDetailsViewModelBindingSource
+            // 
+            this.userDetailsViewModelBindingSource.DataSource = typeof(UserProject.ViewModels.UserDetailsViewModel);
+            // 
             // UserDetailsListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(929, 433);
             this.Controls.Add(this.checkBoxActive);
             this.Controls.Add(this.buttonFirst);
@@ -360,6 +363,7 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.CheckBox checkBoxActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionPositionnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personalDataFirstnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personalDataLastnameDataGridViewTextBoxColumn;
@@ -373,6 +377,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userDataIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personalDataIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.CheckBox checkBoxActive;
     }
 }

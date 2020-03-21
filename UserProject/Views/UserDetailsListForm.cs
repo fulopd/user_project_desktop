@@ -36,7 +36,7 @@ namespace UserProject.Views
         public void Init()
         {
             pageNumber = 1;
-            itemsPerPage = 20;
+            itemsPerPage = 17;
             sortBy = "Id";            
             ascending = true;
             active = true;

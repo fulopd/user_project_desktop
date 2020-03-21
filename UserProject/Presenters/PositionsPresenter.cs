@@ -74,7 +74,7 @@ namespace UserProject.Presenters
         {
             if (selectedItem != null)
             {                
-                bindingPositionList.Remove(selectedItem);
+                bindingPositionList.Remove(selectedItem);                
                 view.statPositionList = bindingPositionList.ToList();                
                 Debug.WriteLine("delete - PositionPresenter");                
             }

@@ -29,7 +29,6 @@ namespace UserProject.Views
             presenter = new UserDetailsPresenter(this);
             presenter.GetAllPositions();
         }
-
         public UserDetailsViewModel udvm
         {
             get
@@ -119,6 +118,7 @@ namespace UserProject.Views
             {
                 textBoxUserName.Text = value.user_name;
                 textBoxPassword.Text = value.password;
+                textBoxPasswordSec.Text = value.password;
                 dateTimePickerFirstWorkingDay.Value = value.first_working_day.Value;
                 if (value.last_working_day != null)
                 {
@@ -144,30 +144,82 @@ namespace UserProject.Views
                 comboBoxPositions.ValueMember = "id";
             }
         }
-
-
-
-        private void buttonSave_Click(object sender, EventArgs e)
+        public string errorFirstName
         {
-            //TODO: Ellenőrzés
-            int perosnalId = presenter.SavePersonalData(personal);
-            presenter.SaveUserData(user, perosnalId);
-
-            if (localFileFullPath!="")
+            get => errorProviderFirstName.GetError(textBoxFirstName);
+            set => errorProviderFirstName.SetError(textBoxFirstName, value);
+        }
+        public string errorLastName
+        {
+            get => errorProviderLastName.GetError(textBoxLastName);
+            set => errorProviderLastName.SetError(textBoxLastName, value);
+        }
+        public string errorMother
+        {
+            get => errorProviderMother.GetError(textBoxMother);
+            set => errorProviderMother.SetError(textBoxMother, value);
+        }
+        public string errorPhone
+        {
+            get => errorProviderPhone.GetError(textBoxPhone);
+            set => errorProviderPhone.SetError(textBoxPhone, value);
+        }
+        public string errorLocation
+        {
+            get => errorProviderLocation.GetError(textBoxLocation);
+            set => errorProviderLocation.SetError(textBoxLocation, value);
+        }
+        public string errorUserName { 
+            get => errorProviderUserName.GetError(textBoxUserName); 
+            set => errorProviderUserName.SetError(textBoxUserName,value); 
+        }
+        public string errorPassword
+        {
+            get => errorProviderPassword.GetError(textBoxPassword);
+            set => errorProviderPassword.SetError(textBoxPassword, value);
+        }
+        private bool PasswordMatch() 
+        {
+            bool match = true;
+            errorProviderPasswordSec.Clear();
+            if (textBoxPassword.Text != textBoxPasswordSec.Text)
             {
-                string newFileName = perosnalId + ".jpg";
-                FTP.upload(localFileFullPath, newFileName);
-                presenter.UpdatePictur(perosnalId, newFileName);
+                errorProviderPasswordSec.SetError(textBoxPasswordSec, "Jelszavak nem egyeznek meg");
+                match = false;
+            }
+            return match;
+        }
+        private void buttonSave_Click(object sender, EventArgs e)
+        {            
+            presenter.validateData(personal, user);            
+
+            if (PasswordMatch() &&
+                string.IsNullOrEmpty(errorFirstName) &&
+                string.IsNullOrEmpty(errorLastName) &&
+                string.IsNullOrEmpty(errorMother) &&
+                string.IsNullOrEmpty(errorPhone) &&
+                string.IsNullOrEmpty(errorLocation) &&
+                string.IsNullOrEmpty(errorUserName) &&
+                string.IsNullOrEmpty(errorPassword)                
+                )
+            {
+                int perosnalId = presenter.SavePersonalData(personal);
+                presenter.SaveUserData(user, perosnalId);
+
+                if (localFileFullPath != "")
+                {
+                    string newFileName = perosnalId + ".jpg";
+                    FTP.upload(localFileFullPath, newFileName);
+                    presenter.UpdatePictur(perosnalId, newFileName);
+                }
+                this.DialogResult = DialogResult.OK;
             }
             
-            this.DialogResult = DialogResult.OK;
         }
-
         private void checkBoxLastDay_CheckedChanged(object sender, EventArgs e)
         {
             dateTimePickerLastWorkingDay.Enabled = checkBoxLastDay.Checked;
         }
-
         private void buttonOpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -193,5 +245,6 @@ namespace UserProject.Views
                 textBoxPicture.Text = localFileFullPath;
             }
         }
+                
     }
 }

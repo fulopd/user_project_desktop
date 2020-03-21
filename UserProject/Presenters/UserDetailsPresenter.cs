@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserProject.Models;
+using UserProject.Properties;
 using UserProject.Repositories;
 using UserProject.ViewInterfaces;
 
@@ -12,7 +9,7 @@ namespace UserProject.Presenters
 {
     class UserDetailsPresenter
     {
-        IUserDetailsView view;                        
+        IUserDetailsView view;
 
         public UserDetailsPresenter(IUserDetailsView param)
         {
@@ -25,16 +22,16 @@ namespace UserProject.Presenters
             {
                 view.positionList = positionRepo.getAllPositions();
             }
-            
+
         }
 
-        public void GetUserData(int userDataId) 
+        public void GetUserData(int userDataId)
         {
             using (UserDataRepository userRepo = new UserDataRepository())
             {
                 view.user = userRepo.GetUserData(userDataId);
             }
-            
+
         }
 
         public void GetPersonalData(int personalDataId)
@@ -43,7 +40,7 @@ namespace UserProject.Presenters
             {
                 view.personal = personalRepo.GetPersonalData(personalDataId);
             }
-            
+
         }
 
         public void UpdatePictur(int id, string fileName)
@@ -52,6 +49,87 @@ namespace UserProject.Presenters
             {
                 personalRepo.UpdatePicture(id, fileName);
             }
+        }
+
+        public bool validateData(personal_data personalParam, user_data user)
+        {
+            view.errorFirstName = null;
+            view.errorLastName = null;
+            view.errorMother = null;
+            view.errorPhone = null;
+            view.errorLocation = null;
+
+            view.errorUserName = null;
+            view.errorPassword = null;
+
+            bool valid = true;
+            if (string.IsNullOrEmpty(personalParam.first_name))
+            {
+                view.errorFirstName = Resources.errorRequired;
+                valid = false;
+            }
+            if (string.IsNullOrEmpty(personalParam.last_name))
+            {
+                view.errorLastName = Resources.errorRequired;
+                valid = false;
+            }
+            if (string.IsNullOrEmpty(personalParam.mother))
+            {
+                view.errorMother = Resources.errorRequired;
+                valid = false;
+            }
+            if (string.IsNullOrEmpty(personalParam.phone))
+            {
+                view.errorPhone = Resources.errorRequired;
+                valid = false;
+            }
+            if (string.IsNullOrEmpty(personalParam.location))
+            {
+                view.errorLocation = Resources.errorRequired;
+                valid = false;
+            }
+
+
+
+            if (string.IsNullOrEmpty(user.user_name))
+            {
+                view.errorUserName = Resources.errorRequired;
+                valid = false;
+            }
+            else
+            {
+                using (UserDataRepository userRepo = new UserDataRepository())
+                {
+                    if (user.id>0)//Már létező user
+                    {
+                        var oldUser = userRepo.GetUserData(user.id);
+                        if (oldUser.user_name != user.user_name)//csak akkor kell ellenőrizni ha történt változás a userName ben
+                        {
+                            if (userRepo.UserNameExist(user.user_name))
+                            {
+                                view.errorUserName = Resources.errorExist;
+                                valid = false;
+                            }
+                        }
+                    }
+                    else// Új user
+                    {
+                        if (userRepo.UserNameExist(user.user_name))
+                        {
+                            view.errorUserName = Resources.errorExist;
+                            valid = false;
+                        }
+                    }
+                    
+                }
+            }
+            if (string.IsNullOrEmpty(user.password))
+            {
+                view.errorPassword = Resources.errorRequired;
+                valid = false;
+            }
+
+            return valid;
         }
 
         public int SavePersonalData(personal_data personalParam)
@@ -90,7 +168,8 @@ namespace UserProject.Presenters
 
         }
 
-        public void SaveUserData(user_data userParam,int personnalId)
+
+        public void SaveUserData(user_data userParam, int personnalId)
         {
             using (UserDataRepository userRepo = new UserDataRepository())
             {
@@ -109,7 +188,7 @@ namespace UserProject.Presenters
                 else
                 {
                     try
-                    {                        
+                    {
                         userParam.personal_data_id = personnalId;
                         userRepo.Insert(userParam);
                         userRepo.Save();
@@ -121,9 +200,9 @@ namespace UserProject.Presenters
                     }
                 }
             }
-            
+
         }
-        
+
 
     }
 }
