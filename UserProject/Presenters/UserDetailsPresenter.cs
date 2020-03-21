@@ -37,7 +37,7 @@ namespace UserProject.Presenters
         public void GetPersonalData(int personalDataId)
         {
             using (PersonalDataRepository personalRepo = new PersonalDataRepository())
-            {
+            {                
                 view.personal = personalRepo.GetPersonalData(personalDataId);
             }
 
@@ -137,7 +137,7 @@ namespace UserProject.Presenters
             int id;
             using (PersonalDataRepository personalRepo = new PersonalDataRepository())
             {
-                if (personalRepo.Exists(personalParam))
+                if (personalRepo.Exist(personalParam))
                 {
                     try
                     {

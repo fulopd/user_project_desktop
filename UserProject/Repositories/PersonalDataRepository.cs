@@ -14,7 +14,14 @@ namespace UserProject.Repositories
     {
         private userProjectDBContext db = new userProjectDBContext();        
         private int _totalItems;
+        public PersonalDataRepository()
+        {
 
+        }        
+        public bool ExistConnection() 
+        {
+            return db.Database.Exists();
+        }
         public personal_data GetPersonalData(int id)
         {
             return db.personal_data.Find(id);
@@ -83,19 +90,8 @@ namespace UserProject.Repositories
 
             return new BindingList<personal_data>(query.ToList());
         }
-        public void RefreshDB()
-        {
-            foreach (var item in db.ChangeTracker.Entries())
-            {
-                item.Reload();
-            }
-        }
-        public int CountPersonalData()
-        {
-            return _totalItems;
-        }
-
-        public bool Exists(personal_data peronal)
+        
+        public bool Exist(personal_data peronal)
         {
             return db.personal_data.Any(x => x.id == peronal.id);
         }
@@ -113,12 +109,6 @@ namespace UserProject.Repositories
             }
             db.personal_data.Add(param);
         }
-
-        //public void Delete(int id)
-        //{
-        //    var personal = db.personal_data.Find(id);
-        //    db.personal_data.Remove(personal);
-        //}
 
         public void Update(personal_data param)
         {

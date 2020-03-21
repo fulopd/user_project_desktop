@@ -20,6 +20,11 @@ namespace UserProject.Repositories
             return db.position.Local.ToBindingList();
         }
 
+        public bool Exist(position param)
+        {
+            return db.position.Any(x => x.position_name == param.position_name);
+        }
+
         public void Save()
         {
             db.SaveChanges();
