@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelExit = new System.Windows.Forms.Label();
             this.labelMinimize = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // buttonPosition
@@ -131,6 +132,11 @@
             this.labelMinimize.Text = "_";
             this.labelMinimize.Click += new System.EventHandler(this.labelMinimize_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,5 +170,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelExit;
         private System.Windows.Forms.Label labelMinimize;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

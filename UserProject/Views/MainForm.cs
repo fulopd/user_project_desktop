@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using UserProject.Services;
 namespace UserProject.Views
 {
     public partial class MainForm : Form
-    {        
+    {
         public MainForm()
         {
             InitializeComponent();
@@ -21,31 +22,31 @@ namespace UserProject.Views
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.Text = "User Project - "+ CurrentUser.user.user_name;
+            this.Text = "User Project - " + CurrentUser.user.user_name;
             buttonUserList.PerformClick();
-                                                  
+            backgroundWorker1.RunWorkerAsync();
+
         }
-        private void OpenFormInPanel(Form param)         
+        private void OpenFormInPanel(Form param)
         {
             panel1.Controls.Clear();
             param.TopLevel = false;
             param.AutoScroll = true;
             param.FormBorderStyle = FormBorderStyle.None;
             param.Dock = DockStyle.Fill;
-            panel1.Controls.Add(param);            
+            panel1.Controls.Add(param);
             param.Show();
         }
-       
-       
+
         private void buttonPosition_Click(object sender, EventArgs e)
         {
-            Form PositionsForm = new PositionsForm();            
+            Form PositionsForm = new PositionsForm();
             OpenFormInPanel(PositionsForm);
         }
 
         private void buttonUserList_Click(object sender, EventArgs e)
         {
-            Form UserDetailsListForm = new UserDetailsListForm();           
+            Form UserDetailsListForm = new UserDetailsListForm();
             OpenFormInPanel(UserDetailsListForm);
         }
 
@@ -82,6 +83,35 @@ namespace UserProject.Views
         private void labelMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            bool connect = true;
+            using (userProjectDBContext db = new userProjectDBContext())
+            {
+                while (connect)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    if (!db.Database.Exists())
+                    {
+                        connect = false;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("fut");
+                    }
+                }
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            var LoginForm = new LoginForm();
+            MessageBox.Show("Kapcsolat nem elérhető!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Hide();            
+            LoginForm.ShowDialog();           
+            Close();
         }
     }
 }

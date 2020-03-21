@@ -41,6 +41,7 @@ namespace UserProject.Views
         private void LoginForm_Load(object sender, EventArgs e)
         {
             presenter.CheckConnection();
+
         }
 
         private void textBoxPassword_KeyUp(object sender, KeyEventArgs e)
