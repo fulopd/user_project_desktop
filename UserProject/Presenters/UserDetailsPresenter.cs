@@ -51,7 +51,7 @@ namespace UserProject.Presenters
             }
         }
 
-        public bool validateData(personal_data personalParam, user_data user)
+        public bool ValidateData(personal_data personalParam, user_data user)
         {
             view.errorFirstName = null;
             view.errorLastName = null;

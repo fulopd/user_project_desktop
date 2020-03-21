@@ -12,8 +12,7 @@ namespace UserProject.Presenters
     class UserDetailsListPresenter
     {
         private IUserDetailsListView view;
-        //private UserDetailsVMRepository repo = new UserDetailsVMRepository();
-
+        
         public UserDetailsListPresenter(IUserDetailsListView param)
         {
             view = param;
@@ -24,10 +23,14 @@ namespace UserProject.Presenters
             using (UserDetailsVMRepository repo = new UserDetailsVMRepository())
             {
                 view.bindingList = repo.GetAllRendelesVM(
-                view.pageNumber, view.itemsPerPage, view.search, view.sortBy, view.ascending, view.active);
+                                                view.pageNumber,
+                                                view.itemsPerPage,
+                                                view.search,
+                                                view.sortBy,
+                                                view.ascending,
+                                                view.active);
                 view.totalItems = repo.Count();
             }
-
         }
 
         public void Add(UserDetailsViewModel param)
@@ -39,22 +42,5 @@ namespace UserProject.Presenters
         {
             view.bindingList[rowIndex] = param;
         }
-
-        //public void Remove(int rowIndex, UserDetailsViewModel param) 
-        //{
-        //    using (UserDataRepository userRepo = new UserDataRepository())
-        //    {
-        //        userRepo.Delete(param.userDataId);
-        //        userRepo.Save();
-        //    }
-
-        //    using (PersonalDataRepository personalRepo = new PersonalDataRepository())
-        //    {                
-        //        personalRepo.Delete(param.personalDataId);
-        //        personalRepo.Save();
-        //    }
-
-        //    view.bindingList.RemoveAt(rowIndex);
-        //}
     }
 }

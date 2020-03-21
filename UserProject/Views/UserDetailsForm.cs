@@ -191,7 +191,7 @@ namespace UserProject.Views
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {            
-            presenter.validateData(personal, user);            
+            presenter.ValidateData(personal, user);            
 
             if (PasswordMatch() &&
                 string.IsNullOrEmpty(errorFirstName) &&
