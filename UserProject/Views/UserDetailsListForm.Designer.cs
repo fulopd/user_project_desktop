@@ -295,7 +295,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(255, 8);
+            this.buttonEdit.Location = new System.Drawing.Point(336, 8);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 4;
@@ -305,11 +305,11 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(336, 7);
+            this.buttonNew.Location = new System.Drawing.Point(255, 8);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(75, 23);
             this.buttonNew.TabIndex = 5;
-            this.buttonNew.Text = "Új";
+            this.buttonNew.Text = "Új dolgozó";
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 

@@ -40,12 +40,6 @@
             this.buttonPermisionAdd = new System.Windows.Forms.Button();
             this.buttonPermisionRemove = new System.Windows.Forms.Button();
             this.dataGridViewPositions = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewAvailablePermissions = new System.Windows.Forms.DataGridView();
-            this.dataGridViewPositionPermissions = new System.Windows.Forms.DataGridView();
-            this.permissionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,22 +48,30 @@
             this.workschedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userdataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewAvailablePermissions = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissionnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewPositionPermissions = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissionnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionPermissions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionPermissions)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(349, 14);
+            this.textBoxDescription.Location = new System.Drawing.Point(349, 22);
             this.textBoxDescription.MaxLength = 1000;
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
@@ -79,7 +81,7 @@
             // 
             // buttonNewPosition
             // 
-            this.buttonNewPosition.Location = new System.Drawing.Point(48, 174);
+            this.buttonNewPosition.Location = new System.Drawing.Point(48, 182);
             this.buttonNewPosition.Name = "buttonNewPosition";
             this.buttonNewPosition.Size = new System.Drawing.Size(75, 23);
             this.buttonNewPosition.TabIndex = 2;
@@ -89,7 +91,7 @@
             // 
             // buttonPositionDelete
             // 
-            this.buttonPositionDelete.Location = new System.Drawing.Point(129, 174);
+            this.buttonPositionDelete.Location = new System.Drawing.Point(129, 182);
             this.buttonPositionDelete.Name = "buttonPositionDelete";
             this.buttonPositionDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonPositionDelete.TabIndex = 3;
@@ -99,7 +101,7 @@
             // 
             // buttonPositionUp
             // 
-            this.buttonPositionUp.Location = new System.Drawing.Point(232, 175);
+            this.buttonPositionUp.Location = new System.Drawing.Point(232, 183);
             this.buttonPositionUp.Name = "buttonPositionUp";
             this.buttonPositionUp.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionUp.TabIndex = 4;
@@ -109,7 +111,7 @@
             // 
             // buttonPositionDown
             // 
-            this.buttonPositionDown.Location = new System.Drawing.Point(275, 175);
+            this.buttonPositionDown.Location = new System.Drawing.Point(275, 183);
             this.buttonPositionDown.Name = "buttonPositionDown";
             this.buttonPositionDown.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionDown.TabIndex = 5;
@@ -171,7 +173,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPositions.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPositions.Location = new System.Drawing.Point(48, 14);
+            this.dataGridViewPositions.Location = new System.Drawing.Point(48, 22);
             this.dataGridViewPositions.MultiSelect = false;
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
@@ -189,82 +191,6 @@
             this.dataGridViewPositions.StandardTab = true;
             this.dataGridViewPositions.TabIndex = 1;
             this.dataGridViewPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellClick);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(847, 453);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 11;
-            this.buttonSave.Text = "Mentés";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Elérhető jogosultságok";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(520, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Kiosztott jogosultságok";
-            // 
-            // dataGridViewAvailablePermissions
-            // 
-            this.dataGridViewAvailablePermissions.AllowUserToAddRows = false;
-            this.dataGridViewAvailablePermissions.AllowUserToDeleteRows = false;
-            this.dataGridViewAvailablePermissions.AllowUserToResizeRows = false;
-            this.dataGridViewAvailablePermissions.AutoGenerateColumns = false;
-            this.dataGridViewAvailablePermissions.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewAvailablePermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAvailablePermissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.permissionnameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn1});
-            this.dataGridViewAvailablePermissions.DataSource = this.permissionBindingSource;
-            this.dataGridViewAvailablePermissions.Location = new System.Drawing.Point(48, 252);
-            this.dataGridViewAvailablePermissions.MultiSelect = false;
-            this.dataGridViewAvailablePermissions.Name = "dataGridViewAvailablePermissions";
-            this.dataGridViewAvailablePermissions.ReadOnly = true;
-            this.dataGridViewAvailablePermissions.RowHeadersVisible = false;
-            this.dataGridViewAvailablePermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAvailablePermissions.Size = new System.Drawing.Size(360, 190);
-            this.dataGridViewAvailablePermissions.TabIndex = 7;
-            // 
-            // dataGridViewPositionPermissions
-            // 
-            this.dataGridViewPositionPermissions.AllowUserToAddRows = false;
-            this.dataGridViewPositionPermissions.AllowUserToDeleteRows = false;
-            this.dataGridViewPositionPermissions.AllowUserToResizeRows = false;
-            this.dataGridViewPositionPermissions.AutoGenerateColumns = false;
-            this.dataGridViewPositionPermissions.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewPositionPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPositionPermissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn2,
-            this.permissionnameDataGridViewTextBoxColumn1,
-            this.description});
-            this.dataGridViewPositionPermissions.DataSource = this.permissionBindingSource;
-            this.dataGridViewPositionPermissions.Location = new System.Drawing.Point(523, 252);
-            this.dataGridViewPositionPermissions.MultiSelect = false;
-            this.dataGridViewPositionPermissions.Name = "dataGridViewPositionPermissions";
-            this.dataGridViewPositionPermissions.ReadOnly = true;
-            this.dataGridViewPositionPermissions.RowHeadersVisible = false;
-            this.dataGridViewPositionPermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPositionPermissions.Size = new System.Drawing.Size(360, 190);
-            this.dataGridViewPositionPermissions.TabIndex = 7;
-            // 
-            // permissionBindingSource
-            // 
-            this.permissionBindingSource.DataSource = typeof(UserProject.Models.permission);
             // 
             // priorityDataGridViewTextBoxColumn
             // 
@@ -327,6 +253,56 @@
             // 
             this.positionBindingSource.DataSource = typeof(UserProject.Models.position);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(847, 453);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 11;
+            this.buttonSave.Text = "Mentés";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Elérhető jogosultságok";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(520, 235);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Kiosztott jogosultságok";
+            // 
+            // dataGridViewAvailablePermissions
+            // 
+            this.dataGridViewAvailablePermissions.AllowUserToAddRows = false;
+            this.dataGridViewAvailablePermissions.AllowUserToDeleteRows = false;
+            this.dataGridViewAvailablePermissions.AllowUserToResizeRows = false;
+            this.dataGridViewAvailablePermissions.AutoGenerateColumns = false;
+            this.dataGridViewAvailablePermissions.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewAvailablePermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAvailablePermissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.permissionnameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn1});
+            this.dataGridViewAvailablePermissions.DataSource = this.permissionBindingSource;
+            this.dataGridViewAvailablePermissions.Location = new System.Drawing.Point(48, 252);
+            this.dataGridViewAvailablePermissions.MultiSelect = false;
+            this.dataGridViewAvailablePermissions.Name = "dataGridViewAvailablePermissions";
+            this.dataGridViewAvailablePermissions.ReadOnly = true;
+            this.dataGridViewAvailablePermissions.RowHeadersVisible = false;
+            this.dataGridViewAvailablePermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAvailablePermissions.Size = new System.Drawing.Size(360, 190);
+            this.dataGridViewAvailablePermissions.TabIndex = 7;
+            // 
             // idDataGridViewTextBoxColumn1
             // 
             this.idDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -353,6 +329,32 @@
             this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
             this.descriptionDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // permissionBindingSource
+            // 
+            this.permissionBindingSource.DataSource = typeof(UserProject.Models.permission);
+            // 
+            // dataGridViewPositionPermissions
+            // 
+            this.dataGridViewPositionPermissions.AllowUserToAddRows = false;
+            this.dataGridViewPositionPermissions.AllowUserToDeleteRows = false;
+            this.dataGridViewPositionPermissions.AllowUserToResizeRows = false;
+            this.dataGridViewPositionPermissions.AutoGenerateColumns = false;
+            this.dataGridViewPositionPermissions.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewPositionPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPositionPermissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.permissionnameDataGridViewTextBoxColumn1,
+            this.description});
+            this.dataGridViewPositionPermissions.DataSource = this.permissionBindingSource;
+            this.dataGridViewPositionPermissions.Location = new System.Drawing.Point(523, 252);
+            this.dataGridViewPositionPermissions.MultiSelect = false;
+            this.dataGridViewPositionPermissions.Name = "dataGridViewPositionPermissions";
+            this.dataGridViewPositionPermissions.ReadOnly = true;
+            this.dataGridViewPositionPermissions.RowHeadersVisible = false;
+            this.dataGridViewPositionPermissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewPositionPermissions.Size = new System.Drawing.Size(360, 190);
+            this.dataGridViewPositionPermissions.TabIndex = 7;
+            // 
             // idDataGridViewTextBoxColumn2
             // 
             this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
@@ -378,6 +380,24 @@
             this.description.Name = "description";
             this.description.ReadOnly = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Munkakörök listája";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(346, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Munkakör leírása";
+            // 
             // PositionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +406,8 @@
             this.Controls.Add(this.dataGridViewPositionPermissions);
             this.Controls.Add(this.dataGridViewAvailablePermissions);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewPositions);
@@ -401,10 +423,10 @@
             this.Text = "PositionsForm";
             this.Load += new System.EventHandler(this.PositionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionPermissions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionPermissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,5 +461,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

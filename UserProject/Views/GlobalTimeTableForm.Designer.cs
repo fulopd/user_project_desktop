@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -36,7 +36,11 @@
             this.labelMonth = new System.Windows.Forms.Label();
             this.textBoxTimeIntervall = new System.Windows.Forms.TextBox();
             this.buttonFillSelectedCell = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -48,15 +52,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(12, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1150, 524);
@@ -78,14 +82,14 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(14, 16);
+            this.dateTimePicker1.Location = new System.Drawing.Point(8, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(225, 31);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // buttonLoad
             // 
-            this.buttonLoad.Location = new System.Drawing.Point(245, 16);
+            this.buttonLoad.Location = new System.Drawing.Point(158, 51);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(75, 31);
             this.buttonLoad.TabIndex = 4;
@@ -97,7 +101,7 @@
             // 
             this.labelMonth.AutoSize = true;
             this.labelMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelMonth.Location = new System.Drawing.Point(12, 66);
+            this.labelMonth.Location = new System.Drawing.Point(6, 51);
             this.labelMonth.Name = "labelMonth";
             this.labelMonth.Size = new System.Drawing.Size(96, 29);
             this.labelMonth.TabIndex = 5;
@@ -105,39 +109,64 @@
             // 
             // textBoxTimeIntervall
             // 
-            this.textBoxTimeIntervall.Location = new System.Drawing.Point(114, 72);
+            this.textBoxTimeIntervall.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxTimeIntervall.Location = new System.Drawing.Point(9, 19);
             this.textBoxTimeIntervall.Name = "textBoxTimeIntervall";
-            this.textBoxTimeIntervall.Size = new System.Drawing.Size(125, 20);
+            this.textBoxTimeIntervall.Size = new System.Drawing.Size(160, 20);
             this.textBoxTimeIntervall.TabIndex = 6;
             // 
             // buttonFillSelectedCell
             // 
-            this.buttonFillSelectedCell.Location = new System.Drawing.Point(245, 70);
+            this.buttonFillSelectedCell.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonFillSelectedCell.Location = new System.Drawing.Point(9, 50);
             this.buttonFillSelectedCell.Name = "buttonFillSelectedCell";
-            this.buttonFillSelectedCell.Size = new System.Drawing.Size(75, 23);
+            this.buttonFillSelectedCell.Size = new System.Drawing.Size(160, 31);
             this.buttonFillSelectedCell.TabIndex = 7;
-            this.buttonFillSelectedCell.Text = "Kitölt";
+            this.buttonFillSelectedCell.Text = "Minta másolása";
             this.buttonFillSelectedCell.UseVisualStyleBackColor = true;
             this.buttonFillSelectedCell.Click += new System.EventHandler(this.buttonFillSelectedCell_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonFillSelectedCell);
+            this.groupBox1.Controls.Add(this.textBoxTimeIntervall);
+            this.groupBox1.Location = new System.Drawing.Point(257, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 90);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Kitöltési minta";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.labelMonth);
+            this.groupBox2.Controls.Add(this.buttonLoad);
+            this.groupBox2.Location = new System.Drawing.Point(12, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(239, 91);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Dátum";
             // 
             // GlobalTimeTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 634);
-            this.Controls.Add(this.buttonFillSelectedCell);
-            this.Controls.Add(this.textBoxTimeIntervall);
-            this.Controls.Add(this.labelMonth);
-            this.Controls.Add(this.buttonLoad);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "GlobalTimeTableForm";
-            this.Text = "GlobalTimeTableForm";
+            this.Text = "Beosztás kezelő";
             this.Load += new System.EventHandler(this.GlobalTimeTableForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -150,5 +179,7 @@
         private System.Windows.Forms.Label labelMonth;
         private System.Windows.Forms.TextBox textBoxTimeIntervall;
         private System.Windows.Forms.Button buttonFillSelectedCell;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

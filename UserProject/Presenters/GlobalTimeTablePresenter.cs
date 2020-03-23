@@ -56,8 +56,10 @@ namespace UserProject.Presenters
                     dt.Rows.Add(positionItem.position_name);
                     foreach (var item in positionItem.user_data)
                     {
-                        //aktív állományban van vagy a kiválasztott hónapban lépett ki vagy attól régebben
-                        if (item.last_working_day == null || (item.last_working_day.Value.Year >= selectedYear && item.last_working_day.Value.Month >= selectedMonth))
+                        //A kiválasztott dátumkor már állományban volt
+                        if ((item.first_working_day.Value.Year <= selectedYear && item.first_working_day.Value.Month <= selectedMonth) &&
+                            //aktív állományban van vagy a kiválasztott hónapban lépett ki vagy attól régebben
+                            (item.last_working_day == null || (item.last_working_day.Value.Year >= selectedYear && item.last_working_day.Value.Month >= selectedMonth)))
                         {
                             //Első oszlopban név kiíratása
                             dt.Rows.Add(item.personal_data.first_name + " " + item.personal_data.last_name);

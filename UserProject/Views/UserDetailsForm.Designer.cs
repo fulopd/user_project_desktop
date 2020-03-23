@@ -61,13 +61,13 @@
             this.buttonOpenFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
+            this.textBoxPasswordSec = new System.Windows.Forms.TextBox();
             this.errorProviderUserName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFirstName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderMother = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPhone = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderLocation = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBoxPasswordSec = new System.Windows.Forms.TextBox();
             this.errorProviderPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPasswordSec = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
@@ -231,9 +231,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(484, 13);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 13);
+            this.label12.Size = new System.Drawing.Size(85, 13);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Felhasználónév";
+            this.label12.Text = "Felhasználónév*";
             // 
             // textBoxUserName
             // 
@@ -249,9 +249,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(484, 53);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 13);
+            this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Jelszó";
+            this.label13.Text = "Jelszó*";
             // 
             // textBoxPassword
             // 
@@ -412,9 +412,17 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(484, 93);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(103, 13);
+            this.label17.Size = new System.Drawing.Size(107, 13);
             this.label17.TabIndex = 0;
-            this.label17.Text = "Jelszó megerősítése";
+            this.label17.Text = "Jelszó megerősítése*";
+            // 
+            // textBoxPasswordSec
+            // 
+            this.textBoxPasswordSec.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxPasswordSec.Location = new System.Drawing.Point(606, 90);
+            this.textBoxPasswordSec.Name = "textBoxPasswordSec";
+            this.textBoxPasswordSec.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPasswordSec.TabIndex = 11;
             // 
             // errorProviderUserName
             // 
@@ -440,14 +448,6 @@
             // 
             this.errorProviderLocation.ContainerControl = this;
             // 
-            // textBoxPasswordSec
-            // 
-            this.textBoxPasswordSec.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxPasswordSec.Location = new System.Drawing.Point(606, 90);
-            this.textBoxPasswordSec.Name = "textBoxPasswordSec";
-            this.textBoxPasswordSec.Size = new System.Drawing.Size(200, 20);
-            this.textBoxPasswordSec.TabIndex = 11;
-            // 
             // errorProviderPassword
             // 
             this.errorProviderPassword.ContainerControl = this;
@@ -463,6 +463,7 @@
             this.ClientSize = new System.Drawing.Size(934, 432);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.buttonSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UserDetailsForm";
             this.Text = "UserDetailsForm";
             this.tableLayoutPanel1.ResumeLayout(false);

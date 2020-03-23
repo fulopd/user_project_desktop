@@ -27,7 +27,6 @@ namespace UserProject.Views
             presenter = new UserDetailsListPresenter(this);
             Init();
         }
-
         public BindingList<UserDetailsViewModel> bindingList
         {
             get => (BindingList<UserDetailsViewModel>)dataGridView1.DataSource;
@@ -57,7 +56,6 @@ namespace UserProject.Views
         }
 
 
-
         private void UserDetailsListForm_Load(object sender, EventArgs e)
         {
             SetDoubleBuffered(dataGridView1, true);
@@ -74,7 +72,6 @@ namespace UserProject.Views
             pageNumber = 1;
             presenter.LoadData();
         }
-
         private void buttonPrev_Click(object sender, EventArgs e)
         {
             if (pageNumber != 1)
@@ -83,7 +80,6 @@ namespace UserProject.Views
                 presenter.LoadData();
             }
         }
-
         private void buttonNext_Click(object sender, EventArgs e)
         {
             if (pageNumber != pageCount)
@@ -92,13 +88,11 @@ namespace UserProject.Views
                 presenter.LoadData();
             }
         }
-
         private void buttonLast_Click(object sender, EventArgs e)
         {
             pageNumber = pageCount;
             presenter.LoadData();
         }
-
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             presenter.LoadData();
@@ -119,7 +113,6 @@ namespace UserProject.Views
             }
             EditDGRow(dataGridView1.SelectedRows[0].Index);
         }
-
         private void EditDGRow(int index)
         {
             var userDetail = (UserDetailsViewModel)dataGridView1.Rows[index].DataBoundItem;
@@ -139,7 +132,6 @@ namespace UserProject.Views
                 }
             }
         }
-
         private void buttonNew_Click(object sender, EventArgs e)
         {
             NewDGRow();
@@ -157,7 +149,6 @@ namespace UserProject.Views
                 }
             }
         }
-        
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (colIndex == e.ColumnIndex)
@@ -203,7 +194,6 @@ namespace UserProject.Views
             colIndex = e.ColumnIndex;
             presenter.LoadData();
         }
-
         private void textBoxSearchText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
