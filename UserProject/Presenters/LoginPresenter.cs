@@ -50,9 +50,19 @@ namespace UserProject.Presenters
 
                 if (user != null)
                 {
-                    loginSucces = true;
-                    CurrentUser.user = user;
-                    CurrentUser.id = user.id;                    
+                    string[] sPermissonons = user.position.permission_ids.Split(',');
+                    int[] perm = Array.ConvertAll(sPermissonons, s => int.Parse(s));
+                    if (perm.Contains(6))
+                    {
+                        loginSucces = true;
+                        CurrentUser.user = user;
+                        CurrentUser.id = user.id;
+                    }
+                    else
+                    {
+                        view.errorMessage = "Nem megfelelő jogosultsági szint!";
+                    }
+                                 
                 }
                 else
                 {
