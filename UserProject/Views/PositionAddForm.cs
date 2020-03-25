@@ -16,6 +16,7 @@ namespace UserProject.Views
     public partial class PositionAddForm : Form, IPositionAddView
     {
         PositionAddPresenter presenter;
+        int pozId;
 
         public PositionAddForm()
         {
@@ -27,8 +28,19 @@ namespace UserProject.Views
             get 
             {
                 var newPos = new position(textBox1.Text);
+                if (pozId>0)
+                {
+                    newPos.id = pozId;                    
+                }
                 return newPos;
-            } 
+            }
+
+            set 
+            {
+                textBox1.Text = value.position_name;
+                pozId = value.id;
+                buttonOk.Text = "Mentés";
+            }
         }
         public string errorMessage 
         {

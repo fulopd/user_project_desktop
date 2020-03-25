@@ -90,9 +90,20 @@ namespace UserProject.Presenters
             {
                 bindingPositionList.Add(newPosition);
                 view.statPositionList = bindingPositionList.ToList();
-                db.position.Add(newPosition);
+                db.position.Add(newPosition);                
             }
             
+        }
+
+        public void EditPosition(int rowIndex, position param)
+        {
+            if (view.statPositionList.Any(x => x.id == param.id))
+            {
+                bindingPositionList[rowIndex].position_name = param.position_name;
+                view.statPositionList = bindingPositionList.ToList();
+                SetPriority();
+            }
+           
         }
         public void Save() 
         {

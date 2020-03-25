@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Már 24. 19:16
+-- Létrehozás ideje: 2020. Már 25. 18:51
 -- Kiszolgáló verziója: 10.1.39-MariaDB
 -- PHP verzió: 7.3.5
 
@@ -111,7 +111,7 @@ INSERT INTO `personal_data` (`id`, `first_name`, `last_name`, `mother`, `birth_d
 (6, 'Fele', 'Botond', 'Kiss Éva', '1965-01-01', 'Szeged', 'kevebocs@gmail.com', '+36547884115', '6.jpg'),
 (7, 'Katyusa', 'Annamária', 'Ismeretlen', '1977-02-05', 'Röszke', 'annus44@gmail.com', '+36504115887', 'profile.jpg'),
 (8, 'Bubi', 'Gerda', 'Puti Ibolya', '1978-05-05', 'Szeged', 'gerda@gmail.com', '+36506552118', 'profile.jpg'),
-(9, 'Tollas - Karamellás', 'Benedek Elek', 'Szegfű Annamária', '2020-02-02', 'szeged', 'Benedek@gmail.com', '+36204117884', '8.png'),
+(9, 'Tollas', 'Elek', 'Szegfű Annamária', '2020-02-02', 'szeged', 'Benedek@gmail.com', '+36204117884', '8.png'),
 (10, 'Pettyes', 'Aranka', 'Kefe Aranka', '1965-01-13', 'Mohács', 'aranka@gmail.com', '+36208774514', 'profile.jpg'),
 (11, 'Almási', 'Kelemen', 'aaaaaa', '2020-03-16', 'Almafalva', 'aa@aa.com', '+36209887884', 'profile.jpg'),
 (13, 'Anna', 'Anna', 'Anna', '2020-03-16', 'Anna', 'Anna@gmail.com', '+36307896541', '13.jpg'),
@@ -146,10 +146,10 @@ CREATE TABLE IF NOT EXISTS `position` (
 --
 
 INSERT INTO `position` (`id`, `position_name`, `priority`, `description`, `permission_ids`, `work_schedules`) VALUES
-(1, 'Supervisor', 1, 'Minden ami jó', '1,2,3,4,5,6', '10:00:00'),
-(2, 'Járatszedő', 4, 'Járatok összekészítésért felelős', '1,2,3', '12:00:00'),
-(3, 'Végellenőr', 3, 'Járatok ellenőrzése', '1,2', '12:00:00'),
-(4, 'Kamionindító', 2, 'Járatok adminisztrálása', '1,2,3,4,5', '00:00:00');
+(1, '@Admin', 1, 'Minden ami jó', '1,2,3,4,5,6', '10:00:00'),
+(2, 'Beosztott', 4, 'Járatok összekészítésért felelős', '1,2,3', '12:00:00'),
+(3, 'Vezeto', 2, 'Járatok ellenőrzése', '1,2', '12:00:00'),
+(4, 'Csoportvezeto', 3, 'Járatok adminisztrálása', '1,2,3,4,5', '00:00:00');
 
 -- --------------------------------------------------------
 

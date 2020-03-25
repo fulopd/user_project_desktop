@@ -193,5 +193,38 @@ namespace UserProject.Views
                 }
             }
         }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPositions.SelectedRows != null)
+            {
+                var sorIndex = dataGridViewPositions.SelectedCells[0].RowIndex;
+                dataGridViewPositions.ClearSelection();
+                dataGridViewPositions.Rows[sorIndex].Selected = true;
+            }
+            EditDGRow(dataGridViewPositions.SelectedRows[0].Index);
+        }
+
+        private void EditDGRow(int index)
+        {
+            var posi = (position)dataGridViewPositions.Rows[index].DataBoundItem;
+
+            if (posi != null)
+            {
+                using (var modForm = new PositionAddForm())
+                {
+                    modForm.newPosition = posi;
+                    DialogResult dr = modForm.ShowDialog(this);
+                    if (dr == DialogResult.OK)
+                    {
+                        presenter.EditPosition(index, modForm.newPosition);
+                        Debug.WriteLine(modForm.newPosition.id);
+                        modForm.Close();
+                        setPriorityBasedOnRowIndex();
+                    }
+
+                }
+            }
+        }
     }
 }

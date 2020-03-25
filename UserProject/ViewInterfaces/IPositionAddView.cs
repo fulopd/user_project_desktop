@@ -9,7 +9,7 @@ namespace UserProject.ViewInterfaces
 {
     public interface IPositionAddView
     {
-        position newPosition { get; }
+        position newPosition { get; set; }
         string errorMessage { get; set; }
     }
 }

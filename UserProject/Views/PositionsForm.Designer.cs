@@ -62,6 +62,7 @@
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAvailablePermissions)).BeginInit();
@@ -81,7 +82,7 @@
             // 
             // buttonNewPosition
             // 
-            this.buttonNewPosition.Location = new System.Drawing.Point(48, 182);
+            this.buttonNewPosition.Location = new System.Drawing.Point(49, 180);
             this.buttonNewPosition.Name = "buttonNewPosition";
             this.buttonNewPosition.Size = new System.Drawing.Size(75, 23);
             this.buttonNewPosition.TabIndex = 2;
@@ -91,9 +92,9 @@
             // 
             // buttonPositionDelete
             // 
-            this.buttonPositionDelete.Location = new System.Drawing.Point(129, 182);
+            this.buttonPositionDelete.Location = new System.Drawing.Point(195, 180);
             this.buttonPositionDelete.Name = "buttonPositionDelete";
-            this.buttonPositionDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonPositionDelete.Size = new System.Drawing.Size(44, 23);
             this.buttonPositionDelete.TabIndex = 3;
             this.buttonPositionDelete.Text = "Törlés";
             this.buttonPositionDelete.UseVisualStyleBackColor = true;
@@ -101,7 +102,7 @@
             // 
             // buttonPositionUp
             // 
-            this.buttonPositionUp.Location = new System.Drawing.Point(232, 183);
+            this.buttonPositionUp.Location = new System.Drawing.Point(238, 180);
             this.buttonPositionUp.Name = "buttonPositionUp";
             this.buttonPositionUp.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionUp.TabIndex = 4;
@@ -111,7 +112,7 @@
             // 
             // buttonPositionDown
             // 
-            this.buttonPositionDown.Location = new System.Drawing.Point(275, 183);
+            this.buttonPositionDown.Location = new System.Drawing.Point(274, 180);
             this.buttonPositionDown.Name = "buttonPositionDown";
             this.buttonPositionDown.Size = new System.Drawing.Size(37, 23);
             this.buttonPositionDown.TabIndex = 5;
@@ -398,11 +399,22 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Munkakör leírása";
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(123, 180);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(73, 23);
+            this.buttonEdit.TabIndex = 12;
+            this.buttonEdit.Text = "Szerkesztés";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
             // PositionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 488);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.dataGridViewPositionPermissions);
             this.Controls.Add(this.dataGridViewAvailablePermissions);
             this.Controls.Add(this.label2);
@@ -463,5 +475,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
