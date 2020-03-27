@@ -85,6 +85,7 @@
             // 
             this.textBoxFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxFirstName.Location = new System.Drawing.Point(103, 10);
+            this.textBoxFirstName.MaxLength = 50;
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(200, 20);
             this.textBoxFirstName.TabIndex = 1;
@@ -103,6 +104,7 @@
             // 
             this.textBoxLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxLastName.Location = new System.Drawing.Point(103, 50);
+            this.textBoxLastName.MaxLength = 50;
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(200, 20);
             this.textBoxLastName.TabIndex = 2;
@@ -131,6 +133,7 @@
             // 
             this.textBoxMother.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxMother.Location = new System.Drawing.Point(103, 90);
+            this.textBoxMother.MaxLength = 100;
             this.textBoxMother.Name = "textBoxMother";
             this.textBoxMother.Size = new System.Drawing.Size(200, 20);
             this.textBoxMother.TabIndex = 3;
@@ -167,6 +170,7 @@
             // 
             this.textBoxLocation.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxLocation.Location = new System.Drawing.Point(103, 170);
+            this.textBoxLocation.MaxLength = 100;
             this.textBoxLocation.Name = "textBoxLocation";
             this.textBoxLocation.Size = new System.Drawing.Size(200, 20);
             this.textBoxLocation.TabIndex = 5;
@@ -185,6 +189,7 @@
             // 
             this.textBoxEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxEmail.Location = new System.Drawing.Point(103, 210);
+            this.textBoxEmail.MaxLength = 100;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(200, 20);
             this.textBoxEmail.TabIndex = 6;
@@ -203,6 +208,7 @@
             // 
             this.textBoxPhone.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxPhone.Location = new System.Drawing.Point(103, 250);
+            this.textBoxPhone.MaxLength = 15;
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(200, 20);
             this.textBoxPhone.TabIndex = 7;
@@ -211,6 +217,7 @@
             // 
             this.textBoxPicture.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxPicture.Location = new System.Drawing.Point(103, 290);
+            this.textBoxPicture.MaxLength = 150;
             this.textBoxPicture.Name = "textBoxPicture";
             this.textBoxPicture.Size = new System.Drawing.Size(200, 20);
             this.textBoxPicture.TabIndex = 8;
@@ -239,6 +246,7 @@
             // 
             this.textBoxUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxUserName.Location = new System.Drawing.Point(606, 10);
+            this.textBoxUserName.MaxLength = 10;
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(200, 20);
             this.textBoxUserName.TabIndex = 9;
@@ -257,6 +265,7 @@
             // 
             this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxPassword.Location = new System.Drawing.Point(606, 50);
+            this.textBoxPassword.MaxLength = 10;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(200, 20);
             this.textBoxPassword.TabIndex = 10;
@@ -278,6 +287,7 @@
             this.dateTimePickerFirstWorkingDay.Name = "dateTimePickerFirstWorkingDay";
             this.dateTimePickerFirstWorkingDay.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerFirstWorkingDay.TabIndex = 12;
+            this.dateTimePickerFirstWorkingDay.ValueChanged += new System.EventHandler(this.dateTimePickerFirstWorkingDay_ValueChanged);
             // 
             // label15
             // 
@@ -420,6 +430,7 @@
             // 
             this.textBoxPasswordSec.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxPasswordSec.Location = new System.Drawing.Point(606, 90);
+            this.textBoxPasswordSec.MaxLength = 10;
             this.textBoxPasswordSec.Name = "textBoxPasswordSec";
             this.textBoxPasswordSec.Size = new System.Drawing.Size(200, 20);
             this.textBoxPasswordSec.TabIndex = 11;
@@ -465,7 +476,7 @@
             this.Controls.Add(this.buttonSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UserDetailsForm";
-            this.Text = "UserDetailsForm";
+            this.Text = "Adatlap";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUserName)).EndInit();

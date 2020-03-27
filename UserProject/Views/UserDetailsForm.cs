@@ -28,6 +28,7 @@ namespace UserProject.Views
             InitializeComponent();
             presenter = new UserDetailsPresenter(this);
             presenter.GetAllPositions();
+            dateTimePickerLastWorkingDay.MinDate = dateTimePickerFirstWorkingDay.Value;
         }
         public UserDetailsViewModel udvm
         {
@@ -252,6 +253,10 @@ namespace UserProject.Views
                 textBoxPicture.Text = localFileFullPath;
             }
         }
-                
+
+        private void dateTimePickerFirstWorkingDay_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerLastWorkingDay.MinDate = dateTimePickerFirstWorkingDay.Value;
+        }
     }
 }

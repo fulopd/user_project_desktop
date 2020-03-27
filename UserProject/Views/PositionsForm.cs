@@ -19,17 +19,38 @@ namespace UserProject.Views
     {
         PositionsPresenter presenter;
         position selectedPosition;
-        
+
         public PositionsForm()
         {
             InitializeComponent();
             presenter = new PositionsPresenter(this);
         }
-        
+
         public List<position> statPositionList
         {
             get => (List<position>)dataGridViewPositions.DataSource;
-            set => dataGridViewPositions.DataSource = value;
+            set
+            {
+                dataGridViewPositions.DataSource = value;
+                SelectRowInDGW(selectedPosition);
+
+
+            }
+        }
+        private void SelectRowInDGW(position param)
+        {
+            if (selectedPosition != null)
+            {
+                foreach (DataGridViewRow row in dataGridViewPositions.Rows)
+                {
+                    if ((string)row.Cells[1].Value == (param.position_name))
+                    {
+                        row.Selected = true;
+                    }
+
+                }
+            }
+
         }
         public string descriptions
         {
@@ -67,7 +88,7 @@ namespace UserProject.Views
                 dataGridViewPositionPermissions.DataSource = null;
             }
 
-        }       
+        }
         private void setPriorityBasedOnRowIndex()
         {
             foreach (DataGridViewRow row in dataGridViewPositions.Rows)
@@ -115,13 +136,13 @@ namespace UserProject.Views
 
         }
         private void textBoxDescription_Leave(object sender, EventArgs e)
-        {            
+        {
             selectedPosition.description = textBoxDescription.Text;
-        }       
+        }
         private void buttonPermisionAdd_Click(object sender, EventArgs e)
         {
             if (selectedPosition != null && dataGridViewAvailablePermissions.Rows.Count > 0)
-            {   
+            {
                 var selectedPermision = (permission)dataGridViewAvailablePermissions.SelectedRows[0].DataBoundItem;
                 if (selectedPermision != null)
                 {
@@ -132,15 +153,15 @@ namespace UserProject.Views
                     else
                     {
                         selectedPosition.permission_ids += "," + selectedPermision.id;//további jogosultságok hozáadása
-                    }                       
+                    }
                     presenter.GetPermissions(selectedPosition);
                 }
             }
         }
         private void buttonPermisionRemove_Click(object sender, EventArgs e)
-        {           
+        {
             if (selectedPosition != null && dataGridViewPositionPermissions.Rows.Count > 0)
-            {                
+            {
                 string[] sPermissonons = selectedPosition.permission_ids.Split(',');
                 int[] perm = Array.ConvertAll(sPermissonons, s => int.Parse(s));
 
@@ -158,7 +179,7 @@ namespace UserProject.Views
                     newPerm = newPerm.Substring(0, newPerm.Length - 1);
                 }
                 selectedPosition.permission_ids = newPerm;
-                presenter.GetPermissions(selectedPosition);                                
+                presenter.GetPermissions(selectedPosition);
             }
         }
         private void buttonSave_Click(object sender, EventArgs e)
@@ -176,7 +197,7 @@ namespace UserProject.Views
             }
             catch (Exception ed)
             {
-                MessageBox.Show("Függőségek miatt a törlést nem lehet végrehajtani!\n" + ed.Message,"Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Függőségek miatt a törlést nem lehet végrehajtani!\n" + ed.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void buttonNewPosition_Click(object sender, EventArgs e)
@@ -217,7 +238,7 @@ namespace UserProject.Views
                     DialogResult dr = modForm.ShowDialog(this);
                     if (dr == DialogResult.OK)
                     {
-                        presenter.EditPosition(index, modForm.newPosition);
+                        presenter.EditPosition(modForm.newPosition);
                         Debug.WriteLine(modForm.newPosition.id);
                         modForm.Close();
                         setPriorityBasedOnRowIndex();

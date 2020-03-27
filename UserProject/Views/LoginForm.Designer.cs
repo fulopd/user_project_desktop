@@ -59,6 +59,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Location = new System.Drawing.Point(95, 65);
+            this.textBoxUserName.MaxLength = 50;
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(100, 20);
             this.textBoxUserName.TabIndex = 1;
@@ -66,6 +67,7 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(95, 116);
+            this.textBoxPassword.MaxLength = 50;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
@@ -96,6 +98,7 @@
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
             this.Text = "UserProject - Bejelentkezés";
             this.Load += new System.EventHandler(this.LoginForm_Load);

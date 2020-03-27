@@ -53,6 +53,8 @@ namespace UserProject.Views
             dataGridView1.Columns[dataGridView1.Columns.Count - 1].Visible = false;
             //Oszlopszélesség
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //Csak olvasható
+            dataGridView1.Columns[0].ReadOnly = true;
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
             {
                 dataGridView1.Columns[i].Width = 35;
@@ -64,6 +66,7 @@ namespace UserProject.Views
                 if (row.Cells[dataGridView1.Columns.Count - 1].Value.ToString() == "")
                 {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 238, 186);
+                    row.ReadOnly = true;
                 }
             }
             //Rendezés tiltása oszlop fejlécre kattintásnál
@@ -171,7 +174,11 @@ namespace UserProject.Views
         {
             foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
             {
-                cell.Value = textBoxTimeIntervall.Text;
+                if (cell.ReadOnly == false)
+                {
+                    cell.Value = textBoxTimeIntervall.Text;
+                }
+                
             }
         }
 
@@ -181,7 +188,10 @@ namespace UserProject.Views
             {
                 foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
                 {
-                    cell.Value = "";
+                    if (cell.ReadOnly == false)
+                    {
+                        cell.Value = "";
+                    }
                 }
                 e.Handled = true;
             }

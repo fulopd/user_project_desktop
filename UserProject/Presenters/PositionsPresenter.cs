@@ -95,13 +95,12 @@ namespace UserProject.Presenters
             
         }
 
-        public void EditPosition(int rowIndex, position param)
+        public void EditPosition(position param)
         {
             if (view.statPositionList.Any(x => x.id == param.id))
             {
-                bindingPositionList[rowIndex].position_name = param.position_name;
+                bindingPositionList.FirstOrDefault(x => x.id == param.id).position_name = param.position_name;
                 view.statPositionList = bindingPositionList.ToList();
-                SetPriority();
             }
            
         }
