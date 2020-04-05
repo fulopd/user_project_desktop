@@ -152,6 +152,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonUserList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(950, 560);
             this.Name = "MainForm";
             this.ShowIcon = false;

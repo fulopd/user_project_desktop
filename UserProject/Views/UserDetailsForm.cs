@@ -216,7 +216,7 @@ namespace UserProject.Views
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("File feltöltése nem lehetséges. "+ex.ToString(),"Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("File feltöltése nem lehetséges.","Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     presenter.UpdatePictur(perosnalId, newFileName);
                 }

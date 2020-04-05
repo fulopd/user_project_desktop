@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PositionsForm));
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.buttonNewPosition = new System.Windows.Forms.Button();
             this.buttonPositionDelete = new System.Windows.Forms.Button();
@@ -430,6 +431,7 @@
             this.Controls.Add(this.buttonPositionDelete);
             this.Controls.Add(this.buttonNewPosition);
             this.Controls.Add(this.textBoxDescription);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PositionsForm";
             this.RightToLeftLayout = true;
             this.Text = "PositionsForm";
